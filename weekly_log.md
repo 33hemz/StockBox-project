@@ -5,4 +5,4 @@
  - We created the basics of our gitlab project. 
  - We went over the project brief and had some preliminary discussions about what web technologies we may use.
  - We set some group rules
- All Members of the Group were present and made strong contributions to the outlines of our project. 
+ All 8 Members of the Group were present and made strong contributions to the outlines of our project. 
