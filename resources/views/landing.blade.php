@@ -40,6 +40,29 @@
         
     }
 
+    button {
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        width: 405px;
+        left: 0px;
+        top: 276px;
+        border-radius: 16px;
+        color: #36B18E
+    }
+
+    .bland {
+        color: #F5F5F5;
+    }
+
+    #my-button {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     #login-button a {
         color: #00d084;
     }
@@ -60,6 +83,15 @@
 </header>
 
 <div id="intro">
-    <p>Your </p>
+<article>
+   
+    <h1>Your products...<br> 
+    Our Insight</h1>
+    <p>Understand  and visualise the marketplace</p>
+</article>
+<section id="my-button">
+    <a href="#login"><button type="button">Get Started!</button></a>
+    <a href="#login"><button type="button" class= "bland">Get Support</button></div></a>
+</section>
 </div>
 @endsection
