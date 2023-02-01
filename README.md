@@ -4,7 +4,6 @@
 3. Open the folder in VSCode or PHPStorm
 4. Open terminal in the project root and run the following commands:
 - `composer install`
-- `copy .env.example .env` (MacOS) <br>OR 
- <br>`cp .env.example .env` (Windows)
+- `cp .env.example .env`
 - `php artisan key:generate`
 - `php artisan serve`
