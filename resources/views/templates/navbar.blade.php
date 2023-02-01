@@ -36,7 +36,7 @@
   position: absolute;
   top: 0;
   right: 25px;
-  font-size: 36px;
+  font-size: 25px;
   margin-left: 50px;
 }
 
@@ -58,7 +58,6 @@
   padding: 16px;
 }
 
-
   </style>
   
   </head>
@@ -66,16 +65,16 @@
   <body>
   <header>
  <div id="collapse">
- <button class="open" onclick="open()"><i class="fa-solid fa-bars"></i></button>
+ <button class="open" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
  
  </div>
  
  
  <nav id="navbar" class="Navbar">
-  <a href="javascript;void(0)" class="close()" onclick="close">X</a>
+  <a href="javascript:void(0)" onclick="closeNav()" class="close"><i class="fa-solid fa-circle-xmark"></i></a>
  <ul>
-   <li><a href="">Dashboard Page</a></li>
-   <li> <a href="">About Us</a> </li>
+   <a href="">Dashboard Page</a>
+   <a href="">About Us</a>
  </ul>
  </nav>
  </header>
