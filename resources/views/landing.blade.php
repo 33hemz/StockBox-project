@@ -91,6 +91,13 @@
         background-color: #00d084;
         border-color: #00d084; 
     }
+
+    .charm2:hover {
+        color: #fff;
+        background-color: #F5F5F5;
+        border-color:  #F5F5F5;
+        color:black;
+    }
 /* Hero Styling End*/
 </style>
 @endsection
@@ -115,7 +122,7 @@
                 <h1 class="fw-bold mb-4 ">Your products...<br>Our Insight</h1>
                 <p class="mb-4"><span class="green_embolden">Understand</span> and <span class="green_embolden"> visualise</span> the marketplace</p> 
                 <a href="{{ url('/login') }}" class="mt-2 col-12 btn btn-lg btn-outline-dark charm" role="button">Get Started!</a><br>
-                <a href="#" class="mt-2 btn btn-lg col-12 btn-outline-dark" role="button">Get Support!</a>
+                <a href="#" class="mt-2 btn btn-lg col-12 btn-outline-dark charm2" role="button">Get Support!</a>
             
         </div>
     </div>
