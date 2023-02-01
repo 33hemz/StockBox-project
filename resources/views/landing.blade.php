@@ -77,7 +77,7 @@
             <li><a href="#support">Support</a></li>
             <li><a href="#about-us">About Us</a></li>
             <li><a href="#features">Features</a></li>
-            <li id="login-button"><a href="#login">Login</a></li>
+            <li id="login-button"><a href="{{ url('/login') }}">Login</a></li>
         </ul>
     </nav>
 </header>
@@ -90,7 +90,7 @@
     <p>Understand  and visualise the marketplace</p>
 </article>
 <section id="my-button">
-    <a href="#login"><button type="button">Get Started!</button></a>
+    <a href="{{ url('/login') }}"><button type="button">Get Started!</button></a>
     <a href="#login"><button type="button" class= "bland">Get Support</button></div></a>
 </section>
 </div>
