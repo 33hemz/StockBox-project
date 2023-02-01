@@ -73,8 +73,8 @@
  <nav id="navbar" class="Navbar">
   <a href="javascript:void(0)" onclick="closeNav()" class="close"><i class="fa-solid fa-circle-xmark"></i></a>
  <ul>
-   <a href="">Dashboard Page</a>
-   <a href="">About Us</a>
+   <a href=""><i class="fa-solid fa-gauge"></i> Dashboard Page</a>
+   <a href=""><i class="fa-solid fa-user"></i> About Us</a>
  </ul>
  </nav>
  </header>
