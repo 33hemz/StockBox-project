@@ -79,6 +79,16 @@
  </ul>
  </nav>
  </header>
-  </body>
 
+ <script>
+ function openNav() {
+document.getElementById("navbar").style.width = "260px";
+document.getElementById("collapse").style.marginLeft = "260px";
+}
+function closeNav() {
+  document.getElementById("navbar").style.width = "0";
+  document.getElementById("collapse").style.marginLeft= "0";
+}
+ </script>
+  </body>
 </html>
