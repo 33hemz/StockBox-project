@@ -41,12 +41,14 @@
         
     }
 /* Hero Styling Start*/
-/*A Custon Container*/
-    .container-custom{
+
+/*A Custom Container*/
+    .container-custom {
         width: 100%;
         padding: 0 1rem;
         margin: 0 auto;
     }
+    /*Not sure if these media queries work- will find out later*/
 @media(min-width: 1200px) {
     .container-custom { width: 1140px;}}
 
@@ -56,12 +58,15 @@
 @media(min-width: 1400px) {
     .container-custom { width: 1520px;}}
 
+    
     .hero {
         position: relative;
         height: 100vh;
         background-color: white;
 
     }
+
+
 
     .hero__content-width {
         max-width: 540px;
@@ -72,9 +77,19 @@
         padding-bottom:15em;
     }
 
+    p {
+        font-size: 20px;
+    }
+
     .green_embolden {
         color:#00d084;
         font-weight: bold;
+    }
+
+    .charm:hover {
+        color: #fff;
+        background-color: #00d084;
+        border-color: #00d084; 
     }
 /* Hero Styling End*/
 </style>
@@ -98,9 +113,10 @@
     <div class="d-flex h-100 align-items-center hero__content-width">
         <div id= "content" class="text-black">
                 <h1 class="fw-bold mb-4 ">Your products...<br>Our Insight</h1>
-                <p class="mb-4"><span class="green_embolden">Understand</span> and <span class="green_embolden"> visualise</span> the marketplace</p>
-                <a href="{{ url('/login') }}" class="mt-2 col-10 btn btn-lg btn-outline-dark" role="button">Get Started!</a><br>
-                <a href="#" class="mt-2 btn btn-lg col-10 btn-outline-dark" role="button">Get Support!</a>
+                <p class="mb-4"><span class="green_embolden">Understand</span> and <span class="green_embolden"> visualise</span> the marketplace</p> 
+                <a href="{{ url('/login') }}" class="mt-2 col-12 btn btn-lg btn-outline-dark charm" role="button">Get Started!</a><br>
+                <a href="#" class="mt-2 btn btn-lg col-12 btn-outline-dark" role="button">Get Support!</a>
+            
         </div>
     </div>
 </div>
