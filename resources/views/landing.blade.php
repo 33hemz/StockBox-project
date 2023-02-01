@@ -9,8 +9,13 @@
         src: url('{{ asset('assets/Font Source Sans Pro/SourceSansPro-Black.ttf') }}');
     }
     body {
-        background-color: #7bdcb5;
+        background-color: white;
         font-family: SourceSansPro;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     #logo {
@@ -18,20 +23,32 @@
         Padding: 10px;
     }
 
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 0 60px;
+    }
+
     nav ul li a {
         text-decoration: none;
-        color: black
+        color: black;
+        font-family: 'Roboto',Helvetica,Arial,Lucida,sans-serif;
+        font-size: 1.4em;
+        font-weight: bold;
+        
     }
 
     #login-button a {
-        color: white
+        color: #00d084;
     }
 </style>
 @endsection
 
 @section('content') 
 <header>
-    <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-03@3x.png') }}" alt="Logo">
+    <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="Logo">
     <nav>
         <ul>
             <li><a href="#support">Support</a></li>
