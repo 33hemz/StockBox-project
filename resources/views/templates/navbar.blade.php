@@ -26,6 +26,7 @@
   color: white;
   display: block;
   transition: 0.3s;
+  margin-left: -20px;
 }
 
 .Navbar a:hover {
