@@ -10,12 +10,13 @@
     }
     body {
         background-color: white;
-        font-family: SourceSansPro;
+        
     }
     header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-family: SourceSansPro;
     }
 
     #logo {
@@ -39,33 +40,43 @@
         font-weight: bold;
         
     }
+/* Hero Styling Start*/
+/*A Custon Container*/
+    .container-custom{
+        width: 100%;
+        padding: 0 1rem;
+        margin: 0 auto;
+    }
+@media(min-width: 1200px) {
+    .container-custom { width: 1140px;}}
 
-    button {
-        border: none;
-        text-align: center;
-        font-size: 16px;
-        transition-duration: 0.4s;
-        cursor: pointer;
-        width: 405px;
-        left: 0px;
-        top: 276px;
-        border-radius: 16px;
-        color: #36B18E
+@media(min-width: 1400px) {
+    .container-custom { width: 1340px;}}
+
+@media(min-width: 1400px) {
+    .container-custom { width: 1520px;}}
+
+    .hero {
+        position: relative;
+        height: 100vh;
+        background-color: white;
+
     }
 
-    .bland {
-        color: #F5F5F5;
+    .hero__content-width {
+        max-width: 540px;
     }
 
-    #my-button {
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
+    #content {
+        padding-left:7em;
+        padding-bottom:15em;
     }
 
-    #login-button a {
-        color: #00d084;
+    .green_embolden {
+        color:#00d084;
+        font-weight: bold;
     }
+/* Hero Styling End*/
 </style>
 @endsection
 
@@ -82,16 +93,17 @@
     </nav>
 </header>
 
-<div id="intro">
-<article>
-   
-    <h1>Your products...<br> 
-    Our Insight</h1>
-    <p>Understand  and visualise the marketplace</p>
-</article>
-<section id="my-button">
-    <a href="{{ url('/login') }}"><button type="button">Get Started!</button></a>
-    <a href="#login"><button type="button" class= "bland">Get Support</button></div></a>
-</section>
+<!--Hero Section Start-->
+<div class="hero__content hero container-custom position-relative ">
+    <div class="d-flex h-100 align-items-center hero__content-width">
+        <div id= "content" class="text-black">
+                <h1 class="fw-bold mb-4 ">Your products...<br>Our Insight</h1>
+                <p class="mb-4"><span class="green_embolden">Understand</span> and <span class="green_embolden"> visualise</span> the marketplace</p>
+                <a href="{{ url('/login') }}" class="mt-2 col-10 btn btn-lg btn-outline-dark" role="button">Get Started!</a><br>
+                <a href="#" class="mt-2 btn btn-lg col-10 btn-outline-dark" role="button">Get Support!</a>
+        </div>
+    </div>
 </div>
+<!--Hero Section End-->
+
 @endsection
