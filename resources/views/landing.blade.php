@@ -26,7 +26,7 @@
 
 @section('content') 
 <header>
-    <img id="logo" src="{{ asset('assets/StokBox-03@3x.png') }}" alt="Logo">
+    <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-03@3x.png') }}" alt="Logo">
     <nav>
         <ul>
             <li><a href="#support">Support</a></li>
