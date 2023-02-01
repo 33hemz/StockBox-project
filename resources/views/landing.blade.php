@@ -4,8 +4,13 @@
 
 @section('head')
 <style>
+    @font-face {
+        font-family: SourceSansPro;
+        src: url('{{ asset('assets/Font Source Sans Pro/SourceSansPro-Black.ttf') }}');
+    }
     body {
         background-color: #7bdcb5;
+        font-family: SourceSansPro;
     }
 
     #logo {
@@ -36,4 +41,8 @@
         </ul>
     </nav>
 </header>
+
+<div id="intro">
+    <p>Your </p>
+</div>
 @endsection
