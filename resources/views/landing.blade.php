@@ -1,5 +1,6 @@
 @extends('templates.master')
-@section('title', '')
+
+@section('title', 'StokBox home')
 
 @section('content') 
 
