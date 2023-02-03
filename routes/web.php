@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');
 
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+Route::post('/processlogin', [LoginController::class, 'login'])->name('processlogin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('dashboard');
