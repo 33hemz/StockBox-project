@@ -122,7 +122,7 @@
                 <h1 class="fw-bold mb-4 ">Your products...<br>Our Insight</h1>
                 <p class="mb-4"><span class="green_embolden">Understand</span> and <span class="green_embolden"> visualise</span> the marketplace</p> 
                 <a href="{{ url('/login') }}" class="mt-2 col-12 btn btn-lg btn-outline-dark charm" style="background-color: #2DB28E; color:white; font-weight:bold" role="button">Get Started</a><br>
-                <a href="#" class="mt-2 btn btn-lg col-12 btn-outline-dark charm2" style="font-weight:500" role="button">Get Support</a>
+                <a href="{{ url('/user-manual') }}" class="mt-2 btn btn-lg col-12 btn-outline-dark charm2" style="font-weight:500" role="button">Get Support</a>
             
         </div>
     </div>
