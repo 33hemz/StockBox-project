@@ -10,6 +10,7 @@ class LoginController extends Controller
         return view("login");
     }
 
+
     public function login() {
     
         validator(request()->all(), [
@@ -17,6 +18,12 @@ class LoginController extends Controller
             'password' => 'required'
         ]) ->validate();
 
-        return redirect('dashboard');
+        if(auth()->attempt(request()->only('username', 'password'))){
+            return redirect('dashboard');
+        } else {
+            return redirect()->back()->withErrors([
+                'password' => 'Password is incorrect'
+            ])->withInput();
+        }
     }
 }
