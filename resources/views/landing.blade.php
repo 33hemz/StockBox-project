@@ -90,6 +90,7 @@
         color: #fff;
         background-color: #00d084;
         border-color: #00d084; 
+        box-shadow: 2px 2px 4px #2DB28E;
     }
 
     .charm2:hover {
