@@ -56,12 +56,12 @@
                 <div>
                     <a style="font-size:11px; padding-right:90px" href="{{ url('/user-manual') }}"><em>Forgot your Password?</em></a>
 
-                    <input type="checkbox" onclick="myFunction()"> Show Password
+                    <input style="" type="checkbox" onclick="myFunction()"> Show Password
                     
                     <script>
                         function myFunction() {
                             var x = document.getElementById("password");
-                            if (x.type === "password") {
+                            if (x.name === "password") {
                               x.type = "text";
                             } else {
                               x.type = "password";
