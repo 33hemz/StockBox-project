@@ -70,9 +70,9 @@
                         </script>
 
                 </div>
-                <div>
+                <div style="padding-left: 120px; padding-top: 20px;">
                     <button type="submit" style="background-color: #2db28e" class="bg-green-600 hover:bg-green-600 text-gray-800 font-bold py-2 px-4 border border-gray-400 rounded shadow">
-                        Log In
+                        Submit
                       </button>
                       <br><br>
                     </div>
