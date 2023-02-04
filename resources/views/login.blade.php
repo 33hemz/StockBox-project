@@ -12,10 +12,6 @@
         background-color: #2db28e;
     }
 
-
-
-
-
 </style>
 @endsection
 
@@ -24,7 +20,7 @@
     <div class="card shadow-lg" style="background-color: aliceblue">
         <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="center">
         
-        <h1 class="center" style="font-size: 25px"><b>Stokbox Analytics</b></h1>
+        <h1 class="center">Stokbox Analytics</h1>
         <div style="padding: 50px;">
             <form action="/processlogin" method="post" class="w-full max-w-sm">
                 @csrf
@@ -49,7 +45,7 @@
                 @enderror
                 </div>
                 
-                <div><a style="font-size:11px" href="{{ url('/user-manual') }}"><em>Forgot your Password?</em></a></div>
+                <div><a style="font-size:11px" href="{{ url('/user-manual') }}">Forgot your Password?</a></div>
                 <div>
                     <button type="submit" style="background-color: #2db28e" class="bg-green-600 hover:bg-green-600 text-gray-800 font-bold py-2 px-4 border border-gray-400 rounded shadow">
                         Log In
