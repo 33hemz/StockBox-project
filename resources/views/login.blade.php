@@ -4,10 +4,6 @@
 
 @section('head')
 <style>
-    .center {
-        margin: auto;
-    }
-
     body {
         background-color: #2db28e;
     }
@@ -15,11 +11,11 @@
 @endsection
 
 @section('content') 
-<div class="center" style="width: 450px; margin-top: 50px;">
+<div class="center" style="width: 450px; margin: auto; margin-top: 50px;">
     <div class="card shadow-lg" style="background-color: aliceblue">
-        <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="center">
+        <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
         
-        <h1 class="center">Stokbox Platform</h1>
+        <h1 class="text-center">Stokbox Platform</h1>
         <div style="padding: 50px;">
         <form action="/processlogin" method="post">
             @csrf

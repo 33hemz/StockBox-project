@@ -4,108 +4,13 @@
 
 @section('head')
 <style>
-    @font-face {
-        font-family: SourceSansPro;
-        src: url('{{ asset('assets/Font Source Sans Pro/SourceSansPro-Black.ttf') }}');
-    }
-    body {
-        background-color: white;
-        
-    }
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-family: SourceSansPro;
-    }
-
-    #logo {
-        width: 350px;
-        Padding: 10px;
-    }
-
-    nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 0 60px;
-    }
-
-    nav ul li a {
-        text-decoration: none;
-        color: black;
-        font-family: 'Roboto',Helvetica,Arial,Lucida,sans-serif;
-        font-size: 1.4em;
-        font-weight: bold;
-        
-    }
-/* Hero Styling Start*/
-
-/*A Custom Container*/
-    .container-custom {
-        width: 100%;
-        padding: 0 1rem;
-        margin: 0 auto;
-    }
-    /*Not sure if these media queries work- will find out later*/
-@media(min-width: 1200px) {
-    .container-custom { width: 1140px;}}
-
-@media(min-width: 1400px) {
-    .container-custom { width: 1340px;}}
-
-@media(min-width: 1400px) {
-    .container-custom { width: 1520px;}}
-
     
-    .hero {
-        position: relative;
-        height: 100vh;
-        background-color: white;
-
-    }
-
-
-
-    .hero__content-width {
-        max-width: 540px;
-    }
-
-    #content {
-        padding-left:7em;
-        padding-bottom:15em;
-    }
-
-    p {
-        font-size: 20px;
-    }
-
-    .green_embolden {
-        color:#00d084;
-        font-weight: bold;
-    }
-
-    .charm:hover {
-        color: #fff;
-        background-color: #00d084;
-        border-color: #00d084; 
-        box-shadow: 2px 2px 4px #298C89;
-    }
-
-    .charm2:hover {
-        color: #fff;
-        background-color: #F5F5F5;
-        border-color:  #F5F5F5;
-        color:black;
-    }
-/* Hero Styling End*/
 </style>
 @endsection
 
 @section('content') 
-<header>
-    <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="Logo">
+<header id="landing_header">
+    <img id="landing_logo" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="Logo">
     <nav>
         <ul>
             <li><a href="#support">Support</a></li>

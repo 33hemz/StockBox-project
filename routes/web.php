@@ -14,7 +14,7 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('landing');
 })->name('landing');
 
@@ -22,10 +22,16 @@ Route::get('/', function () {
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/processlogin', [LoginController::class, 'login'])->name('processlogin');
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function() {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/user-manual', function () {
+Route::get('/user-manual', function() {
     return view('user-manual');
 })->name('user-manual');
+
+
+Route::get('/logout', function() {
+    auth()->logout();
+    return redirect('/');
+});
