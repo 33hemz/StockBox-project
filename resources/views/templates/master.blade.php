@@ -18,7 +18,7 @@
 	<div id="collapse">
         <button class="open" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
       </div>
-      <div class="sidebar_back"></div>
+      <div class="navbar_preview"></div>
       <div class="icon-preview ">
         <i class="fa-solid fa-gauge"></i>
       </div>
