@@ -14,16 +14,22 @@
 </head>
 <body class="d-block d-lg-flex">
 	@auth
-	<div id="page_sidebar">
-		<div id="collapse">
-			<button class="open" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
-		</div>
-		<nav id="navbar" class="Navbar">
-			<a href="javascript:void(0)" onclick="closeNav()" class="close"><i class="fa-solid fa-circle-xmark"></i></a>
+	<div id="collapse">
+        <button class="open" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <div class="sidebar_back"></div>
+      <div class="icon-preview ">
+        <i class="fa-solid fa-gauge"></i>
+      </div>
+      <div class="icon-preview ">
+        <i class="fa-solid fa-user"></i>
+      </div>
+		<nav id="navbar" class="Navbar " >
+        <a href="javascript:void(0)" onclick="closeNav()" class="close"><i class="fa-solid fa-circle-xmark"></i></a>
 			<ul>
-			<a href=""><i class="fa-solid fa-gauge"></i> Dashboard Page</a>
-			<a href=""><i class="fa-solid fa-user"></i> About Us</a>
-			</ul>
+          <a href=""><i class="fa-solid fa-gauge"></i> Dashboard Page</a>
+          <a href=""><i class="fa-solid fa-user"></i> About Us</a>
+        </ul>
 		</nav>
 		
 		<script>
