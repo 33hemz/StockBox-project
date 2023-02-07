@@ -28,7 +28,7 @@
         <ul class="me-4">
             <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="{{ url('/user-manual') }}">User Manual</a></li>
-            <li><a href="{{ url('/login') }}" class="text-primary">Log In</a></li>
+            <li><a href="{{ url('/login') }}" class="text-primary">Sign In</a></li>
         </ul>
         </nav>
     </header>
