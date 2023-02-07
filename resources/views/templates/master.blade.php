@@ -43,9 +43,9 @@
 	<div class="page_sidebar">
 		<nav class="Navbar">
 			<ul>
-			<a href="javascript:void(0)" onclick="toggleNav()" class="close"><i class="fa-solid fa-bars"></i></a>
-			<a href=""><i class="fa-solid fa-gauge"></i> Dashboard Page</a>
-			<a href="{{ url('/logout') }}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+			<a href="javascript:void(0)" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a>
+			<a href=""><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a>
+			<a href="{{ url('/logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a>
 			</ul>
 		</nav>
 	</div>
@@ -55,14 +55,18 @@
 	</div>
 
 	<script>
-	function openNav() {
-		document.getElementById("navbar").style.width = "260px";
-		document.getElementById("collapse").style.marginLeft = "260px";
-	}
+	let minimised = false;
+	function toggleNav() {
+		var navTexts = document.getElementsByClassName("nav-text");
 
-	function closeNav() {
-		document.getElementById("navbar").style.width = "0";
-		document.getElementById("collapse").style.marginLeft= "0";
+		for (var i = 0; i < navTexts.length; i++) {
+			if (minimised) {
+				navTexts.item(i).style.display = 'block';
+			} else {
+				navTexts.item(i).style.display = 'none';
+			}
+		}
+		minimised = !minimised;
 	}
 	</script>
 </body>

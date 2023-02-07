@@ -54,10 +54,14 @@ body {
 .Navbar {
     min-height: 100vh;
     white-space: nowrap;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
     background-color: #2db28e;
     transition: 0.3s;
     padding-top: 60px;
+}
+
+.Navbar ul {
+    padding: 0 20px;
 }
 
 .Navbar a {
