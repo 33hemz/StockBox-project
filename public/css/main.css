@@ -12,9 +12,14 @@
 
 body {
     background-color: white;
-
     
 }
+
+#page_sidebar {
+	width: 200px;
+	min-height: 100vh;
+}
+
 #page_content {
     min-height: 100vh;
     width: 100%;

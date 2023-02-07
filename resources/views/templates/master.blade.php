@@ -12,23 +12,24 @@
 	@yield('head')
     
 </head>
-
-@if (in_array(request()->path(), ['login']))
-{{-- if these pages, show no header --}}
-<body>
-	@yield('content')
-</body>
-
-@elseif (in_array(request()->path(), ['/', 'user-manual']))
-{{-- if these pages, show top header --}}
-<body class="d-flex flex-column h-100">
-    <header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3   ">
-        <img id="landing_logo" class="ms-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
-        <nav>
-        <ul class="me-4">
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li><a href="{{ url('/user-manual') }}">User Manual</a></li>
-            <li><a href="{{ url('/login') }}" class="text-primary">Log In</a></li>
+<body class="d-block d-lg-flex">
+	@auth
+    <header>
+	<div id="collapse">
+        <button class="open" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <div class="navbar_preview"></div>
+      <div class="icon-preview ">
+        <i class="fa-solid fa-gauge"></i>
+      </div>
+      <div class="icon-preview ">
+        <i class="fa-solid fa-user"></i>
+      </div>
+		<nav id="navbar" class="Navbar " >
+        <a href="javascript:void(0)" onclick="closeNav()" class="close"><i class="fa-solid fa-circle-xmark"></i></a>
+			<ul>
+          <a href=""><i class="fa-solid fa-gauge"></i> Dashboard Page</a>
+          <a href=""><i class="fa-solid fa-user"></i> About Us</a>
         </ul>
         </nav>
     </header>
@@ -37,39 +38,4 @@
 		@yield('content')
 	</div>
 </body>
-@else
-{{-- else show sidebar --}}
-<body class="d-flex flex-row">
-	<div class="page_sidebar">
-		<nav class="Navbar">
-			<ul>
-			<a href="javascript:void(0)" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a>
-			<a href=""><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a>
-			<a href="{{ url('/logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a>
-			</ul>
-		</nav>
-	</div>
-		
-	<div id="page_content" class="container">
-		@yield('content')
-	</div>
-
-	<script>
-	let minimised = false;
-	function toggleNav() {
-		var navTexts = document.getElementsByClassName("nav-text");
-
-		for (var i = 0; i < navTexts.length; i++) {
-			if (minimised) {
-				navTexts.item(i).style.display = 'inline-block';
-			} else {
-				navTexts.item(i).style.display = 'none';
-			}
-		}
-		minimised = !minimised;
-	}
-	</script>
-</body>
-@endif
-
 </html>
