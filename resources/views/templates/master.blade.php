@@ -14,6 +14,7 @@
 </head>
 <body class="d-block d-lg-flex">
 	@auth
+    <header>
 	<div id="collapse">
         <button class="open" onclick="openNav()"><i class="fa-solid fa-bars"></i></button>
       </div>
