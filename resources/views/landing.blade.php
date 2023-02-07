@@ -10,10 +10,10 @@
 
 @section('content') 
 <div class="d-flex flex-column h-100">
-    <header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row">
-        <img id="landing_logo" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
+    <header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3">
+        <img id="landing_logo" class="ms-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
         <nav>
-        <ul>
+        <ul class="me-4">
             <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="{{ url('/user-manual') }}">User Manual</a></li>
             <li><a href="{{ url('/login') }}" class="text-primary">Log In</a></li>
