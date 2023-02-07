@@ -54,55 +54,85 @@ body {
 
 /* Start Navbar */
 .Navbar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #2db28e;
-    overflow-x: hidden;
-    transition: 0.3s;
-    padding-top: 60px;
-}
+        height: 100%;
+        width: 0;
+        position: fixed;
+        white-space: nowrap;
+        overflow-x: hidden;
+        top: 0;
+        left: 0;
+        background-color: #2db28e;
+        transition: 0.3s;
+        padding-top: 60px;
+      }
 
-.Navbar a {
-    padding: 10px 10px 10px 32px;
-    text-decoration: none;
-    font-size: 18px;
-    font-family: sans-serif;
-    color: white;
-    display: block;
-    transition: 0.3s;
-    margin-left: -20px;
-}
-  
-.Navbar a:hover {
-    color: #D3D3D3;
-}
+      .Navbar a {
+        padding: 10px 10px 10px 2px;
+        text-decoration: none;
+        font-size: 18px;
+        font-family: sans-serif;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        margin-left: -20px;
+      }
 
-.Navbar .close {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 25px;
-    margin-left: 50px;
-}
+      .Navbar a:hover {
+        color: #D3D3D3;
+      }
 
-.open {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #2db28e;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-}
+      .Navbar .close {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 40px;
+      }
 
-.open:hover {
-    background-color: #1b6b55;
-}
+      .open {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #2db28e;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+      }
 
-#collapse {
-    transition: margin-left .5s;
-    padding: 16px;
+      .open:hover {
+        background-color: #1b6b55;
+      }
+
+      #collapse {
+        transition: margin-left 0.5s;
+   
+      }
+
+      .icon-preview {
+        height: 41px;
+        width: 48px;
+        background-color: #2db28e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 16px;
+       
+        }
+       
+
+      .icon-preview i {
+        padding: 10px 10px 10px 2px;
+        color: white;
+        font-size: 18px;
+        padding-top: 60px;
+   
+      }
+      .navbar_preview {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+        width: 60px;
+        background: #2db28e;
+         position: absolute;
 }
   /* End Navbar */
