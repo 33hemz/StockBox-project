@@ -39,7 +39,7 @@
 </body>
 @else
 {{-- else show sidebar --}}
-<body class="d-flex flex-row">
+<body class="d-flex flex-row" onload="toggleNav()">
 	<div class="page_sidebar">
 		<nav class="Navbar">
 			<ul>
