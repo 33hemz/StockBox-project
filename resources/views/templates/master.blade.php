@@ -61,7 +61,7 @@
 
 		for (var i = 0; i < navTexts.length; i++) {
 			if (minimised) {
-				navTexts.item(i).style.display = 'block';
+				navTexts.item(i).style.display = 'inline-block';
 			} else {
 				navTexts.item(i).style.display = 'none';
 			}
