@@ -16,6 +16,10 @@ class LoginController extends Controller
         
     }
 
+    public function enter_new_password() {
+        return view('enter_new_password');
+    }
+
     public function recovery() {
         return view('forgot-password');
     }
