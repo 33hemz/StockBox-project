@@ -45,4 +45,6 @@ Route::get('/new_user', function() {
     return view('new_user');
     })->name('new_user');
     
-
+Route::get('/table', function() {
+    return view('table');
+})->name('table');
