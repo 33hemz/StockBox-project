@@ -131,32 +131,37 @@
 @section('content') 
 
 
-<h1> Create New User </h1>
 <form action="/newuser" method="post">
     @csrf
 
-    <div style="padding: 7px;">
-    <label for="company">Company </label>
-    <input type="company" class="form-control">
-    </div>
-
-    <div style="padding: 7px;">
-    <label for="Firstname">First name </label>
-    <input type="username" class="form-control">
-    </div>
-
-    <div style="padding: 7px;">
-    <label for ="Lastname">Last name </label>
-    <input type="lastname" class="form-control">
-    </div>
-
-    <div style="padding: 7px;">
-    <label for ="email">email </label>
-    <input type="email" class="form-control">
-    </div>
-
-    <div style="padding: 7px;">
-    <input type="submit" value="Create New User" class="btn btn-primary">
+    <div class="center" style="width: 450px; margin: auto; margin-top: 50px;">
+        <div class="card shadow-lg" style="background-color: aliceblue">
+            <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
+            <h1 class="text-center"> Create New User</h1>
+            <div style="padding: 7px;">
+                <label for="company">Company </label>
+                <input type="company" class="form-control">
+                </div>
+        
+                <div style="padding: 7px;">
+                <label for="Firstname">First name </label>
+                <input type="username" class="form-control">
+                </div>
+        
+                <div style="padding: 7px;">
+                <label for ="Lastname">Last name </label>
+                <input type="lastname" class="form-control">
+                </div>
+        
+                <div style="padding: 7px;">
+                <label for ="email">Email </label>
+                <input type="email" class="form-control">
+                </div>
+        
+                <div style="padding: 7px;">
+                <input type="submit" value="Create New User" class="btn btn-primary">
+                </div>
+        </div>
     </div>
 
 </form>
