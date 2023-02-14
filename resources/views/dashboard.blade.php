@@ -115,12 +115,29 @@
             margin-top: 120px;
             
         }
+
+        .bubble {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            margin: 0;
+            position: relative;
+            align-items: center;
+            background-color: #c5c5c5;
+            border-radius: 25%;
+            flex: 0 0 25%;
+            flex: 1 1 auto;
+            min-height: 1px;
+        padding: 1.25rem;
+        }
     </style>
 
 @endsection
 
 @section('content') 
 {{-- {{ auth()->user()->username; }} --}}
+
+<!-------------   SIDEBAR  ---------------->
 
     <div class = "container">
         <aside>
@@ -146,7 +163,10 @@
                     <h3>Data 4</h3>
                 </a>
             </div>
-        </aside>    
+        </aside>
+    
+<!------------  CHARTS ---------------->
+
     <div class="mid-container">
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -154,6 +174,9 @@
         <div><canvas id="myChart"></canvas></div>
         <div><canvas id="dChart"></canvas></div>
 
+<!------------   BARCHART --------------->
+
+        <div class="bubble">
         <script>
         const ctx = document.getElementById('myChart');
     
@@ -176,8 +199,12 @@
             }
         });
         </script>
-        <script>
+        </div>
 
+<!------------  DOUGNUT  --------------->
+
+        <div class="bubble">
+        <script>
         const dgc = document.getElementById('dChart');
 
         new Chart(dgc, {
@@ -193,6 +220,7 @@
         }
             });
         </script>
+        </div>
     </div>
      
 
