@@ -137,7 +137,7 @@
 @section('content') 
 {{-- {{ auth()->user()->username; }} --}}
 
-<!-------------   SIDEBAR  ---------------->
+<!-------------   LOGO + TOP  ---------------->
 
     <div class = "container">
         <aside>
@@ -146,6 +146,8 @@
                     <img src = "{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}">
                 </div>
             </div> 
+
+<!--------------  SIDEBAR --------------------->
             <div class = "sidebar">
                 <a style="text-decoration:none" href="#">
                     <h3>Data 1</h3>
