@@ -39,3 +39,10 @@ Route::middleware('auth')->group(function() {
         return redirect('/');
     });
 });
+
+
+Route::get('/new_user', function() {
+    return view('new_user');
+    })->name('new_user');
+    
+
