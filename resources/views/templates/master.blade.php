@@ -13,7 +13,7 @@
     
 </head>
 
-@if (in_array(request()->path(), ['login','forgot-password','success']))
+@if (in_array(request()->path(), ['login','forgot-password','process_password_recovery']))
 {{-- if these pages, show no header --}}
 <body>
 	@yield('content')
