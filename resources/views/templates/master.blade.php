@@ -29,7 +29,7 @@
             <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="{{ url('/user-manual') }}">User Manual</a></li>
 			@if (auth()->check())
-			<li><a href="{{ url('/dashboard') }}" class="text-primary">Dashboard</a></li>
+			<li><a href="{{ url('/dashboard') }}" class="text-primary">{{ auth()->user()->first_name }}'s Dashboard</a></li>
 			@else
 			<li><a href="{{ url('/login') }}" class="text-primary">Sign In</a></li>
 			@endif
