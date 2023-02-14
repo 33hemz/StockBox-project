@@ -24,3 +24,13 @@
 - Landing Page -> Darren, David, Jack
 - Navigation Bar -> Hemal, Raihaan
 - Dashboard Page -> George, Suraj, Taz
+
+# Sprint 2 meeting (14/02/2023)
+
+## Group member Sprint 1 allocation
+- Generate new user accounts -> Hemal, Raihaan, Dareen
+- Reset Password -> David, Jack, 
+- Import CSV Sample Data -> Taz, Suraj, George
+
+## General
+- Started on User Stories
