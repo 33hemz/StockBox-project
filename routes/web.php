@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ConvertCSVController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,5 @@ Route::get('/new_user', function() {
 Route::get('/table', function() {
     return view('table');
 })->name('table');
+
+Route::get('/table', [ConvertCSVController::class, 'splitCSV'])->name('csv');
