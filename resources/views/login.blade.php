@@ -42,10 +42,12 @@
                 @enderror
 
                 <br>
+                
             </div>
             
-            <div style="padding: 7px;">
+            <div style="padding: 7px;" class="d-flex justify-content-between align-items-center">
             <input type="submit" value="Log in" class="btn btn-primary">
+            <a href="#" class="font-italic">Forgot Password?</a>
             </div>
         </form>
         </div>
