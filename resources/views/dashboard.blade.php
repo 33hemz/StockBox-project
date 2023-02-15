@@ -116,20 +116,6 @@
             
         }
 
-        .bubble {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            margin: 0;
-            position: relative;
-            align-items: center;
-            background-color: #c5c5c5;
-            border-radius: 25%;
-            flex: 0 0 25%;
-            flex: 1 1 auto;
-            min-height: 1px;
-        padding: 1.25rem;
-        }
     </style>
 
 @endsection
