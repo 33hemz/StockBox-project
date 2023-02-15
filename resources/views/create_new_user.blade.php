@@ -23,18 +23,23 @@
         </div>
 
         <div style="padding: 7px;">
-        <label for="Firstname">First name </label>
-        <input type="text" id="Firstname" name="Firstname" class="form-control">
+        <label for ="username">Username </label>
+        <input type="text" id="username" name="username" class="form-control">
         </div>
 
         <div style="padding: 7px;">
-        <label for ="Lastname">Last name </label>
-        <input type="text" id="Lastname" name="Lastname" class="form-control">
+        <label for="first_name">First name </label>
+        <input type="text" id="first_name" name="first_name" class="form-control">
         </div>
 
         <div style="padding: 7px;">
-        <label for ="Email">Email </label>
-        <input type="text" id="Email" name="Email" class="form-control">
+        <label for ="last_name">Last name </label>
+        <input type="text" id="last_name" name="last_name" class="form-control">
+        </div>
+
+        <div style="padding: 7px;">
+        <label for ="email">Email </label>
+        <input type="text" id="email" name="email" class="form-control">
         </div>
 
         <div style="padding: 7px;">
