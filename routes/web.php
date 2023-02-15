@@ -45,7 +45,9 @@ Route::middleware('auth')->group(function() {
     Route::post('/processnewuser', [AdminController::class, 'processNewUser'])->name('processnewuser');
 });
 
-
+Route::get('/brand_page', function() {
+    return view('brand_page');
+})->name('brand_page');
 
     
 

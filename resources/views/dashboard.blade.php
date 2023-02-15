@@ -121,8 +121,6 @@
 @endsection
 
 @section('content') 
-{{-- {{ auth()->user()->username; }} --}}
-
 <!-------------   SIDEBAR  ---------------->
 
     <div class = "container">
