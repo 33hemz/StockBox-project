@@ -50,7 +50,7 @@
 			<ul>
 			<a href="javascript:void(0)" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a>
 			<a href="{{ url('/dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a>
-			<a href="{{ url('/create_new_user') }}"><i class="fa-solid fa-book"></i> <span class="nav-text">New User</span></a>
+			<a href="{{ url('/create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">New User</span></a>
 			<a href="{{ url('/logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a>
 			</ul>
 		</nav>
