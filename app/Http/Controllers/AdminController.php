@@ -11,7 +11,14 @@ class AdminController extends Controller
         return view("create_new_user");
     }
     public function processNewUser(){
-        //dd(request()->all());
+        validator(request()->all(), [
+            'company' => 'required|min:5|max:20',
+            'username' => 'required|min:5|max:20',
+            'first_name' => 'required|min:2|max:30',
+            'last_name' => 'required|min:2|max:30',
+            'email' => 'required|email'
+        ]) ->validate();
+
         $user = User::create(
             array_merge(request()->all(), ['password' => password_hash('password', PASSWORD_DEFAULT)])
         );

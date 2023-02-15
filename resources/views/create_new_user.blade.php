@@ -17,29 +17,55 @@
     <div class="container">
         <img class="mt-5 mb-2" id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}" width="100" alt="Logo">
         <h1 class="border-bottom pb-2"> Create New User</h1>
+        
         <div style="padding: 7px;">
         <label for="company">Company </label>
-        <input type="text" id="company" name="company" class="form-control">
+        <input type="text" id="company" name="company" class="form-control @error('company') is-invalid @enderror">
+        @error('company')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
         </div>
 
         <div style="padding: 7px;">
         <label for ="username">Username </label>
-        <input type="text" id="username" name="username" class="form-control">
+        <input type="text" id="username" name="username" class="form-control @error('username') is-invalid @enderror">
+        @error('username')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
         </div>
 
         <div style="padding: 7px;">
         <label for="first_name">First name </label>
-        <input type="text" id="first_name" name="first_name" class="form-control">
+        <input type="text" id="first_name" name="first_name" class="form-control @error('first_name') is-invalid @enderror">
+        @error('first_name')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
         </div>
 
         <div style="padding: 7px;">
         <label for ="last_name">Last name </label>
-        <input type="text" id="last_name" name="last_name" class="form-control">
+        <input type="text" id="last_name" name="last_name" class="form-control @error('last_name') is-invalid @enderror">
+        @error('last_name')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
         </div>
 
         <div style="padding: 7px;">
         <label for ="email">Email </label>
-        <input type="text" id="email" name="email" class="form-control">
+        <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror">
+        @error('email')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
         </div>
 
         <div style="padding: 7px;">
