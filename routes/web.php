@@ -50,4 +50,4 @@ Route::get('/table', function() {
     return view('table');
 })->name('table');
 
-Route::get('/table', [ConvertCSVController::class, 'splitCSV'])->name('csv');
+Route::get('/table', [ConvertCSVController::class, 'uploadCSV'])->name('csv');

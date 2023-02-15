@@ -16,16 +16,17 @@ return new class extends Migration
         Schema::create('product_data', function (Blueprint $table) {
             $table->id();
             $table->string('brand');
-            $table->string('product_name');
+            $table->string('product_name')->unqiue();
             $table->string('category');
             $table->string('subcategory');
-            $table->double('price_£');
+            $table->string('price_£');
             $table->string('price_per');
-            $table->string('ingredients');
-            $table->string('allergen information');
-            $table->string('recycling_information');
-            $table->string('link');
-            $table->string('brand_details');
+            $table->text('ingredients');
+            $table->text('allergen_information');
+            $table->text('recycling_information');
+            $table->string('product_link');
+            $table->text('brand_details');
+            $table->timestamps();
         });
     }
 
