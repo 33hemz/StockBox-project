@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,10 +40,9 @@ Route::middleware('auth')->group(function() {
         return redirect('/');
     });
     
-    Route::get('/new_user', function() {
-    return view('new_user');
-    })->name('new_user');
-    
+    Route::get('/create_new_user', [AdminController::class, 'index'])->name('create_new_user');
+
+    Route::post('/processnewuser', [AdminController::class, 'processNewUser'])->name('processnewuser');
 });
 
 
