@@ -9,6 +9,7 @@
 	<title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+	<link rel="icon" type="image/x-icon" href="assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png">
 	@yield('head')
     
 </head>
