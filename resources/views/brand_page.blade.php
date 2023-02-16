@@ -10,7 +10,7 @@
 
 @section('content') 
 
-<!--------------   LOGO   ---------->
+
 <form action="/processnewuser" method="post">
     @csrf
 
@@ -20,17 +20,12 @@
         
         <div style="padding: 7px;">
         <label for="company">Company Name</label>
-        <input type="text" id="company" name="company" class="form-control @error('company') is-invalid @enderror">
-        @error('company')
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
-        @enderror
+        <input type="text" id="company" name="company" class="form-control">
         </div>
 
         <div style="padding: 7px;">
         <label for ="username">Products </label>
-        <textarea name="products" class="form-control">Dog Food, Cat Food, IDK Food, Vegan Stuff</textarea>    
+        <textarea name="products" class="form-control"></textarea>    
         </div>
 
         <div style="padding: 7px;">
