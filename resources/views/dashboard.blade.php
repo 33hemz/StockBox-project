@@ -78,58 +78,54 @@
         <div class="cards">
             <div class="card">
                 <div class="card-content">
-                    <div><canvas id="dChart"></canvas></div>
+                    <div><canvas id="doughnutChart"></canvas></div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
-                    <div><canvas id="myChart"></canvas></div>
+                    <div><canvas id="polarChart"></canvas></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!------------   BARCHART --------------->
-        <script>
-            const ctx = document.getElementById('myChart');
-        
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
-                }]
-                },
-                options: {
-                scales: {
-                    y: {
-                beginAtZero: true
-                }
-                }
-                }
-            });
-        </script>
-
 <!------------  DOUGNUT  --------------->
 
         <script>
-        const dgc = document.getElementById('dChart');
+        const dgc = document.getElementById('doughnutChart');
 
         new Chart(dgc, {
             type: 'doughnut',
             data: {
-            labels: ['Red','Blue','Yellow'],
+            labels: ['Jack','Taz','George','Darren'],
             datasets: [{
-                label: 'My First Dataset',
-                data: [300, 50, 100],
-                backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)'],
+                label: 'Bitches',
+                data: [200, 250, 100, 150],
+                backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
             hoverOffset: 4
             }]
         }
             });
         </script>
+
+
+<!------------  POLAR AREA   -------------->
+
+        <script>
+            const abc = document.getElementById('polarChart');
+
+            new Chart(abc, {
+                type: 'polarArea',
+                data: {
+                labels: ['Jack','Taz','George','Darren'],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [200, 250, 100, 150],
+                    backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
+                hoverOffset: 4
+                }]
+            }
+                });
+            </script>
 @endsection
