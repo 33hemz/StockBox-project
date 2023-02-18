@@ -20,10 +20,11 @@ class UserFactory extends Factory
         return [
             'first_name' => fake()->firstname(),
             'last_name' => fake()->lastname(),
-            'username' => 'username',
-            'email' => fake()->unique()->safeEmail(),
+            'email' => 'email',
             'password' => password_hash('password', PASSWORD_DEFAULT),
-            'company' => 'stokbox'
+            'company_id' => 1,
+            'init_user' => 1,
+            
 
         ];
     }
