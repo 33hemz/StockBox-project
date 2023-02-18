@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
 
 class LoginController extends Controller
 {
@@ -13,19 +14,29 @@ class LoginController extends Controller
         else {
             return view('login');
         }
+    }
+
+    // form prompting user for email address
+    public function forgotPassword() {
+        return view('forgot_password.forgot_password');
+    }
+
+    // check email address and send email if valid
+    public function processForgotPassword() {
+        validator(request()->all(), [
+            'email' => 'required|email'
+        ])->validate();
         
+
+        //Password::sendResetLink(request()->email);
+
+        return view('forgot_password.forgotPasswordSuccess');
     }
 
-    public function enter_new_password() {
-        return view('enter_new_password');
-    }
-
-    public function recovery() {
-        return view('forgot-password');
-    }
-
-    public function process_forgot_password() {
-        return view('success');
+    // form for allowing user to set a new password
+    public function enterNewPassword() {
+        // TODO: check if user has requested a password reset
+        return view('forgot_password.enterNewPassword');
     }
 
 
@@ -33,7 +44,7 @@ class LoginController extends Controller
         validator(request()->all(), [
             'username' => 'required',
             'password' => 'required'
-        ]) ->validate();
+        ])->validate();
 
         if(auth()->attempt(request()->only('username', 'password'))){
             return redirect('dashboard');

@@ -25,9 +25,9 @@ Route::get('/user_manual', function() {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/processlogin', [LoginController::class, 'login'])->name('processlogin');
-Route::get('/forgot-password', [LoginController::class, 'recovery'])->name('forgot-password');
-Route::post('/process_password_recovery', [LoginController::class, 'process_forgot_password'])->name('process_forgot_password');
-Route::get('enter_new_password', [LoginController::class, 'enter_new_password'])->name('enter_new_password');
+Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->name('forgotPassword');
+Route::get('/enter-new-password', [LoginController::class, 'enterNewPassword'])->name('enterNewPassword');
+Route::post('/process-password-recovery', [LoginController::class, 'processForgotPassword'])->name('processForgotPassword');
 
 // routes that require authentication
 Route::middleware('auth')->group(function() {

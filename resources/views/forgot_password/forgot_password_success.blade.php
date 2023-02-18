@@ -1,6 +1,6 @@
 @extends('templates.master')
 
-@section('title', 'Success')
+@section('title', 'Forgot Password')
 
 @section('head')
 <style>
