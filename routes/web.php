@@ -22,7 +22,9 @@ Route::get('/', function() {
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/processlogin', [LoginController::class, 'login'])->name('processlogin');
-
+Route::get('/forgot-password', [LoginController::class, 'recovery'])->name('forgot-password');
+Route::post('/process_password_recovery', [LoginController::class, 'process_forgot_password'])->name('process_forgot_password');
+Route::get('enter_new_password', [LoginController::class, 'enter_new_password'])->name('enter_new_password');
 
 Route::get('/user-manual', function() {
     return view('user-manual');
