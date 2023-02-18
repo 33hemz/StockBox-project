@@ -23,6 +23,7 @@ class UserFactory extends Factory
             'username' => 'username',
             'email' => fake()->unique()->safeEmail(),
             'password' => password_hash('password', PASSWORD_DEFAULT),
+            'company' => 'stokbox'
 
         ];
     }

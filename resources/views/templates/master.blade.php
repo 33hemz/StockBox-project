@@ -9,17 +9,18 @@
 	<title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+	<link rel="icon" type="image/x-icon" href="assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png">
 	@yield('head')
     
 </head>
 
-@if (in_array(request()->path(), ['login']))
+@if (in_array(request()->path(), ['login','forgot-password','process_password_recovery']))
 {{-- if these pages, show no header --}}
 <body>
 	@yield('content')
 </body>
 
-@elseif (in_array(request()->path(), ['/', 'user-manual']))
+@elseif (in_array(request()->path(), ['/', 'user_manual']))
 {{-- if these pages, show top header --}}
 <body class="d-flex flex-column h-100">
     <header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3   ">
@@ -49,7 +50,9 @@
 		<nav class="Navbar">
 			<ul>
 			<a href="javascript:void(0)" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a>
-			<a href=""><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a>
+			<a href="{{ url('/dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a>
+			<a href="{{ url('/create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">New User</span></a>
+			<a href="{{ url('/brand_page') }}"><i class="fa fa-empire"></i> <span class="nav-text">Brand Page</span></a>
 			<a href="{{ url('/logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a>
 			</ul>
 		</nav>
