@@ -47,7 +47,7 @@ php artisan serve
 ## Assigned Scrum Masters
 - **Week 1:** Jack Trafford
 - **Week 2:** Darren Wu
-- **Week 3:** 
+- **Week 3:** Suraj Cheema
 - **Week 4:** 
 - **Week 5:** 
 - **Week 6:** 
@@ -66,11 +66,11 @@ php artisan serve
 #### Checklist
 - [x] Scrum board Updated
     - [x] Screenshot 1 
-    - [ ] Screenshot 2 
-    - [ ] Screenshot 3 
+    - [x] Screenshot 2 
+    - [x] Screenshot 3 
 - [x] Increment
-- [ ] Demo
-- [ ] User Manual
+- [x] Demo
+- [x] User Manual
 
 #### User Stories
 - User manual (Weight: 1) - Suraj Cheema
@@ -81,15 +81,20 @@ php artisan serve
 
 ### Sprint 2
 #### Checklist
-- [ ] Scrum board Updated
-    - [ ] Screenshot 1 
-    - [ ] Screenshot 2 
+- [x] Scrum board Updated
+    - [x] Screenshot 1 
+    - [x] Screenshot 2 
     - [ ] Screenshot 3 
-- [ ] Increment
+- [x] Increment
 - [ ] Demo
 - [ ] User Manual
 
 #### User Stories
+- Dashboard Page Template (Weight: 3) - Tharidhu Angodage
+- Brand Page (Weight: 3) - Tharidhu Angodage
+- Reset Password (Weight: 2) - David Igandan, Jack Trafford
+- Generating new user accounts (Weight: 5) - George Rogers, Tharidhu Angodage, Suraj Cheema
+- Admin Import CSV Sample Data (Weight: 5) - Raihaan Azam, Hemal Patel, Darren Wu
 
 ### Sprint 3
 #### Checklist
