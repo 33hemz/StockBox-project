@@ -20,7 +20,7 @@
 	@yield('content')
 </body>
 
-@elseif (in_array(request()->path(), ['/', 'user-manual']))
+@elseif (in_array(request()->path(), ['/', 'user_manual']))
 {{-- if these pages, show top header --}}
 <body class="d-flex flex-column h-100">
     <header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3   ">

@@ -3,41 +3,8 @@
 @section('title', 'Dashboard')
 
 @section('head')
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root{
-            --color-primary: #2db28e; 
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            outline: 0;
-            appearance: none;
-            border: 0;
-            text-decoration: none;
-            list-style: none;
-            box-sizing: border-box;
-            font-family: 'poppins', 'san-serif';
-        }
-
-        body {
-        font-size: 15px;
-        font-family: 'Poppins', sans-serif;
-        background-color: var(--veryLightGray);
-        }
-
-        .main{
-            position: absolute;
-            top: 220px;
-            width: 90%;
-            min-height: calc(100vh - 60px);
-        }
-
         .cards {
             width: 100%;
             padding: 35px 20px;
@@ -46,16 +13,14 @@
             grid-gap: 20px;
         }   
         
-        .cards .card{
+        .cards .card {
             padding: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: white;
             border-radius: 10px;
             box-shadow: 0 7px 25px 0 #bbbbbb;
         }
-
     </style>
 
 @endsection
@@ -74,27 +39,25 @@
 
 <!------------  CHARTS ---------------->
 
-    <div class="main">
-        <div class="cards">
-            <div class="card">
-                <div class="card-content">
-                    <div><canvas id="doughnutChart"></canvas></div>
-                </div>
+    <div class="cards">
+        <div class="card">
+            <div class="card-content">
+                <div><canvas id="doughnutChart"></canvas></div>
             </div>
-            <div class="card">
-                <div class="card-content">
-                    <div><canvas id="polarChart"></canvas></div>
-                </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div><canvas id="polarChart"></canvas></div>
             </div>
-            <div class="card">
-                <div class="card-content">
-                    <div><canvas id="lineChart"></canvas></div>
-                </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div><canvas id="lineChart"></canvas></div>
             </div>
-            <div class="card">
-                <div class="card-content">
-                    <div><canvas id="barChart"></canvas></div>
-                </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <div><canvas id="barChart"></canvas></div>
             </div>
         </div>
     </div>

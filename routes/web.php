@@ -19,6 +19,9 @@ Route::get('/', function() {
     return view('landing');
 })->name('landing');
 
+Route::get('/user_manual', function() {
+    return view('user_manual');
+})->name('user-manual');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/processlogin', [LoginController::class, 'login'])->name('processlogin');
@@ -26,13 +29,9 @@ Route::get('/forgot-password', [LoginController::class, 'recovery'])->name('forg
 Route::post('/process_password_recovery', [LoginController::class, 'process_forgot_password'])->name('process_forgot_password');
 Route::get('enter_new_password', [LoginController::class, 'enter_new_password'])->name('enter_new_password');
 
-Route::get('/user-manual', function() {
-    return view('user-manual');
-})->name('user-manual');
-
-
-
+// routes that require authentication
 Route::middleware('auth')->group(function() {
+    // --- USER PAGES ---
     Route::get('/dashboard', function() {
         return view('dashboard');
     })->name('dashboard');
@@ -42,14 +41,15 @@ Route::middleware('auth')->group(function() {
         return redirect('/');
     });
     
+    // --- ADMIN PAGES ---
     Route::get('/create_new_user', [AdminController::class, 'index'])->name('create_new_user');
-
     Route::post('/processnewuser', [AdminController::class, 'processNewUser'])->name('processnewuser');
+
+    Route::get('/brand_page', function() {
+        return view('brand_page');
+    })->name('brand_page');
 });
 
-Route::get('/brand_page', function() {
-    return view('brand_page');
-})->name('brand_page');
 
     
 

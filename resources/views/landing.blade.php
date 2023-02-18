@@ -21,7 +21,7 @@
 			@else
 			<a href="{{ url('/login') }}" class="btn btn-primary btn-lg mt-2 col-12 text-white fw-bold" role="button">Sign In</a><br>
 			@endif
-            <a href="{{ url('/user-manual') }}" class="btn btn-outline-secondary btn-lg mt-2 col-12" style="font-weight:500" role="button">User Manual</a>
+            <a href="{{ url('/user_manual') }}" class="btn btn-outline-secondary btn-lg mt-2 col-12" style="font-weight:500" role="button">User Manual</a>
         </div>
     </div>
 @endsection
