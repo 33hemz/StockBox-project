@@ -14,7 +14,7 @@
     
 </head>
 
-@if (in_array(request()->path(), ['login','forgot-password','process_password_recovery']))
+@if (in_array(request()->path(), ['login','forgot-password','process-password-recovery', 'enter-new-password']))
 {{-- if these pages, show no header --}}
 <body>
 	@yield('content')
