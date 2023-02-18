@@ -14,37 +14,8 @@
     
 </head>
 
-@if (in_array(request()->path(), ['login','forgot-password','process-password-recovery', 'enter-new-password']))
-{{-- if these pages, show no header --}}
-<body>
-	@yield('content')
-</body>
-
-@elseif (in_array(request()->path(), ['/', 'user_manual']))
-{{-- if these pages, show top header --}}
-<body class="d-flex flex-column h-100">
-    <header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3   ">
-        <img id="landing_logo" class="ms-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
-        <nav>
-        <ul class="me-4">
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li><a href="{{ url('/user-manual') }}">User Manual</a></li>
-			@if (auth()->check())
-			<li><a href="{{ url('/dashboard') }}" class="text-primary">{{ auth()->user()->first_name }}'s Dashboard</a></li>
-			@else
-			<li><a href="{{ url('/login') }}" class="text-primary">Sign In</a></li>
-			@endif
-            
-        </ul>
-        </nav>
-    </header>
-
-	<div id="page_content">
-		@yield('content')
-	</div>
-</body>
-@else
-{{-- else show sidebar --}}
+@if (in_array(request()->path(), ['dashboard', 'logout', 'create_new_user', 'processnewuser', 'brand_page']))
+{{-- if one of these page, show sidebar --}}
 <body class="d-flex flex-row" onload="toggleNav()">
 	<div class="page_sidebar">
 		<nav class="Navbar">
@@ -77,6 +48,34 @@
 		minimised = !minimised;
 	}
 	</script>
+</body>
+@elseif (in_array(request()->path(), ['/', 'user_manual']))
+{{-- if these pages, show top header --}}
+<body class="d-flex flex-column h-100">
+	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3   ">
+		<img id="landing_logo" class="ms-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
+        <nav>
+			<ul class="me-4">
+				<li><a href="{{ url('/') }}">Home</a></li>
+				<li><a href="{{ url('/user-manual') }}">User Manual</a></li>
+				@if (auth()->check())
+				<li><a href="{{ url('/dashboard') }}" class="text-primary">{{ auth()->user()->first_name }}'s Dashboard</a></li>
+				@else
+				<li><a href="{{ url('/login') }}" class="text-primary">Sign In</a></li>
+				@endif
+				
+			</ul>
+        </nav>
+    </header>
+	
+	<div id="page_content">
+		@yield('content')
+	</div>
+</body>
+@else
+{{-- else, show no header --}}
+<body>
+	@yield('content')
 </body>
 @endif
 
