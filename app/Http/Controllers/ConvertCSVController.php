@@ -36,4 +36,9 @@ class ConvertCSVController extends Controller
 
       return view('table');
    } 
+
+   function isCSVFile($filename) {
+      $extension = pathinfo($filename, PATHINFO_EXTENSION);
+      return ($extension === "csv");
+  }
 }

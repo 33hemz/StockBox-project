@@ -57,4 +57,4 @@ Route::get('/table', function() {
     return view('table');
 })->name('table');
 
-Route::get('/table', [ConvertCSVController::class, 'uploadCSV'])->name('csv');
+Route::get('/processTable', [ConvertCSVController::class, 'uploadCSV'])->name('csv');
