@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ConvertCSVController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,8 @@ Route::middleware('auth')->group(function() {
 
 
     
+Route::get('/table', function() {
+    return view('table');
+})->name('table');
 
+Route::get('/processTable', [ConvertCSVController::class, 'uploadCSV'])->name('csv');
