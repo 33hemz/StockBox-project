@@ -11,7 +11,7 @@
 @section('content') 
     <div class="container" style="padding: 7px;">
         <img class="mt-5 mb-2" id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}" width="100" alt="Logo">
-        <h1 class="border-bottom pb-2">{{$company ['company_name']}}Brand Details</h1>
+        <h1 class="border-bottom pb-2">{{$company ['company_name']}} Brand Details</h1>
 
 
 
