@@ -11,7 +11,7 @@
 @section('content') 
 
 
-<form action="/processnewuser" method="post">
+<form action="/" method="post">
     @csrf
 
     <div class="container">

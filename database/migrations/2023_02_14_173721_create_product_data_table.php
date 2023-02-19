@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('product_data', function (Blueprint $table) {
             $table->id();
             $table->string('brand');
-            $table->string('product_name')->unqiue();
+            $table->string('product_name')->unique();
             $table->string('category');
             $table->string('subcategory');
             $table->string('price_£');

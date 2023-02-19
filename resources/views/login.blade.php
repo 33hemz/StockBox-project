@@ -17,13 +17,13 @@
         
         <h1 class="text-center">Stokbox Platform</h1>
         <div style="padding: 50px;">
-        <form action="/processlogin" method="post">
+        <form action="{{ route('process_login') }}" method="post">
             @csrf
 
             <div style="padding: 7px;">
-                <label for="username">Username </label>
-                <input type="text" value="{{ old('username') }}" class="form-control @error('username') is-invalid @enderror" name="username" id="username" style="background-color: ">
-                @error('username')
+                <label for="email">Email</label>
+                <input type="text" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" name="email" id="email" style="background-color: ">
+                @error('email')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -33,7 +33,7 @@
             </div>
             
             <div style="padding: 7px;">
-                <label for="password">Password </label>
+                <label for="password">Password</label>
                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password">
                 @error('password')
                 <div class="invalid-feedback">
@@ -47,7 +47,7 @@
             
             <div style="padding: 7px;" class="d-flex justify-content-between align-items-center">
             <input type="submit" value="Log in" class="btn btn-primary">
-            <a href="{{ url('/forgot-password') }}" class="font-italic">Forgot Password?</a>
+            <a href="{{ route('forgot_password') }}" class="font-italic">Forgot Password?</a>
             </div>
         </form>
         </div>

@@ -24,8 +24,6 @@ class UserFactory extends Factory
             'password' => password_hash('password', PASSWORD_DEFAULT),
             'company_id' => 1,
             'init_user' => 1,
-            
-
         ];
     }
 

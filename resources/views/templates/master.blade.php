@@ -14,17 +14,21 @@
     
 </head>
 
-@if (in_array(request()->path(), ['dashboard', 'logout', 'create_new_user', 'processnewuser', 'brand_page']))
+@if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page']))
 {{-- if one of these page, show sidebar --}}
 <body class="d-flex flex-row" onload="toggleNav()">
 	<div class="page_sidebar">
 		<nav class="Navbar">
 			<ul>
-			<a href="javascript:void(0)" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a>
-			<a href="{{ url('/dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a>
-			<a href="{{ url('/create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">New User</span></a>
-			<a href="{{ url('/brand_page') }}"><i class="fa fa-empire"></i> <span class="nav-text">Brand Page</span></a>
-			<a href="{{ url('/logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a>
+				<li><a href="#" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a></li>
+				@if (auth()->user()->user_type === 'USER')
+					<li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a></li>
+					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text">Brand Page</span></a></li>
+				@elseif (auth()->user()->user_type === 'ADMIN')
+					<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
+				@endif
+
+				<li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a></li>
 			</ul>
 		</nav>
 	</div>
@@ -49,19 +53,23 @@
 	}
 	</script>
 </body>
-@elseif (in_array(request()->path(), ['/', 'user_manual']))
+@elseif (in_array(request()->path(), ['/', 'user-manual']))
 {{-- if these pages, show top header --}}
 <body class="d-flex flex-column h-100">
 	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3   ">
 		<img id="landing_logo" class="ms-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
         <nav>
 			<ul class="me-4">
-				<li><a href="{{ url('/') }}">Home</a></li>
-				<li><a href="{{ url('/user-manual') }}">User Manual</a></li>
+				<li><a href="{{ route('landing') }}">Home</a></li>
+				<li><a href="{{ route('user_manual') }}">User Manual</a></li>
 				@if (auth()->check())
-				<li><a href="{{ url('/dashboard') }}" class="text-primary">{{ auth()->user()->first_name }}'s Dashboard</a></li>
+					@if (auth()->user()->user_type === 'USER')
+						<li><a href="{{ route('dashboard') }}" class="text-primary">{{ auth()->user()->first_name }}'s Dashboard</a></li>
+					@elseif (auth()->user()->user_type === 'ADMIN')
+						<li><a href="{{ route('create_new_user') }}" class="text-primary">Manage Users</a></li>
+					@endif
 				@else
-				<li><a href="{{ url('/login') }}" class="text-primary">Sign In</a></li>
+					<li><a href="{{ route('login') }}" class="text-primary">Sign In</a></li>
 				@endif
 				
 			</ul>

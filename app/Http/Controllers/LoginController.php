@@ -42,15 +42,15 @@ class LoginController extends Controller
 
     public function login() {
         validator(request()->all(), [
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required'
         ])->validate();
 
-        if(auth()->attempt(request()->only('username', 'password'))){
-            return redirect('dashboard');
+        if(auth()->attempt(request()->only('email', 'password'))){
+            return redirect(route('dashboard'));
         } else {
             return redirect()->back()->withErrors([
-                'password' => 'Password is incorrect'
+                'password' => 'Email or password is incorrect'
             ])->withInput();
         }
     }
