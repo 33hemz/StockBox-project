@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ConvertCSVController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,9 +56,9 @@ Route::middleware('auth')->group(function() {
         })->name('dashboard');
         
 
-        Route::get('/brand-page', function() {
-            return view('brand_page');
-        })->name('brand_page');
+        Route::get('/brand-page', [UserController::class, 'index'])->name('brand_page');
+        Route::post('/updated-brand-page', [UserController::class, 'addProductCategory'])->name('updated_brand_page');
+        Route::post('/deleted-product-category', [UserController::class, 'deleteProductCategory'])->name('deleted_product_category');
     });
     
     // --- ADMIN PAGES ---
