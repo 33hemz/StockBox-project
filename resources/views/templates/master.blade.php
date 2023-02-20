@@ -26,6 +26,7 @@
 					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text">Brand Page</span></a></li>
 				@elseif (auth()->user()->user_type === 'ADMIN')
 					<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
+					<li><a href="{{ route('table') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload CSV</span></a></li>
 				@endif
 
 				<li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a></li>
