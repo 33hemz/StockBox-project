@@ -14,7 +14,7 @@
     
 </head>
 
-@if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page']))
+@if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page', 'admin/table']))
 {{-- if one of these page, show sidebar --}}
 <body class="d-flex flex-row" onload="toggleNav()">
 	<div class="page_sidebar">
@@ -26,6 +26,7 @@
 					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text">Brand Page</span></a></li>
 				@elseif (auth()->user()->user_type === 'ADMIN')
 					<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
+					<li><a href="{{ route('table') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload CSV</span></a></li>
 				@endif
 
 				<li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a></li>
