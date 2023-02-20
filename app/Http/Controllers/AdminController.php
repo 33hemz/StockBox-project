@@ -18,7 +18,11 @@ class AdminController extends Controller
             'email' => 'required|email|unique:users',
             'company_id' => 'required'
             
-        ])->validate();
+        ],
+        [
+            'company_id.required' => 'The company field is required.'    
+        ]
+        )->validate();
     
 
         $user = User::create(
@@ -30,8 +34,7 @@ class AdminController extends Controller
     }
     public function addNewCompany(){
         validator(request()->all(), [
-            'company_name' => 'required|min:5|max:20'
-                
+            'company_name' => 'required|min:5|max:20'      
         ]) ->validate();
 
         $company = Company::create(request()->all());
