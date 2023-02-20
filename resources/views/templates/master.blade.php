@@ -14,7 +14,7 @@
     
 </head>
 
-@if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page']))
+@if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page', 'admin/table']))
 {{-- if one of these page, show sidebar --}}
 <body class="d-flex flex-row" onload="toggleNav()">
 	<div class="page_sidebar">

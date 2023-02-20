@@ -6,6 +6,9 @@ use App\Models\ProductData;
 
 class ConvertCSVController extends Controller
 {
+   public function index() {
+      return view('table');
+   }
    public function uploadCSV() {
       //This function opens the designated CSV file and uploads each column into the ProductData SQL database
 
