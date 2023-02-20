@@ -10,8 +10,7 @@
 
 @section('content') 
 
-
-<form action="{{ route('process_new_user') }}" method="post">
+<form action="{{ route('add_new_company')}}" method='post'>
     @csrf
 
     <div class="container">
@@ -34,6 +33,11 @@
         <br>
         <br>
     </div>
+
+</form>
+
+<form action="{{ route('process_new_user') }}" method="post">
+    @csrf
 
     <div class="container">
         <h1 class="border-bottom pb-2"> Create New User</h1>
