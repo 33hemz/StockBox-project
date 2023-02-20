@@ -31,7 +31,6 @@
  
 <div class="container">
         <div class="logo">
-            <img class="mt-5 mb-2" id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}" width="100" alt="Logo">
             <h1 class="border-bottom pb-2">Dashboard</h1>
         </div>
     </div>
