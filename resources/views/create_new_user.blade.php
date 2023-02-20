@@ -16,6 +16,26 @@
 
     <div class="container">
         <img class="mt-5 mb-2" id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}" width="100" alt="Logo">
+        <h1 class="border-bottom pb-2"> Add New Company</h1>
+
+        <div style="padding: 7px;">
+        <label for="company_name">Company Name</label>
+        <input type="text" id="company_name" name="company_name" value="{{ old('company_name') }}" class="form-control @error('company_name') is-invalid @enderror">
+        @error('company_name')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+        </div>
+
+        <div style="padding: 7px;">
+        <input type="submit" value="Add Company" class="btn btn-primary">
+        </div>
+        <br>
+        <br>
+    </div>
+
+    <div class="container">
         <h1 class="border-bottom pb-2"> Create New User</h1>
         
         {{-- <div style="padding: 7px;">
