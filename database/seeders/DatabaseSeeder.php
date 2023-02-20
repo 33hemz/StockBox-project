@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Company::factory()->create([
             'company_name' => 'Nestle',
-            'company_description' => '(nestle description)'
         ]);
 
         \App\Models\User::factory()->create([

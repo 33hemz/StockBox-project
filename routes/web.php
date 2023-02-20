@@ -67,11 +67,15 @@ Route::middleware('auth')->group(function() {
         Route::post('/process-new-user', [AdminController::class, 'processNewUser'])->name('process_new_user');
 
 
-        Route::get('/table', function() {
-            return view('table');
-        })->name('table');
+        Route::get('/table', [ConvertCSVController::class, 'index'])->name('table');
 
         Route::get('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('csv');
+    
+    });
+
+    Route::prefix('admin')->middleware('user_type:ADMIN')->group(function() {
+        Route::get('/create-new-user', [AdminController::class, 'index'])->name('create_new_user');
+        Route::post('/add_new_company', [AdminController::class, 'addNewCompany'])->name('add_new_company');
     });
     
 });
