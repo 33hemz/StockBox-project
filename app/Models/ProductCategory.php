@@ -10,4 +10,9 @@ class ProductCategory extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class);
+    }
 }

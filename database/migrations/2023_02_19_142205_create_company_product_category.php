@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('company_product_categories', function (Blueprint $table) {
-            $table->unsignedBigInteger('company_id')->primary();
+        Schema::create('company_product_category', function (Blueprint $table) {
+            $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             
-            $table->unsignedBigInteger('product_category_id')->index();
+            $table->unsignedBigInteger('product_category_id');
             $table->foreign('product_category_id')->references('id')->on('product_categories');
             $table->timestamps();
+
+            $table->primary(['company_id', 'product_category_id']);
         });
     }
 
