@@ -16,7 +16,18 @@
 
 @if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page']))
 {{-- if one of these page, show sidebar --}}
-<body class="d-flex flex-row" onload="toggleNav()">
+
+<body onload="toggleNav()">
+	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3 mb-3 border-bottom">
+		<img id="landing_logo" class="ms-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
+        <nav>
+			<ul class="me-4">
+				<li><h3> Welcome Back,<span class="text-primary"> {{ auth()->user()->first_name }}</span></h2></li>
+			</ul>
+        </nav>
+    </header>
+	<div class="d-flex flex-row">
+
 	<div class="page_sidebar">
 		<nav class="Navbar">
 			<ul>
@@ -24,6 +35,7 @@
 				@if (auth()->user()->user_type === 'USER')
 					<li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a></li>
 					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text">Brand Page</span></a></li>
+					<li><a href="{{ url('/user-manual') }}"><i class="fa-solid fa-book"></i> <span class="nav-text">User Manual</span></a></li>
 				@elseif (auth()->user()->user_type === 'ADMIN')
 					<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
 				@endif
@@ -36,6 +48,7 @@
 	<div id="page_content" class="container">
 		@yield('content')
 	</div>
+</div>
 
 	<script>
 	let minimised = false;
@@ -53,6 +66,7 @@
 	}
 	</script>
 </body>
+
 @elseif (in_array(request()->path(), ['/', 'user-manual']))
 {{-- if these pages, show top header --}}
 <body class="d-flex flex-column h-100">
