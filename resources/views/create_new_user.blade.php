@@ -1,3 +1,4 @@
+
 @extends('templates.master')
 
 @section('title', 'New User')
@@ -81,6 +82,25 @@
         </div>
         @enderror
         </div>
+
+        <div style="padding: 7px;">
+        <label for="company_id">Choose a Company </label><br>
+        <select name="company_id" id="company_id" value="{{ old('company_id') }}" class="form-select @error('company_id') is-invalid @enderror">
+           <option></option>
+            @foreach ($companies as $company)
+            <option value="{{ $company['id'] }}">{{$company['company_name']}}
+        @endforeach       
+        </select>
+        @error('company_id')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+        <br>
+        </div>
+
+
+
 
         <div style="padding: 7px;">
         <input type="submit" value="Create New User" class="btn btn-primary">
