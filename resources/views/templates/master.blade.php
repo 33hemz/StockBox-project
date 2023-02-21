@@ -34,7 +34,6 @@
 					@if (auth()->user()->user_type === 'USER')
 						<li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a></li>
 						<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text">Brand Page</span></a></li>
-						<li><a href="{{ url('/user-manual') }}"><i class="fa-solid fa-book"></i> <span class="nav-text">User Manual</span></a></li>
 					@elseif (auth()->user()->user_type === 'ADMIN')
 						<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
 						<li><a href="{{ route('table') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload CSV</span></a></li>
@@ -61,7 +60,9 @@
 					{{ session('danger') }}
 				</div>
 			@endif
-			@yield('content')
+			<div class="container mt-4">
+				@yield('content')
+			</div>
 		</div>
 	</div>
 
