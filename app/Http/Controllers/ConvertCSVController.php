@@ -32,9 +32,12 @@ class ConvertCSVController extends Controller
       while(!feof($CSVfile)) {
          $lineOfCsv++;
          $line = fgetcsv($CSVfile, null, ';');
+
+
+
          
          // ignore line if blank
-         if($line[0] === null) {
+         if(($line[0] ?? null) === null) {
             continue;
          }
 

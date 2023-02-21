@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
-use App\Mail\OrderShipped;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Mail;
 
@@ -54,17 +54,17 @@ class LoginController extends Controller
     }
 
     public function processNewPassword() {
-        $request->validate([
+        validator(request()->all(), [
             'token' => 'required',
             'email' => 'required|email',
             'password' => 'required|confirmed',
-        ]);
+        ])->validate();
      
         $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
+            request()->only('email', 'password', 'password_confirmation', 'token'),
             function ($user, $password) {
                 $user->forceFill([
-                    'password' => Hash::make($password)
+                    'password' => password_hash($password, PASSWORD_DEFAULT)
                 ]);
      
                 $user->save();

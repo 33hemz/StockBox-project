@@ -17,35 +17,35 @@
         <h1 class="text-center">Reset Password</h1>
         
         <div style="padding: 50px;">
-
-
-        <form action="#" method="post">
+        <form action="{{ route('password.update') }}" method="post">
             @csrf
 
-            <div style="padding: 7px;">
-                <label for="password">Email</label>
-                <input type="text" class="form-control " name="password" id="password">
+            <input type="hidden" id="token" name="token" value="{{ $token }}">
 
+            <div style="padding: 7px;">
+                <label for="email">Email</label>
+                <input type="text" class="form-control @error('email') is-invalid @enderror" value="{{ $email }}" name="email" id="email">
+                @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 <br>
             </div>
 
             <div style="padding: 7px;">
                 <label for="password">New Password</label>
-                <input type="text" class="form-control " name="password" id="password">
-
+                <input type="text" class="form-control @error('password') is-invalid @enderror" name="password" id="password">
+                @error('password') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 <br>
             </div>
-             
+            
+            
+            <div style="padding: 7px;">
+                <label for="password_confirmation">Confirm New Password</label>
+                <input type="text" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation">
+                @error('password_confirmation') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                <br>
+            </div>
+
 
             <div style="padding: 7px;">
-                <label for="password">Confirm New Password</label>
-                <input type="text" class="form-control " name="password" id="password">
-                
-                <br>
-            </div>
-
-
-            <div style="padding: 7px;" class="d-flex justify-content-between align-items-center">
             <input type="submit" value="Change Password" class="btn btn-primary">
             </div>
         </form>

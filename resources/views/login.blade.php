@@ -15,7 +15,7 @@
     <div class="card shadow-lg" style="background-color: aliceblue">
         <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
         
-        <h1 class="text-center">Stokbox Platform</h1>
+        <h1 class="text-center">StokBox Analytics</h1>
         <div style="padding: 50px;">
         <form action="{{ route('process_login') }}" method="post">
             @csrf
@@ -23,12 +23,7 @@
             <div style="padding: 7px;">
                 <label for="email">Email</label>
                 <input type="text" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" name="email" id="email" style="background-color: ">
-                @error('email')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-
+                @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
                 <br>
             </div>
             
