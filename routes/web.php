@@ -37,9 +37,12 @@ Route::get('/user-manual', function() { return view('user_manual'); })->name('us
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/process-login', [LoginController::class, 'login'])->name('process_login');
 
-Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->name('forgot_password');
-Route::get('/enter-new-password', [LoginController::class, 'enterNewPassword'])->name('enter_new_password');
-Route::post('/process-password-recovery', [LoginController::class, 'processForgotPassword'])->name('process_forgot_password');
+Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->name('password.request');
+Route::post('/process-password-recovery', [LoginController::class, 'processForgotPassword'])->name('password.email');
+Route::get('/reset-password/{token}', function ($token) {
+    return view('forgot_password.enter_new_password', ['token' => $token]);
+})->name('password.reset');
+Route::post('/enter-new-password', [LoginController::class, 'processNewPassword'])->name('password.update');
 
 // routes that require authentication
 Route::middleware('auth')->group(function() {
@@ -70,6 +73,10 @@ Route::middleware('auth')->group(function() {
         Route::get('/table', [ConvertCSVController::class, 'index'])->name('table');
 
         Route::post('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('process_csv_file');
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     
     });
 

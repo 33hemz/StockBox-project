@@ -19,18 +19,15 @@
         <div style="padding: 50px;">
 
 
-        <form action="/process-password-recovery" method="post">
+        <form action="{{ route('password.email') }}" method="post">
             @csrf
 
             <div style="padding: 7px;">
                 <label for="email">Email</label>
-                <input type="text" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" name="email" id="email" style="background-color: ">
+                <input type="text" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" name="email" id="email">
                 @error('email')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
+                    <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
-
                 <br>
             </div>
              

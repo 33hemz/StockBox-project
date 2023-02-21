@@ -16,55 +16,69 @@
 
 @if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page', 'admin/table']))
 {{-- if one of these page, show sidebar --}}
-
 <body onload="toggleNav()">
-	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3 mb-3 border-bottom">
-		<img id="landing_logo" class="ms-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
+	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row border-bottom">
+		<img class="my-2 mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=220 alt="StokBox Logo">
         <nav>
 			<ul class="me-4">
-				<li><h3> Welcome Back,<span class="text-primary"> {{ auth()->user()->first_name }}</span></h2></li>
+				<li><span class="fw-bold fs-5"> Welcome Back, <span class="text-primary">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span></h2></li>
 			</ul>
         </nav>
     </header>
+
 	<div class="d-flex flex-row">
+		<div class="page_sidebar">
+			<nav class="Navbar">
+				<ul>
+					<li><a href="#" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a></li>
+					@if (auth()->user()->user_type === 'USER')
+						<li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a></li>
+						<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text">Brand Page</span></a></li>
+						<li><a href="{{ url('/user-manual') }}"><i class="fa-solid fa-book"></i> <span class="nav-text">User Manual</span></a></li>
+					@elseif (auth()->user()->user_type === 'ADMIN')
+						<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
+						<li><a href="{{ route('table') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload CSV</span></a></li>
+					@endif
 
-	<div class="page_sidebar">
-		<nav class="Navbar">
-			<ul>
-				<li><a href="#" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a></li>
-				@if (auth()->user()->user_type === 'USER')
-					<li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a></li>
-					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text">Brand Page</span></a></li>
-					<li><a href="{{ url('/user-manual') }}"><i class="fa-solid fa-book"></i> <span class="nav-text">User Manual</span></a></li>
-				@elseif (auth()->user()->user_type === 'ADMIN')
-					<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
-					<li><a href="{{ route('table') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload CSV</span></a></li>
-				@endif
-
-				<li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a></li>
-			</ul>
-		</nav>
+					<li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a></li>
+				</ul>
+			</nav>
+		</div>
+			
+		<div id="page_content" class="container">
+			@if (session('success'))
+            <div class="alert alert-success mt-3 mb-0" role="alert">
+                {{ session('success') }}
+            </div>
+			@endif
+			@if (session('warning'))
+				<div class="alert alert-warning mt-3 mb-0" role="alert">
+					{{ session('warning') }}
+				</div>
+			@endif
+			@if (session('danger'))
+				<div class="alert alert-danger mt-3 mb-0" role="alert">
+					{{ session('danger') }}
+				</div>
+			@endif
+			@yield('content')
+		</div>
 	</div>
-		
-	<div id="page_content" class="container">
-		@yield('content')
-	</div>
-</div>
 
 	<script>
-	let minimised = false;
-	function toggleNav() {
-		var navTexts = document.getElementsByClassName("nav-text");
+		let minimised = false;
+		function toggleNav() {
+			var navTexts = document.getElementsByClassName("nav-text");
 
-		for (var i = 0; i < navTexts.length; i++) {
-			if (minimised) {
-				navTexts.item(i).style.display = 'inline-block';
-			} else {
-				navTexts.item(i).style.display = 'none';
+			for (var i = 0; i < navTexts.length; i++) {
+				if (minimised) {
+					navTexts.item(i).style.display = 'inline-block';
+				} else {
+					navTexts.item(i).style.display = 'none';
+				}
 			}
+			minimised = !minimised;
 		}
-		minimised = !minimised;
-	}
 	</script>
 </body>
 

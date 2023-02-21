@@ -23,17 +23,23 @@
             @csrf
 
             <div style="padding: 7px;">
-                <label for="password">New Password </label>
-                <input type="text" class="form-control " name="password" id="password" style="background-color: ">
+                <label for="password">Email</label>
+                <input type="text" class="form-control " name="password" id="password">
+
+                <br>
+            </div>
+
+            <div style="padding: 7px;">
+                <label for="password">New Password</label>
+                <input type="text" class="form-control " name="password" id="password">
 
                 <br>
             </div>
              
 
-
             <div style="padding: 7px;">
-                <label for="password">Confirm New Password </label>
-                <input type="text" class="form-control " name="password" id="password" style="background-color: ">
+                <label for="password">Confirm New Password</label>
+                <input type="text" class="form-control " name="password" id="password">
                 
                 <br>
             </div>

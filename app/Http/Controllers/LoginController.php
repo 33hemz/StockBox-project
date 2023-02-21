@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\OrderShipped;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Mail;
 
 class LoginController extends Controller
 {
@@ -15,30 +17,6 @@ class LoginController extends Controller
             return view('login');
         }
     }
-
-    // form prompting user for email address
-    public function forgotPassword() {
-        return view('forgot_password.forgot_password');
-    }
-
-    // check email address and send email if valid
-    public function processForgotPassword() {
-        validator(request()->all(), [
-            'email' => 'required|email'
-        ])->validate();
-        
-
-        //Password::sendResetLink(request()->email);
-
-        return view('forgot_password.forgotPasswordSuccess');
-    }
-
-    // form for allowing user to set a new password
-    public function enterNewPassword() {
-        // TODO: check if user has requested a password reset
-        return view('forgot_password.enterNewPassword');
-    }
-
 
     public function login() {
         validator(request()->all(), [
@@ -55,5 +33,49 @@ class LoginController extends Controller
         }
     }
 
+    // --- PASSWORD RESETS ---
+    // form prompting user for email address
+    public function forgotPassword() {
+        return view('forgot_password.forgot_password');
+    }
+
+    // check email address and send email if valid
+    public function processForgotPassword() {
+        validator(request()->all(), [
+            'email' => 'required|email'
+        ])->validate();
+
+
+        $status = Password::sendResetLink(request()->only('email'));
+
+        return $status === Password::RESET_LINK_SENT
+                ? view('forgot_password.forgot_password_success')
+                : back()->withErrors(['email' => __($status)]);
+    }
+
+    public function processNewPassword() {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed',
+        ]);
+     
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ]);
+     
+                $user->save();
+     
+                event(new PasswordReset($user));
+            }
+        );
+     
+        return $status === Password::PASSWORD_RESET
+                    ? redirect(route('login'))
+                    : back()->withErrors(['email' => [__($status)]]);
+    }
 
 }

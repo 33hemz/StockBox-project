@@ -11,12 +11,8 @@
 
 
 body {
-    background-color: white;    
-}
-
-
-#landing_header {
-    /* font-family: SourceSansPro; */
+    background-color: white;   
+    min-height: 100vh; 
 }
 
 #landing_logo {
@@ -40,9 +36,6 @@ body {
 }
 
 /* Start Navbar */
-#page_sidebar {
-	min-height: 100vh;
-}
 
 .Navbar {
     min-height: 100vh;

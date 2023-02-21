@@ -47,7 +47,7 @@
             
             <div style="padding: 7px;" class="d-flex justify-content-between align-items-center">
             <input type="submit" value="Log in" class="btn btn-primary">
-            <a href="{{ route('forgot_password') }}" class="font-italic">Forgot Password?</a>
+            <a href="{{ route('password.request') }}" class="font-italic">Forgot Password?</a>
             </div>
         </form>
         </div>
