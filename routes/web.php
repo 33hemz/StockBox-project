@@ -73,10 +73,6 @@ Route::middleware('auth')->group(function() {
         Route::get('/table', [ConvertCSVController::class, 'index'])->name('table');
 
         Route::post('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('process_csv_file');
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     
     });
 
