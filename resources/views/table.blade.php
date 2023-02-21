@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('process_new_user') }}" method="post">
+<form action="{{ route('process_csv_file') }}" method="post" enctype="multipart/form-data">
     @csrf
 
     <div class="container">
@@ -14,18 +14,15 @@
         <h1 class="border-bottom pb-2"> Upload New File</h1>
 
         <div style="padding: 7px;">
-        <input type="file" id="CSVfile" name="CSVfile" value="{{ old('CSVfile') }}" class="form-control @error('CSVfile') is-invalid @enderror">
-        @error('CSVfile')
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
+        <input type="file" id="file" name="file" value="{{ old('file') }}" class="form-control @error('file') is-invalid @enderror">
+        @error('file')
+            <div class="invalid-feedback">{!! $message !!}</div>
         @enderror
         </div>
 
         <div style="padding: 7px;">
-        <input type="submit" value="Upload File" class="btn btn-primary">
+            <input type="submit" value="Upload File" class="btn btn-primary">
         </div>
-        <br>
         <br>
     </div>
 @endsection
