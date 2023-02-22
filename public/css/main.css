@@ -36,9 +36,16 @@ body {
 }
 
 /* Start Navbar */
+.page_sidebar {
+    align-self: stretch;
+}
 
+#page_content {
+    align-self: stretch;
+}
 .Navbar {
-    min-height: 100vh;
+    min-height: 773px;
+    height: 100%;
     white-space: nowrap;
     overflow-x: hidden;
     background-color: #2db28e;

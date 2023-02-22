@@ -2,12 +2,6 @@
 
 @section('title', 'StokBox Home')
 
-@section('head')
-<style>
-    
-</style>
-@endsection
-
 @section('content') 
     <div style="height: 15vh;"></div>
 

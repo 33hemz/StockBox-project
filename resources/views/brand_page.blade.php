@@ -2,12 +2,6 @@
 
 @section('title', 'Brand Page')
 
-@section('head')
-<style>
-
-</style>
-@endsection
-
 @section('content') 
 
 <h1 class="border-bottom pb-2">Brand Details: {{ $company ['company_name'] }}</h1>
@@ -29,6 +23,7 @@
                     @csrf
                     
                     <input type="hidden" id="product_category_id" name="product_category_id" value="{{ $category['id'] }}">
+                    
                     <button type="submit" class="delete btn btn-danger" title="Delete" data-toggle="tooltip"><i class='fas fa-trash'></i></button>
                 </form>
             </td>
@@ -42,11 +37,14 @@
     @csrf
 
     <div class="mb-3">
-        <select class="form-select" id="product_category_id" name="product_category_id">
+        <select class="form-select @error('product_category_id') is-invalid @enderror" id="product_category_id" name="product_category_id">
             @foreach ($allCategories as $category)
-            <option value="{{ $category['id'] }}">{{$category['product_category_name']}}
+                <option value="{{ $category['id'] }}">{{$category['product_category_name']}}
             @endforeach
         </select>
+        @error('product_category_id')
+            <div class="invalid-feedback">{{ $message }}</div>
+        @enderror
     </div>
         
     <div class="mb-3">
