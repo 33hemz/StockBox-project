@@ -70,7 +70,7 @@ Route::middleware('auth')->group(function() {
         Route::post('/process-new-user', [AdminController::class, 'processNewUser'])->name('process_new_user');
 
 
-        Route::get('/table', [ConvertCSVController::class, 'index'])->name('table');
+        Route::get('/upload-product-data', [ConvertCSVController::class, 'index'])->name('upload_product_data');
 
         Route::post('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('process_csv_file');
     

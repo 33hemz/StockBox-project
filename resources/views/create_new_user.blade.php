@@ -1,16 +1,9 @@
-
 @extends('templates.master')
 
 @section('title', 'New User')
 
-@section('head')
-<style>
-
-</style>
-@endsection
 
 @section('content') 
-
 <h1 class="border-bottom pb-2">Add New Company</h1>
 <form action="{{ route('add_new_company')}}" method='post'>
     @csrf
@@ -75,5 +68,4 @@
         <input type="submit" value="Create New User" class="btn btn-primary">
     </div>
 </form>
-
 @endsection
