@@ -18,7 +18,17 @@ class UserController extends Controller
     }
 
     public function addProductCategory(){
-        $category = ProductCategory::find(request()['product_category_id'])->companies()->attach(auth()->user()['company_id']);
+        $attachedCompanies = ProductCategory::find(request()['product_category_id'])->companies();
+
+        // check if already in list
+        $existsAlready = $attachedCompanies->where('company_id', auth()->user()['company_id'])->first();
+        if ($existsAlready !== null) {
+            return redirect()->back()->withErrors([
+                'product_category_id' => 'Category already attached.'
+            ])->withInput();
+        }
+
+        $category = $attachedCompanies->attach(auth()->user()['company_id']);
         return redirect(route('brand_page'));
     }
 

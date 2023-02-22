@@ -11,44 +11,43 @@
 @endsection
 
 @section('content') 
-<div class="center" style="width: 450px; margin: auto; margin-top: 50px;">
+<div class="mx-auto" style="width: 450px; margin-top: 50px;">
     <div class="card shadow-lg" style="background-color: aliceblue">
         <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
         <h1 class="text-center">Reset Password</h1>
         
-        <div style="padding: 50px;">
+        <div class="mx-5 my-5 px-3">
+            <form action="{{ route('password.update') }}" method="post">
+                @csrf
 
+                <input type="hidden" id="token" name="token" value="{{ $token }}">
 
-        <form action="#" method="post">
-            @csrf
+                <div class="mb-4">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" name="email" id="email">
+                    @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
-            <div style="padding: 7px;">
-                <label for="password">Email</label>
-                <input type="text" class="form-control " name="password" id="password">
-
-                <br>
-            </div>
-
-            <div style="padding: 7px;">
-                <label for="password">New Password</label>
-                <input type="text" class="form-control " name="password" id="password">
-
-                <br>
-            </div>
-             
-
-            <div style="padding: 7px;">
-                <label for="password">Confirm New Password</label>
-                <input type="text" class="form-control " name="password" id="password">
+                <div class="mb-4">
+                    <label for="password">New Password</label>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password">
+                    @error('password')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
                 
-                <br>
-            </div>
+                <div class="mb-4">
+                    <label for="password_confirmation">Confirm New Password</label>
+                    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation">
+                    @error('password_confirmation')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
-
-            <div style="padding: 7px;" class="d-flex justify-content-between align-items-center">
-            <input type="submit" value="Change Password" class="btn btn-primary">
-            </div>
-        </form>
+                <input type="submit" value="Change Password" class="btn btn-primary">
+            </form>
         </div>
     </div>
 </div>

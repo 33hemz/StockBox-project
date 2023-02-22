@@ -8,7 +8,7 @@ use App\Models\ProductCategory;
 class ConvertCSVController extends Controller
 {
    public function index() {
-      return view('table');
+      return view('upload_product_data');
    }
 
    // this function opens the designated CSV file and uploads each column into the Product SQL database
@@ -27,17 +27,22 @@ class ConvertCSVController extends Controller
       }
       $lineOfCsv = 1; 
 
+      $categoriesToAdd = []; // store categories to be inserted into db at the end
       $numInserted = 0; // store number of records inserted into the db
       $totalProcessed = 0; // store total number of processed records (either already in db or inserted)
       while(!feof($CSVfile)) {
          $lineOfCsv++;
          $line = fgetcsv($CSVfile, null, ';');
-         
+
          // ignore line if blank
-         if($line[0] === null) {
+         if(($line[0] ?? null) === null) {
             continue;
          }
 
+         // add new categories to array
+         if (!in_array($line[1], $categoriesToAdd)){
+            array_push($categoriesToAdd, $line[1]);
+         }
 
          $product = [];
          $product['category'] = $line[1] ?? '';
@@ -70,6 +75,12 @@ class ConvertCSVController extends Controller
 
       fclose($CSVfile);
 
+
+      // import categories
+      foreach ($categoriesToAdd as $category) {
+         ProductCategory::firstOrCreate(['product_category_name' => $category]);
+      }
+
       // display import successful message
       if ($totalProcessed !== $numInserted) {
          request()->session()->flash('success', $numInserted . ' products were successfully imported. ' . $totalProcessed-$numInserted . ' products were not imported (already present in the database).');
@@ -77,6 +88,6 @@ class ConvertCSVController extends Controller
          request()->session()->flash('success', $totalProcessed . ' products were successfully imported.');
       }
 
-      return redirect(route('table'));
+      return redirect(route('upload_product_data'));
    } 
 }
