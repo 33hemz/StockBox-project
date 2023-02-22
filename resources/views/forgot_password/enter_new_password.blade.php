@@ -32,7 +32,7 @@
 
                 <div class="mb-4">
                     <label for="password">New Password</label>
-                    <input type="text" class="form-control @error('password') is-invalid @enderror" name="password" id="password">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password">
                     @error('password')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -40,7 +40,7 @@
                 
                 <div class="mb-4">
                     <label for="password_confirmation">Confirm New Password</label>
-                    <input type="text" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation">
+                    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation">
                     @error('password_confirmation')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
