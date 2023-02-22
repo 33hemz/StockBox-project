@@ -19,7 +19,7 @@
 {{-- if one of these page, show sidebar --}}
 <body>
 	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row border-bottom">
-		<img class="my-2 mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=220 alt="StokBox Logo">
+		<a href="{{ route('landing') }}"><img class="my-2 mx-4" href="{{ route('dashboard') }}" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=220 alt="StokBox Logo"></a>
 		<nav>
 			<ul class="me-4">
 				<li><span class="fw-bold fs-5"> Welcome Back, <span class="text-primary">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span></h2></li>
