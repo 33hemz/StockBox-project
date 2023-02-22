@@ -27,7 +27,6 @@ class ConvertCSVController extends Controller
       }
       $lineOfCsv = 1; 
 
-      $categoriesToAdd = []; // store categories to be inserted into db at the end
       $numInserted = 0; // store number of records inserted into the db
       $totalProcessed = 0; // store total number of processed records (either already in db or inserted)
       while(!feof($CSVfile)) {
@@ -38,22 +37,20 @@ class ConvertCSVController extends Controller
          if(($line[0] ?? null) === null) {
             continue;
          }
-
-         // add new categories to array
-         if (!in_array($line[1], $categoriesToAdd)){
-            array_push($categoriesToAdd, $line[1]);
+         
+         $productCat = ProductCategory::where('product_category_name', $line[1])->first();
+         
+         if ($productCat === null) {
+            $new = ProductCategory::create(['product_category_name' => $line[1]]);
+            $productCatId = $new['id'];
+         } else {
+            $productCatId = $productCat['id'];
          }
 
          $product = [];
          $product['category'] = $line[1] ?? '';
          
-         
-         $id = ProductCategory::where('product_category_name', $product['category'])->first();
-         if (!isset($id['id'])) {
-            return redirect()->back()->withErrors(['file' => 'Invalid product category for line ' . $lineOfCsv]);
-         } 
-         
-         $product['category_id'] = $id['id'] ?? '';
+         $product['category_id'] = $productCatId;
          $product['product_link'] = $line[0] ?? '';
          $product['subcategory'] = $line[2] ?? '';
          $product['product_name'] = $line[3] ?? '';
@@ -74,12 +71,6 @@ class ConvertCSVController extends Controller
       }
 
       fclose($CSVfile);
-
-
-      // import categories
-      foreach ($categoriesToAdd as $category) {
-         ProductCategory::firstOrCreate(['product_category_name' => $category]);
-      }
 
       // display import successful message
       if ($totalProcessed !== $numInserted) {
