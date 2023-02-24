@@ -34,3 +34,10 @@
 
 ## General
 - Started on User Stories
+
+# Sprint 2 final meetings (21/02/2023) (22/02/2023)
+
+## General
+- Tested and finalised User Stories
+- Updated User Manual with Sprint 2 User Stories
+- Prepared and recorded Sprint 2 demo
