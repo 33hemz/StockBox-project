@@ -6,6 +6,7 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Mail;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -76,6 +77,29 @@ class LoginController extends Controller
         return $status === Password::PASSWORD_RESET
                     ? redirect(route('login'))
                     : back()->withErrors(['email' => [__($status)]]);
+    }
+
+    // -----CREATE PASSWORD-------
+
+    public function createPassword() {
+        return view('first_time_login');
+    }
+
+    public function processPassword() {
+        validator(request()->all(), [
+            'password' => 'required|confirmed',
+        ])->validate();
+
+        $user = User::find(auth()->user()->id);
+ 
+        $user->password = password_hash(request()->password, PASSWORD_DEFAULT);
+        
+        $user->init_user = 0;
+
+        $user->save();
+        
+        
+        return(redirect(route('landing')));
     }
 
 }

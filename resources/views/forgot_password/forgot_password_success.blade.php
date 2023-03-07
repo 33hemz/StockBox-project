@@ -12,7 +12,7 @@
 
 @section('content') 
 <div class="center" style="width: 450px; margin: auto; margin-top: 50px;">
-    <div class="card shadow-lg" style="background-color: aliceblue">
+    <div class="card shadow-lg">
         <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
         
         <h2 class="text-center">Success!</h2>
