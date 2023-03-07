@@ -17,14 +17,12 @@ class UserType
     public function handle(Request $request, Closure $next, $type)
     {
         if (auth()->user()->user_type == $type) {
-            if (auth()->user()->init_user) {
-                return response()->redirectTo(route('first_time_login'));
-            } else {
-                return $next($request);
-            }
             return $next($request);
         }
 
+        if (auth()->user()->init_user) {
+            return response()->redirectTo(route('first_time_login'));
+        }
         // if no access
         return response()->redirectTo(route('landing'));
     }
