@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Company;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -47,7 +48,11 @@ class AdminController extends Controller
         return redirect(route("create_new_user"));
     }
     public function viewProductData(){
-        return view('view_product_data');
+        $product = Product::all();
+        return view('view_product_data', 
+    ['product_data' => $product]
+);
+
     }
     
 }
