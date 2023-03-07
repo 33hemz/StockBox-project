@@ -46,5 +46,8 @@ class AdminController extends Controller
 
         return redirect(route("create_new_user"));
     }
+    public function viewProductData(){
+        return view('view_product_data');
+    }
     
 }

@@ -69,8 +69,10 @@ Route::middleware('auth')->group(function() {
         Route::get('/create-new-user', [AdminController::class, 'index'])->name('create_new_user');
         Route::post('/process-new-user', [AdminController::class, 'processNewUser'])->name('process_new_user');
 
+        Route::get('/view-product-data', [AdminController::class, 'viewProductData'])->name('view_product_data');
 
         Route::get('/upload-product-data', [ConvertCSVController::class, 'index'])->name('upload_product_data');
+
 
         Route::post('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('process_csv_file');
     

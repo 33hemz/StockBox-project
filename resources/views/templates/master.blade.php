@@ -14,7 +14,7 @@
     
 </head>
 
-@if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page', 'admin/upload-product-data']))
+@if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page', 'admin/upload-product-data', 'admin/view-product-data']))
 
 {{-- if one of these page, show sidebar --}}
 <body>
@@ -37,6 +37,7 @@
 					@elseif (auth()->user()->user_type === 'ADMIN')
 						<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
 						<li><a href="{{ route('upload_product_data') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload Product Data</span></a></li>
+						<li><a href="{{ route('view_product_data') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">View Product Data</span></a></li>
 					@endif
 
 					<li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a></li>
