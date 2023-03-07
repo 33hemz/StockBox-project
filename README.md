@@ -50,7 +50,7 @@ php artisan serve
 - **Week 3:** Suraj Cheema
 - **Week 4:** Tharidhu Angodage
 - **Week 5:** George Rogers
-- **Week 6:** 
+- **Week 6:** Hemal Patel
 - **Week 7:** 
 - **Week 8:** 
 
