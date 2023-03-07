@@ -6,7 +6,7 @@
     <div style="height: 15vh;"></div>
 
     <div class="col-sm-12 col-md-3 offset-md-1">
-        <div class="text-black">
+        <div class="text-black block">
             <h1 class="fw-bold mb-4 ">Your products...<br>Our Insight</h1>
             <p class="mb-4 fs-5"><span class="text-primary fw-bold">Understand</span> and <span class="text-primary fw-bold">visualise</span> the marketplace</p> 
             @if (auth()->check())
