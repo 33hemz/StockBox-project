@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password as PasswordRule;
 
 class LoginController extends Controller
 {
@@ -58,7 +61,7 @@ class LoginController extends Controller
         validator(request()->all(), [
             'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed',
+            'password' => ['required', 'confirmed', PasswordRule::min(8)->numbers()->mixedCase()->uncompromised()],
         ])->validate();
      
         $status = Password::reset(
@@ -79,7 +82,7 @@ class LoginController extends Controller
                     : back()->withErrors(['email' => [__($status)]]);
     }
 
-    // -----CREATE PASSWORD-------
+    // --- CREATE PASSWORD ---
 
     public function createPassword() {
         return view('first_time_login');
@@ -87,7 +90,7 @@ class LoginController extends Controller
 
     public function processPassword() {
         validator(request()->all(), [
-            'password' => 'required|confirmed',
+            'password' => ['required', 'confirmed', PasswordRule::min(8)->numbers()->mixedCase()->uncompromised()],
         ])->validate();
 
         $user = User::find(auth()->user()->id);
@@ -99,7 +102,7 @@ class LoginController extends Controller
         $user->save();
         
         
-        return(redirect(route('landing')));
+        return(redirect(route('dashboard')));
     }
 
 }

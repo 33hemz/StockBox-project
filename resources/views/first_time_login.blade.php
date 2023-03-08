@@ -1,6 +1,6 @@
 @extends('templates.master')
 
-@section('title', 'Login')
+@section('title', 'Create Password')
 
 @section('head')
 <style>
@@ -34,7 +34,9 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-                
+                <p style='font-size: 12px; color: #525252;'>
+                A password should be longer than 8 characters, containing uppercase and lowercase letters and at least one number.
+                </p>
                 <div class="d-flex justify-content-between align-items-center">
                     <input type="submit" value="Access Account" class="btn btn-primary">
                 </div>

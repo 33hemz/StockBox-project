@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function() {
         return redirect('/');
     })->name('logout');
 
-    Route::get('/first_time_login', [LoginController::class, 'createPassword'])->name('first_time_login');
+    Route::get('/create_password', [LoginController::class, 'createPassword'])->name('first_time_login');
     Route::post('/process_first_time_login', [LoginController::class, 'processPassword'])->name('process_first_time_login');
 
     // --- USER PAGES ---
