@@ -48,18 +48,18 @@
         @foreach ($product_data as $product)
         <tr>
             <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['id']}}</td>
+            <td>{{$product['category_id']}}</td>
+            <td>{{$product['brand']}}</td>
+            <td>{{$product['product_name']}}</td>
+            <td>{{$product['category']}}</td>
+            <td>{{$product['subcategory']}}</td>
+            <td>{{$product['price_£']}}</td>
+            <td>{{$product['price_per']}}</td>
+            <td>{{$product['ingredients']}}</td>
+            <td>{{$product['allergen_information']}}</td>
+            <td>{{$product['recycling_information']}}</td>
+            <td>{{$product['product_link']}}</td>
+            <td>{{$product['brand_details']}}</td>
         </tr>
         @endforeach    
         
