@@ -4,22 +4,6 @@
 @section('head')
 <script src='https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js'></script>
 <link rel="stylesheet" href='https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css'>
-
-<style>
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-      width: 100%;
-      border: 1px solid #ddd;
-    }
-    
-    th, td {
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even){background-color: #f2f2f2}
-    </style>
 @endsection
 
 @section('content')
@@ -65,10 +49,12 @@
         
     </tbody>
 </table>
+
     <script>
     let table = new DataTable('#product_data_table', {
         responsive: true
     });
     </script>
+    
 </div>
 @endsection
