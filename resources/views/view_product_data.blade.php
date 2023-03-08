@@ -9,12 +9,10 @@
 @section('content')
 
 <h1 class="border-bottom pb-2">View Product Data</h1>
-<div style="overflow-x:auto;">
+
     <table id="product_data_table" class="display">
     <thead>
         <tr>
-            <th>id</th>
-            <th>category id</th>
             <th>brand</th>
             <th>product name</th>
             <th>category</th>
@@ -31,8 +29,6 @@
     <tbody>
         @foreach ($product_data as $product)
         <tr>
-            <td>{{$product['id']}}</td>
-            <td>{{$product['category_id']}}</td>
             <td>{{$product['brand']}}</td>
             <td>{{$product['product_name']}}</td>
             <td>{{$product['category']}}</td>
@@ -52,9 +48,11 @@
 
     <script>
     let table = new DataTable('#product_data_table', {
-        responsive: true
+        responsive: true,
+        paging: false,
+        scrollX : 400
     });
     </script>
     
-</div>
+
 @endsection
