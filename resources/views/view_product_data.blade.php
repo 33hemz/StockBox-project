@@ -2,8 +2,8 @@
 
 @section('title', 'View Product Data')
 @section('head')
-<script src='http://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js'></script>
-<link rel="stylesheet" href='http://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css'>
+<script src='https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js'></script>
+<link rel="stylesheet" href='https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css'>
 
 <style>
     table {
@@ -21,16 +21,12 @@
     tr:nth-child(even){background-color: #f2f2f2}
     </style>
 @endsection
+
 @section('content')
 
 <h1 class="border-bottom pb-2">View Product Data</h1>
-<script>
-let table = new DataTable('#myTable', {
-    responsive: true
-});
-</script>
 <div style="overflow-x:auto;">
-<table id="table_id" class="display">
+    <table id="product_data_table" class="display">
     <thead>
         <tr>
             <th>id</th>
@@ -46,25 +42,33 @@ let table = new DataTable('#myTable', {
             <th>recycling information</th>
             <th>product link</th>
             <th>brand details</th>
-            <th>created at</th>
-            <th>updated at</th>
         </tr>
     </thead>
     <tbody>
+        @foreach ($product_data as $product)
         <tr>
-            <td>
-                @foreach ($product_data as $product)
-                    {{$product['id']}}
-                @endforeach    
-            </td>
-            <td>  
-            </td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
+            <td>{{$product['id']}}</td>
         </tr>
-        <tr>
-            <td>
-            </td>
-        </tr>
+        @endforeach    
+        
     </tbody>
 </table>
+    <script>
+    let table = new DataTable('#product_data_table', {
+        responsive: true
+    });
+    </script>
 </div>
 @endsection
