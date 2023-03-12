@@ -9,7 +9,7 @@
 	<title>@yield('title') | StokBox Analytics</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-	<link rel="icon" type="image/x-icon" href="assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png">
+	<link rel="icon" type="image/x-icon" href="{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}">
 	@yield('head')
     
 </head>
@@ -17,7 +17,7 @@
 @if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page', 'admin/upload-product-data']))
 
 {{-- if one of these page, show sidebar --}}
-<body>
+<body class="d-flex flex-column">
 	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row border-bottom">
 		<a href="{{ route('landing') }}"><img class="my-2 mx-4" href="{{ route('dashboard') }}" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=220 alt="StokBox Logo"></a>
 		<nav>
@@ -26,7 +26,7 @@
 			</ul>
 		</nav>
     </header>
-	<div class="d-flex flex-row">
+	<div class="d-flex flex-row" style="flex: 1;">
 			<div class="page_sidebar">
 				<nav class="Navbar">
 					<ul>

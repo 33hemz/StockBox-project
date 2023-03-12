@@ -44,7 +44,6 @@ body {
     align-self: stretch;
 }
 .Navbar {
-    min-height: 773px;
     height: 100%;
     white-space: nowrap;
     overflow-x: hidden;
