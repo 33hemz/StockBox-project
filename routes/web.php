@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ConvertCSVController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ManageUserController;
 
 
 /*
@@ -73,6 +74,12 @@ Route::middleware('auth')->group(function() {
         Route::get('/upload-product-data', [ConvertCSVController::class, 'index'])->name('upload_product_data');
 
         Route::post('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('process_csv_file');
+
+        Route::get('/manage-user', [ManageUserController::class, 'index'])->name('manage_user');
+
+        Route::post('/delete-user', [ManageUserController::class, 'deleteUser'])->name('delete_user');
+
+        Route::get('/edit-user/{id}', [ManageUserController::class, 'editUser'])->name('edit_user');
     
     });
 
