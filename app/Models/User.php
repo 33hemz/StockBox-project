@@ -18,4 +18,8 @@ class User extends Authenticatable
     ];
 
     protected $guarded = [];
+
+    public function company() {
+        return $this->belongsTo(Company::class);
+    }
 }
