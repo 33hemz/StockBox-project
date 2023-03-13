@@ -10,13 +10,12 @@
 	<title>@yield('title') | StokBox Analytics</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-	<link rel="icon" type="image/x-icon" href="{{ asset('{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}') }}">
+	<link rel="icon" type="image/x-icon" href="{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}">
 	@yield('head')
     
 </head>
 
 @if ((in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'admin/manage-user', 'brand-page', 'admin/upload-product-data'])) || (str_starts_with(request()->path(), 'admin/edit-user')))
-@if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page', 'admin/upload-product-data', 'admin/view-product-data']))
 
 {{-- if one of these page, show sidebar --}}
 <body class="d-flex flex-column">
