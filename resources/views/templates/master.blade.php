@@ -94,7 +94,7 @@
         <nav>
 			<ul class="me-4">
 				<li><a href="{{ route('landing') }}">Home</a></li>
-				<li><a href="{{ route('user_manual') }}">User Manual</a></li>
+				<li><a href="{{ route('user_manual') }}">Help?</a></li>
 				@if (auth()->check())
 					@if (auth()->user()->user_type === 'USER')
 						<li><a href="{{ route('dashboard') }}" class="text-primary">{{ auth()->user()->first_name }}'s Dashboard</a></li>

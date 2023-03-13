@@ -12,7 +12,7 @@
 
 @section('content') 
 <div class="mx-auto" style="width: 450px; margin-top: 50px;">
-    <div class="card shadow-lg" style="background-color: aliceblue">
+    <div class="card shadow-lg">
         <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
         <h1 class="text-center">Forgot Password</h1>
         <span class="text-center mt-2">Let's get you into your account</span>
