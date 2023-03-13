@@ -10,11 +10,12 @@
 	<title>@yield('title') | StokBox Analytics</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-	<link rel="icon" type="image/x-icon" href="{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}">
+	<link rel="icon" type="image/x-icon" href="{{ asset('{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}') }}">
 	@yield('head')
     
 </head>
 
+@if ((in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'admin/manage-user', 'brand-page', 'admin/upload-product-data'])) || (str_starts_with(request()->path(), 'admin/edit-user')))
 @if (in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'brand-page', 'admin/upload-product-data', 'admin/view-product-data']))
 
 {{-- if one of these page, show sidebar --}}
@@ -37,6 +38,7 @@
 					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text">Brand Page</span></a></li>
 					@elseif (auth()->user()->user_type === 'ADMIN')
 						<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
+						<li><a href="{{ route('manage_user') }}"><i class="fa-solid fa-pen-to-square"></i> <span class="nav-text">Manage Users</span></a></li>
 						<li><a href="{{ route('upload_product_data') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload Product Data</span></a></li>
 						<li><a href="{{ route('view_product_data') }}"><i class="fa-solid fa-eye"></i> <span class="nav-text">View Product Data</span></a></li>
 					@endif
