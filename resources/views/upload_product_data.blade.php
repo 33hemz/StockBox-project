@@ -44,7 +44,7 @@
     <h3>Ensure the following:</h3>
     <ul>
         <li>
-            <br>CSV file should contain the following headers in the correct order:<br>
+            <p>CSV file should contain the following headers in the correct order:<p>
             <span class="text-muted fst-italic">custom headers</span>
                 
         </li>
