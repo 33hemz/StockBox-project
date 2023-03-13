@@ -15,8 +15,10 @@ class ManageUserController extends Controller
         ]);
      }
     public function deleteUser(){
-        $users = User::find(request()['user_id'])->delete();
-        return redirect(route('manage_user'));
+        $user = $toDelete = User::find(request()['user_id']);
+        $toDelete->delete();
+        return redirect(route('manage_user'))->with('danger', 'User \'' . $user->first_name . ' ' . $user->last_name . '\' deleted.');
+        
     } 
 
     public function editUser($id){
@@ -36,7 +38,6 @@ class ManageUserController extends Controller
             'email' => 'required|email',
             'company_id' => 'required'
         ]);
-        $prev = User::find(request()['user_id']);
         $user = User::find(request()['user_id']);
         $user->update([
             'first_name' => request()['first_name'],
@@ -45,11 +46,11 @@ class ManageUserController extends Controller
             'company_id' => request()['company_id'],
         ]);
 
-        if ($prev==$user) {
-            return back()->with('warning', 'User not updated.');
+        if ($user->wasChanged()) {
+            return redirect(route('manage_user'))->with('success', 'User \'' . $user->first_name . ' ' . $user->last_name . '\' updated successfully.');
         }
         else {
-            return redirect(route('manage_user'))->with('success', 'User \'' . $user->first_name . ' ' . $user->last_name . '\' updated successfully.');
+            return back()->with('warning', 'User not updated.');
         }
         
     }
