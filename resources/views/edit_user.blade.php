@@ -48,6 +48,9 @@
 
     <div class="mb-3">
         <input type="submit" value="Edit User" class="btn btn-primary">
+        <a href={{ route('manage_user') }} class="btn btn-secondary">Cancel</a>
+    </div>
+    <div class="mb-3">
     </div>
 </form>
 @endsection
