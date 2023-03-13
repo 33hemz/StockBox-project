@@ -36,7 +36,7 @@ class ManageUserController extends Controller
             'email' => 'required|email',
             'company_id' => 'required'
         ]);
-        $check = User::find(request()['user_id']);
+        $prev = User::find(request()['user_id']);
         $user = User::find(request()['user_id']);
         $user->update([
             'first_name' => request()['first_name'],
@@ -45,14 +45,13 @@ class ManageUserController extends Controller
             'company_id' => request()['company_id'],
         ]);
 
-        if ($check==$user) {
-            return redirect(route('manage_user'))->with('warning', 'User not updated.');
+        if ($prev==$user) {
+            return back()->with('warning', 'User not updated.');
         }
         else {
-            return redirect(route('manage_user'))->with('success', 'User updated successfully.');
+            return redirect(route('manage_user'))->with('success', 'User \'' . $user->first_name . ' ' . $user->last_name . '\' updated successfully.');
         }
         
-
     }
 
 }
