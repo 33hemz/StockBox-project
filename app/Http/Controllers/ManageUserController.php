@@ -28,4 +28,31 @@ class ManageUserController extends Controller
         ]);
     } 
 
+    public function processEditUser() {
+
+        $data = request()->validate([
+            'first_name' => 'required|min:2|max:30',
+            'last_name' => 'required|min:2|max:30',
+            'email' => 'required|email',
+            'company_id' => 'required'
+        ]);
+        $check = User::find(request()['user_id']);
+        $user = User::find(request()['user_id']);
+        $user->update([
+            'first_name' => request()['first_name'],
+            'last_name' => request()['last_name'],
+            'email' => request()['email'],
+            'company_id' => request()['company_id'],
+        ]);
+
+        if ($check==$user) {
+            return redirect(route('manage_user'))->with('warning', 'User not updated.');
+        }
+        else {
+            return redirect(route('manage_user'))->with('success', 'User updated successfully.');
+        }
+        
+
+    }
+
 }
