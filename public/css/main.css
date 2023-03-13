@@ -72,6 +72,31 @@ body {
 .Navbar a:hover {
     color: #D3D3D3;
 }
+
+table {
+    border-collapse: collapse;
+    table-layout:auto;
+    border-spacing: 0;
+    width: 100%;
+    border: 2px solid #107a5e;
+  }
+  
+  thead {
+    background-color: #2db28e;
+    color: white;
+    
+  }
+
+  th, td {
+    text-align: center;
+    padding: 10px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 2px solid #107a5e;
+    
+  }
+
+
 /* 
 .Navbar .close {
     position: absolute;
