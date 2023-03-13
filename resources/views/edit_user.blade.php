@@ -6,9 +6,9 @@
 @section('content') 
 
 <h1 class="border-bottom pb-2"> Edit User</h1>
-<form action="{{ route('process_new_user') }}" method="post">
+<form action="{{ route('process_edit_user') }}" method="post">
     @csrf
-    
+    <input type="hidden" value="{{ $user->id }}" name="user_id">
     <div class="mb-3">
     <label for="first_name">First name</label>
     <input type="text" id="first_name" name="first_name" value="{{ old('first_name', $user->first_name) }}" class="form-control @error('first_name') is-invalid @enderror">

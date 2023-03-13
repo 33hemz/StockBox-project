@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function() {
         Route::post('/delete-user', [ManageUserController::class, 'deleteUser'])->name('delete_user');
 
         Route::get('/edit-user/{id}', [ManageUserController::class, 'editUser'])->name('edit_user');
-    
+        Route::post('/process-edit-user', [ManageUserController::class, 'processEditUser'])->name('process_edit_user');
     });
 
     Route::prefix('admin')->middleware('user_type:ADMIN')->group(function() {
