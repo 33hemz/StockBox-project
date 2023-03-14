@@ -90,13 +90,13 @@
   <a><b style="position:relative; right: 10px">Contents:</b></a>
   <a href="#intro">Introduction</a>
   <a href="#landing">Landing Page</a>
-  <a href="#user_features">User Features</a>
+  <a href="#user_features" style="font-size: 1.5em; font-weight: bold"; >User Features</a>
   <a href="#login">Logging You In</a>
   <a href="#dash">Dashboard Page</a>
   <a href="#forgotten">Forgotten Password</a>
   <a href="#brand">Brand Page</a>
   <a href="#nav">Navigation Bar</a>
-  <a href="#admin">Admin Features</a>
+  <a href="#admin" style="font-size: 1.5em; font-weight: bold">Admin Features</a>
   <a href="#update">Updating The Database</a>
   <a href="#addingNewUser">Adding a New User</a>
 
@@ -157,17 +157,17 @@
       <p>
         From the landing page, press sign in to navigate to the landing page…</p>
         <br>
-        <img class="picture" src="{{ asset('assets/User Manual Images/sign_in_page_button_image.png ') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/sign_in_page_button_image.png ') }}" alt="">
         <br><br>
         Enter your credentials into the box provided and press Log in…
         <br>  <br>
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture4.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture4.jpg') }}" alt="">
         <br>
         <p>
           If you put the wrong credentials in, you’ll get a message telling you so…
         </p>
         <br>
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture5.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture5.jpg') }}" alt="">
         <br><br>
 
         <h2 id="dash" class="title">Dashboard Page</h2>
@@ -175,9 +175,9 @@
         At a glance, you can see all analytics relevant to your company and queries…
         </p>
 
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture7.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture7.jpg') }}" alt="">
         <br> <br>
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture8.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture8.jpg') }}" alt="">
       </p>
       <br>
       <h2 id="forgotten" class="title">Forgotten Password</h2>      
@@ -185,19 +185,19 @@
         If you forgot password, it’s no problem
         Simply click forgot password…
       </p>
-      <img class="picture" src="{{ asset('assets/User Manual Images/Picture9.jpg') }}" alt="">
+      <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture9.jpg') }}" alt="">
       <br><br>
-      <img class="picture" src="{{ asset('assets/User Manual Images/Picture10.jpg') }}" alt="">
+      <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture10.jpg') }}" alt="">
       <br>
       <p> …and you’ll be sent a recovery email </p>
 
-      <img class="picture" src="{{ asset('assets/User Manual Images/Picture11.jpg') }}" alt="">
+      <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture11.jpg') }}" alt="">
 
       <br>
 
       <p> Follow the Reset Password link, and enter your new credentials. <p>
 
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture12.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture12.jpg') }}" alt="">
       <br>
         <h1>
         <h2 id="brand" class="title">Brand Page</h2>
@@ -207,10 +207,10 @@
           Simply select and Submit a new category. It’ll be added and stored to your brand page.
 
         </p>
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture13.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture13.jpg') }}" alt="">
         <br>
         <br>
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture14.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture14.jpg') }}" alt="">
         <br>
         <h1>
           <h2 id="nav" class="title">Navigation Bar</h2>
@@ -219,7 +219,7 @@
           You can move around the various features of the webapp by using the navigation bar
         </p>
 
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture15.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture15.jpg') }}" alt="">
         <br>
         <h1>
           <h2 id="admin" class="title">Admin Features</h2>
@@ -231,7 +231,7 @@
           An admin can update the database by uploading a new CSV
           Simply choose a new file, in the relevant formats and in the correct
         </p>
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture16.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture16.jpg') }}" alt="">
         <br>
         <h1>
           <h2 id="addingNewUser" class="title">Adding a New User</h2>
@@ -241,7 +241,7 @@
           Simply select and add what company they are part of and submit it…
           Then input your user details
         </p>
-        <img class="picture" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
 
     
     </div>
