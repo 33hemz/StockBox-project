@@ -15,7 +15,7 @@
     
 </head>
 
-@if ((in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'admin/manage-user', 'brand-page', 'admin/upload-product-data'])) || (str_starts_with(request()->path(), 'admin/edit-user')))
+@if ((in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'admin/manage-user', 'brand-page', 'admin/upload-product-data', 'admin/view-product-data'])) || (str_starts_with(request()->path(), 'admin/edit-user')))
 
 {{-- if one of these page, show sidebar --}}
 <body class="d-flex flex-column">
@@ -47,7 +47,7 @@
 			</nav>
 		</div>
 			
-		<div id="page_content" class="container">
+		<div id="page_content" class="container" style="min-width: 0;">
 			@if (session('success'))
             <div class="alert alert-success mt-3 mb-0" role="alert">
                 {{ session('success') }}

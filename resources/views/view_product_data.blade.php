@@ -4,6 +4,7 @@
 @section('head')
 <script src='https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js'></script>
 <link rel="stylesheet" href='https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css'>
+<link rel="stylesheet" href='https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css'>
 @endsection
 
 @section('content')
@@ -13,32 +14,32 @@
     <table id="product_data_table" class="display">
     <thead>
         <tr>
-            <th>brand</th>
-            <th>product name</th>
-            <th>category</th>
-            <th>subcategory</th>
-            <th> price</th>
-            <th>price per person</th>
-            <th>ingredients</th>            
-            <th>allergen information</th>
-            <th>recycling information</th>
-            <th>product link</th>
-            <th>brand details</th>
+            <th>Brand</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Price</th>
+            <th>Price per person</th>
+            <th>Ingredients</th>            
+            <th>Allergen Information</th>
+            <th>Recycling Information</th>
+            <th>Product Link</th>
+            <th>Brand Details</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($product_data as $product)
         <tr>
-            <td>{{$product['brand']}}</td>
-            <td>{{$product['product_name']}}</td>
-            <td>{{$product['category']}}</td>
+            <td class="text-nowrap">{{$product['brand']}}</td>
+            <td style="min-width: 180px;">{{$product['product_name']}}</td>
+            <td style="min-width: 180px;">{{$product['category']}}</td>
             <td>{{$product['subcategory']}}</td>
             <td>{{$product['price_£']}}</td>
             <td>{{$product['price_per']}}</td>
-            <td>{{$product['ingredients']}}</td>
+            <td class="text-truncate" style="max-width: 100px;">{{$product['ingredients']}}</td>
             <td>{{$product['allergen_information']}}</td>
             <td>{{$product['recycling_information']}}</td>
-            <td>{{$product['product_link']}}</td>
+            <td><a target="_blank" href="{{ $product['product_link'] }}">{{$product['product_link']}}</a></td>
             <td>{{$product['brand_details']}}</td>
         </tr>
         @endforeach    
@@ -48,9 +49,7 @@
 
     <script>
     let table = new DataTable('#product_data_table', {
-        responsive: true,
-        paging: false,
-        scrollX : 400
+        scrollX: true,
     });
     </script>
     

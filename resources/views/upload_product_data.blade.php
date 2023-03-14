@@ -18,8 +18,6 @@
         <li>All entries must be separated with semi-colons rather than commas e.g. <span class="text-muted" style="font-family: consolas;">item 1;item 2;item 3</span></li>
     </ul>
 
-    
-
     <div class="mb-3">
         <label for="file">CSV file to import</label>
         <input type="file" id="file" name="file" value="{{ old('file') }}" class="form-control @error('file') is-invalid @enderror">

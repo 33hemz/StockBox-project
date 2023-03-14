@@ -5,7 +5,7 @@
 
 @section('content') 
 
-<h1 class="border-bottom pb-2"> Edit User</h1>
+<h1 class="border-bottom pb-2">Edit User</h1>
 <form action="{{ route('process_edit_user') }}" method="post">
     @csrf
     <input type="hidden" value="{{ $user->id }}" name="user_id">
