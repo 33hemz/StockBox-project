@@ -38,7 +38,7 @@
 					@elseif (auth()->user()->user_type === 'ADMIN')
 						<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
 						<li><a href="{{ route('manage_user') }}"><i class="fa-solid fa-pen-to-square"></i> <span class="nav-text">Manage Users</span></a></li>
-						<li><a href="{{ route('upload_product_data') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload Product Data</span></a></li>
+						<li><a href="{{ route('upload_product_data') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload Data</span></a></li>
 						<li><a href="{{ route('view_product_data') }}"><i class="fa-solid fa-eye"></i> <span class="nav-text">View Product Data</span></a></li>
 					@endif
 

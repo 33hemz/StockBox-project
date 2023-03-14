@@ -34,11 +34,11 @@
 <br>
 <br>
     
-    {{-- import buyer csv --}}
-<form method="post" enctype="multipart/form-data">
+    {{-- import consumer csv --}}
+<form action="{{ route('process_user_data') }}"method="post" enctype="multipart/form-data">
     @csrf
     
-    <h1 class="border-bottom pb-2">Import Buyer Data via CSV</h1>
+    <h1 class="border-bottom pb-2">Import Consumer Data via CSV</h1>
     <h3>Ensure the following:</h3>
     <ul>
         <li>
@@ -52,9 +52,9 @@
         
     
     <div class="mb-3">
-        <label for="file">CSV file to import</label>
-        <input type="file" id="product_file" name="product_file" value="{{ old('product_file') }}" class="form-control @error('file') is-invalid @enderror">
-        @error('file')
+        <label for="consumer_file">CSV file to import</label>
+        <input type="file" id="" name="consumer_file" value="{{ old('consumer_file') }}" class="form-control @error('consumer_file') is-invalid @enderror">
+        @error('consumer_file')
             <div class="invalid-feedback">{!! $message !!}</div>
         @enderror
     </div>
