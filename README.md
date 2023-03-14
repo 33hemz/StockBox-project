@@ -214,10 +214,11 @@ php artisan serve
 		<th>Description</th>
 		<th>Weight</th>
 		<th>Priority</th>
+		<th>Assigned Team Memebers</th>
 	</tr>
 </thead>
 <tbody>
-    <tr>
+	<tr>
 		<td>Save Sidebar State</td>
 		<td>
 			<b>As a</b> user/website admin,<br>
@@ -227,29 +228,27 @@ php artisan serve
 		<td>2</td>
 		<td>5</td>
 	</tr>
-    
-    <tr>
+	<tr>
 		<td>Table of Contents for User Manual</td>
 		<td>
 			<b>As a</b> user/website admin,<br>
 			<b>I want</b> to be able to easily navigate the user manual via a Table of Content located on the sidebar,<br>
 			<b>So that</b>  I don't have to spend time scrolling through the entire user manual to find the topic I am looking for
-		    </td>
+    	</td>
 		<td>2</td>
 		<td>6</td>
+		<td>Test</td>
 	</tr>
-
-    <tr>
+	<tr>
 		<td>Admin View Imported Users</td>
 		<td>
 			<b>As a</b> website admin,<br>
 			<b>I want</b> to be able to view currently imported user data,<br>
 			<b>So that</b>  I can check what data has been previously uploaded without having to query the database manually
-		    </td>
+	    </td>
 		<td>3</td>
 		<td>2</td>
 	</tr>
-
 	<tr>
 		<td>Admin Import Consumer Data</td>
 		<td>
@@ -257,8 +256,8 @@ php artisan serve
 			<b>I want</b> to import sample consumer data via CSV,<br>
 			<b>So that</b> the consumer data can be linked with product data in order to generate user personas
 		</td>
-		<td>5</td>
-		<td>1</td>
+	<td>5</td>
+	<td>1</td>
 	</tr>
 	<tr>
 		<td>Set Password on Initial Login</td>
