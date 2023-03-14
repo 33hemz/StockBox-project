@@ -42,9 +42,8 @@
     <h3>Ensure the following:</h3>
     <ul>
         <li>
-            <p class="mb-0">CSV file should contain the following headers in the correct order:<p>
-            <span class="text-muted fst-italic mb-0">custom headers</span>
-                
+            CSV file should contain the following headers in the correct order:<br>
+            <span class="text-muted fst-italic mb-0">full_name, gender, age, country, income, number_of_dependents, dietry_requirements</span>      
         </li>
         <li>All entries must be separated with semi-colons rather than commas e.g. <span class="text-muted" style="font-family: consolas;">item 1;item 2;item 3</span></li>
     </ul>
