@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ConvertCSVController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ManageUserController;
+use App\Http\Controllers\UserDataController;
+
 
 
 /*
@@ -76,8 +78,8 @@ Route::middleware('auth')->group(function() {
         Route::get('/view-product-data', [AdminController::class, 'viewProductData'])->name('view_product_data');
 
         Route::get('/upload-product-data', [ConvertCSVController::class, 'index'])->name('upload_product_data');
-
-
+        
+        Route::post('/process-user-data-table', [UserDataController::class, 'uploadUserData'])->name('process_user_data');
         Route::post('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('process_csv_file');
     
 
