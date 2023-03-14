@@ -72,6 +72,12 @@
     box-shadow: 20px 20px #3f3f3f;
   }
 
+  .bigger {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+
   .unknown_info {
     color:#1f553e
   }
@@ -151,7 +157,7 @@
     </div>
 
     {{--Login--}}
-    <h2 id=user_features class="title"> User Features</h2>
+    <h2 id=user_features class="title bigger"> User Features</h2>
     <h2 id="login" class="title">Logging You In…</h2>
     <div class="para">
       <p>
@@ -222,7 +228,7 @@
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture15.jpg') }}" alt="">
         <br>
         <h1>
-          <h2 id="admin" class="title">Admin Features</h2>
+          <h2 id="admin" class="title bigger">Admin Features</h2>
         </h1>
         <h2>
           <h2 id="update" class="title">Updating The Database</h2>
