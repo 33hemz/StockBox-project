@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('gender');
             $table->integer('age');
             $table->string('country');
-            $table->string('income');
+            $table->float('income');
             $table->integer('number_of_dependents');
-            $table->string('dietry_requirements');
+            $table->string('dietary_requirements');
         });
     }
 

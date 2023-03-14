@@ -33,16 +33,16 @@
 					<ul>
 					<li><a href="#" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a></li>
 					@if (auth()->user()->user_type === 'USER')
-					<li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text">Dashboard Page</span></a></li>
-					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text">Brand Page</span></a></li>
+					<li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text" style="display: none;">Dashboard Page</span></a></li>
+					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text" style="display: none;">Brand Page</span></a></li>
 					@elseif (auth()->user()->user_type === 'ADMIN')
-						<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text">Create New Users</span></a></li>
-						<li><a href="{{ route('manage_user') }}"><i class="fa-solid fa-pen-to-square"></i> <span class="nav-text">Manage Users</span></a></li>
-						<li><a href="{{ route('upload_product_data') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text">Upload Data</span></a></li>
-						<li><a href="{{ route('view_product_data') }}"><i class="fa-solid fa-eye"></i> <span class="nav-text">View Product Data</span></a></li>
+						<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text" style="display: none;">Create New Users</span></a></li>
+						<li><a href="{{ route('manage_user') }}"><i class="fa-solid fa-pen-to-square"></i> <span class="nav-text" style="display: none;">Manage Users</span></a></li>
+						<li><a href="{{ route('upload_product_data') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text" style="display: none;">Upload Data</span></a></li>
+						<li><a href="{{ route('view_product_data') }}"><i class="fa-solid fa-eye"></i> <span class="nav-text" style="display: none;">View Product Data</span></a></li>
 					@endif
 
-					<li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text">Logout</span></a></li>
+					<li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text" style="display: none;">Logout</span></a></li>
 				</ul>
 			</nav>
 		</div>
@@ -70,9 +70,8 @@
 	</div>
 	
 	<script>
-
-		let minimised = localStorage.getItem("minimised");
-		if(minimised === null) {
+		let minimised = (localStorage.getItem("minimised") === 'true');
+		if (minimised === null) {
 			minimised = false;
 		}
 		
@@ -95,9 +94,9 @@
 
 			for (var i = 0; i < navTexts.length; i++) {
 				if (minimised) {
-					navTexts.item(i).style.display = 'inline-block';
-				} else {
 					navTexts.item(i).style.display = 'none';
+				} else {
+					navTexts.item(i).style.display = 'inline-block';
 				}
 			}
 		}

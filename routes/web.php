@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ConvertCSVController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\UserDataController;
 
@@ -60,9 +61,7 @@ Route::middleware('auth')->group(function() {
 
     // --- USER PAGES ---
     Route::middleware('user_type:USER')->group(function() {
-        Route::get('/dashboard', function() {
-            return view('dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         
 
         Route::get('/brand-page', [UserController::class, 'index'])->name('brand_page');
