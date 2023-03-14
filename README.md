@@ -217,6 +217,39 @@ php artisan serve
 	</tr>
 </thead>
 <tbody>
+    <tr>
+		<td>Save Sidebar State</td>
+		<td>
+			<b>As a</b> user/website admin,<br>
+			<b>I want</b> the state of my sidebar to remain the same as I navigate between pages on the site,<br>
+			<b>So that</b> I  don't need to keep toggling it every time I navigate to a new page
+		</td>
+		<td>2</td>
+		<td>5</td>
+	</tr>
+    
+    <tr>
+		<td>Table of Contents for User Manual</td>
+		<td>
+			<b>As a</b> user/website admin,<br>
+			<b>I want</b> to be able to easily navigate the user manual via a Table of Content located on the sidebar,<br>
+			<b>So that</b>  I don't have to spend time scrolling through the entire user manual to find the topic I am looking for
+		    </td>
+		<td>2</td>
+		<td>6</td>
+	</tr>
+
+    <tr>
+		<td>Admin View Imported Users</td>
+		<td>
+			<b>As a</b> website admin,<br>
+			<b>I want</b> to be able to view currently imported user data,<br>
+			<b>So that</b>  I can check what data has been previously uploaded without having to query the database manually
+		    </td>
+		<td>3</td>
+		<td>2</td>
+	</tr>
+
 	<tr>
 		<td>Admin Import Consumer Data</td>
 		<td>
@@ -258,11 +291,11 @@ php artisan serve
 		<td>4</td>
 	</tr>	
 	<tr>
-		<td>Generate User Personas</td>
+		<td>Generate Dashboard Data</td>
 		<td>
 			<b>As a</b> user,<br>
-			<b>I want</b> to be able to view user personas based on the provided description of my company,<br>
-			<b>So that</b> I can be informed of potential areas that my company can expand into
+			<b>I want</b> to be able to view a summary of my companies market segment,<br>
+			<b>So that</b> I can be informed about the specific demographics my company should be targeting
 		</td>
 		<td>8</td>
 		<td>5</td>
