@@ -64,6 +64,14 @@
     box-shadow: 20px 20px #3f3f3f;
   }
 
+  .pictureSmaller {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #3f3f3f;
+    box-shadow: 20px 20px #3f3f3f;
+  }
+
   .unknown_info {
     color:#1f553e
   }
@@ -82,10 +90,16 @@
   <a><b style="position:relative; right: 10px">Contents:</b></a>
   <a href="#intro">Introduction</a>
   <a href="#landing">Landing Page</a>
-  <a href="#login">Login</a>
-  <li><a href="#login_retrieve" style="font-size: 17px; margin-left: 10px;"> Retrieving your login</a></li>
-  <li><a href="#login_initial" style="font-size: 17px; margin-left: 10px;">Initial login</a></li>
-  <li><a href="#login_login" style="font-size: 17px; margin-left: 10px;">Logging in</a></li>
+  <a href="#user_features">User Features</a>
+  <a href="#login">Logging You In</a>
+  <a href="#dash">Dashboard Page</a>
+  <a href="#forgotten">Forgotten Password</a>
+  <a href="#brand">Brand Page</a>
+  <a href="#nav">Navigation Bar</a>
+  <a href="#admin">Admin Features</a>
+  <a href="#update">Updating The Database</a>
+  <a href="#addingNewUser">Adding a New User</a>
+
   </div>
 
   {{--Main Page--}}
@@ -137,34 +151,99 @@
     </div>
 
     {{--Login--}}
-    <h2 id="login" class="title">Logging In</h2>
+    <h2 id=user_features class="title"> User Features</h2>
+    <h2 id="login" class="title">Logging You In…</h2>
     <div class="para">
       <p>
-        Logging into our website is simple. However, it requires that you receive your login details from one of our admins…
-      </p>
-      <p id="login_retrieve"class="subtitle">Retrieving your login</p>
-      <p>To create an account with Stokbox Analytics, you will need to follow the following steps:</p>
-      <ol>
-        <li>Contact us by emailing <b class="unknown_info">support@stokbox.co.uk</b> and requesting an account.</li>
-        <li>Our administrators will respond promptly and provide you with your details in an email.</li>
-        <li>Use the account details to log in for the first time.</li>
-      </ol>
-      <p>
-        It is important that you ensure that you do not share your login credentials with anyone when logging onto our system.
-      </p>
-      <p id="login_initial" class="subtitle">Initial log in</p>
-      <p id="login_login" class="subtitle">Logging in</p>
-      <p>
-        To be taken to the login page, press "<b>Sign In</b>" from the landing page. From here, you should see the following...
+        From the landing page, press sign in to navigate to the landing page…</p>
+        <br>
+        <img class="picture" src="{{ asset('assets/User Manual Images/sign_in_page_button_image.png ') }}" alt="">
+        <br><br>
+        Enter your credentials into the box provided and press Log in…
+        <br>  <br>
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture4.jpg') }}" alt="">
+        <br>
+        <p>
+          If you put the wrong credentials in, you’ll get a message telling you so…
+        </p>
+        <br>
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture5.jpg') }}" alt="">
+        <br><br>
+
+        <h2 id="dash" class="title">Dashboard Page</h2>
+        <p>Once logged in, you can see your dashboard…
+        At a glance, you can see all analytics relevant to your company and queries…
+        </p>
+
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture7.jpg') }}" alt="">
+        <br> <br>
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture8.jpg') }}" alt="">
       </p>
       <br>
-      <img class="picture" src="{{ asset('assets/User Manual Images/login_page_image.png ') }}" alt="">
-      <br><br>
+      <h2 id="forgotten" class="title">Forgotten Password</h2>      
       <p>
-        As prompted, enter your username and password into the text boxes and press the “<b>Log In</b>” button. This will take you to your 
-        dashboard. However, if your credentials are incorrect, or you did not fill out both boxes, you will receive an error message informing
-         you what actions to perform.
+        If you forgot password, it’s no problem
+        Simply click forgot password…
       </p>
+      <img class="picture" src="{{ asset('assets/User Manual Images/Picture9.jpg') }}" alt="">
+      <br><br>
+      <img class="picture" src="{{ asset('assets/User Manual Images/Picture10.jpg') }}" alt="">
+      <br>
+      <p> …and you’ll be sent a recovery email </p>
+
+      <img class="picture" src="{{ asset('assets/User Manual Images/Picture11.jpg') }}" alt="">
+
+      <br>
+
+      <p> Follow the Reset Password link, and enter your new credentials. <p>
+
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture12.jpg') }}" alt="">
+      <br>
+        <h1>
+        <h2 id="brand" class="title">Brand Page</h2>
+        </h1>
+        <p>
+          You can customize the data we present by adding categories to your brand page…
+          Simply select and Submit a new category. It’ll be added and stored to your brand page.
+
+        </p>
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture13.jpg') }}" alt="">
+        <br>
+        <br>
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture14.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="nav" class="title">Navigation Bar</h2>
+        </h1>
+        <p>
+          You can move around the various features of the webapp by using the navigation bar
+        </p>
+
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture15.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="admin" class="title">Admin Features</h2>
+        </h1>
+        <h2>
+          <h2 id="update" class="title">Updating The Database</h2>
+        </h2>
+        <p>
+          An admin can update the database by uploading a new CSV
+          Simply choose a new file, in the relevant formats and in the correct
+        </p>
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture16.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="addingNewUser" class="title">Adding a New User</h2>
+        </h1>
+        <p>
+          An admin can add a new user…
+          Simply select and add what company they are part of and submit it…
+          Then input your user details
+        </p>
+        <img class="picture" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
+
+    
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

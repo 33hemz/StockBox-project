@@ -90,7 +90,7 @@ class LoginController extends Controller
 
     public function processPassword() {
         validator(request()->all(), [
-            'password' => ['required', 'confirmed', PasswordRule::min(8)->numbers()->mixedCase()->uncompromised()],
+            'password' => ['required', 'confirmed', PasswordRule::min(8)->numbers()->mixedCase()],
         ])->validate();
 
         $user = User::find(auth()->user()->id);
