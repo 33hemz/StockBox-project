@@ -28,7 +28,7 @@
 		</nav>
     </header>
 	<div class="d-flex flex-column flex-md-row" style="flex: 1;">
-			<div class="page_sidebar">
+			<div class="page_sidebar" id="auth_sidebar">
 				<nav class="Navbar">
 					<ul>
 					<li><a href="#" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a></li>
@@ -41,9 +41,41 @@
 						<li><a href="{{ route('upload_product_data') }}"><i class="fa-solid fa-upload"></i> <span class="nav-text" style="display: none;">Upload Data</span></a></li>
 						<li><a href="{{ route('view_product_data') }}"><i class="fa-solid fa-eye"></i> <span class="nav-text" style="display: none;">View Product Data</span></a></li>
 					@endif
-
 					<li><a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span class="nav-text" style="display: none;">Logout</span></a></li>
 				</ul>
+				<script>
+					let minimised = (localStorage.getItem("minimised") === 'true');
+					if (minimised === null) {
+						minimised = false;
+					}
+					
+					function toggleNav() {
+						var navTexts = document.getElementsByClassName("nav-text");
+			
+						for (var i = 0; i < navTexts.length; i++) {
+							if (minimised) {
+								navTexts.item(i).style.display = 'inline-block';
+							} else {
+								navTexts.item(i).style.display = 'none';
+							}
+						}
+						minimised = !minimised;
+						localStorage.setItem("minimised", minimised);
+					}
+			
+					function initialLoad() {
+						var navTexts = document.getElementsByClassName("nav-text");
+			
+						for (var i = 0; i < navTexts.length; i++) {
+							if (minimised) {
+								navTexts.item(i).style.display = 'none';
+							} else {
+								navTexts.item(i).style.display = 'inline-block';
+							}
+						}
+					}
+					initialLoad();
+				</script>
 			</nav>
 		</div>
 			
@@ -68,40 +100,6 @@
 			</div>
 		</div>
 	</div>
-	
-	<script>
-		let minimised = (localStorage.getItem("minimised") === 'true');
-		if (minimised === null) {
-			minimised = false;
-		}
-		
-		function toggleNav() {
-			var navTexts = document.getElementsByClassName("nav-text");
-
-			for (var i = 0; i < navTexts.length; i++) {
-				if (minimised) {
-					navTexts.item(i).style.display = 'inline-block';
-				} else {
-					navTexts.item(i).style.display = 'none';
-				}
-			}
-			minimised = !minimised;
-			localStorage.setItem("minimised", minimised);
-		}
-
-		window.onload = function() {
-			var navTexts = document.getElementsByClassName("nav-text");
-
-			for (var i = 0; i < navTexts.length; i++) {
-				if (minimised) {
-					navTexts.item(i).style.display = 'none';
-				} else {
-					navTexts.item(i).style.display = 'inline-block';
-				}
-			}
-		}
-
-	</script>
 </div>
 </body>
 

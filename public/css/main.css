@@ -48,7 +48,7 @@ body {
     white-space: nowrap;
     overflow-x: hidden;
     background-color: #2db28e;
-    transition: 0.3s;
+    /* transition: 0.3s; */
     padding-top: 60px;
 }
 
@@ -75,6 +75,5 @@ body {
 
 /* End Navbar */
 thead {
-    background-color: #2db28e;
-    color: white; 
+    font-weight: bold;
 }
