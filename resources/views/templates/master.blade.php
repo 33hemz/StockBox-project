@@ -22,12 +22,12 @@
 	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row border-bottom">
 		<a href="{{ route('landing') }}"><img class="my-2 mx-4" href="{{ route('dashboard') }}" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=220 alt="StokBox Logo"></a>
 		<nav>
-			<ul class="me-4">
+			<ul class="me-4 text-center">
 				<li><span class="fw-bold fs-5"> Welcome Back, <span class="text-primary">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span></h2></li>
 			</ul>
 		</nav>
     </header>
-	<div class="d-flex flex-row" style="flex: 1;">
+	<div class="d-flex flex-column flex-md-row" style="flex: 1;">
 			<div class="page_sidebar">
 				<nav class="Navbar">
 					<ul>
@@ -90,10 +90,10 @@
 @elseif (in_array(request()->path(), ['/', 'user-manual']))
 {{-- if these pages, show top header --}}
 <body class="d-flex flex-column h-100">
-	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3   ">
-		<img id="landing_logo" class="ms-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
+	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3">
+		<img id="landing_logo" class="mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
         <nav>
-			<ul class="me-4">
+			<ul class="me-4 my-3">
 				<li><a href="{{ route('landing') }}">Home</a></li>
 				<li><a href="{{ route('user_manual') }}">Help?</a></li>
 				@if (auth()->check())

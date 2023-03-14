@@ -57,7 +57,9 @@
         
         <script>
             $(document).ready(function () {
-                $('#users').DataTable();
+                $('#users').DataTable({
+                    scrollX: true,
+                });
             });
         </script>
 
