@@ -227,7 +227,7 @@ php artisan serve
         </td>
     <td>5</td>
     <td>1</td>
-    <td>Raihaan Azam, Hemal Patel</td>
+    <td>Tharidhu Angodage, David Igandan</td>
     </tr>
     <tr>
         <td>Set Password on Initial Login</td>
