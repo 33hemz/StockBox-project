@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -85,7 +84,12 @@ class LoginController extends Controller
     // --- CREATE PASSWORD ---
 
     public function createPassword() {
-        return view('first_time_login');
+        // check if user has already set initial password
+        if (auth()->user()->init_user) {
+            return view('first_time_login');
+        } else {
+            return redirect(route('dashboard'));
+        }
     }
 
     public function processPassword() {
