@@ -105,7 +105,6 @@ class LoginController extends Controller
 
         $user->save();
         
-        
         return(redirect(route('dashboard')));
     }
 
