@@ -31,6 +31,9 @@ class DashboardController extends Controller
 
         // countries
         $countriesData = UserData::select('country', DB::raw('count(*) as count'))->groupBy('country')->get()->pluck('count', 'country');
+        foreach ($countriesData as $feature => $value) {
+            $countriesDataFormatted[] = ['feature' => $feature, 'value' => $value];
+        }
 
         // income
         $incomeData = [
@@ -53,6 +56,7 @@ class DashboardController extends Controller
             'genderData' => $genderData,
             'ageData' => $ageData,
             'countriesData' => $countriesData,
+            'countriesDataFormatted' => $countriesDataFormatted,
             'incomeData' => $incomeData,
             'numOfDependentsData' => $numOfDependentsData,
             'dietaryData' => $dietaryData,

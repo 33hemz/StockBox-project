@@ -60,8 +60,17 @@
             labels: {{ Js::from(array_keys($genderData)) }},
             datasets: [{
                 data: {{ Js::from(array_values($genderData)) }},
-                backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
             }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: true
+                },
+                colors: {
+                    colours: true
+                }
+            }
         }
     });
 
@@ -74,6 +83,16 @@
                 data: {{ Js::from(array_values($ageData)) }},
                 backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
             }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                },
+                colors: {
+                    colours: true
+                }
+            }
         }
     });
 
@@ -86,6 +105,16 @@
                 data: {{ Js::from($countriesData->values()) }},
                 backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
             }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                },
+                colors: {
+                    colours: true
+                }
+            }
         }
     });
 
@@ -98,6 +127,16 @@
                 data: {{ Js::from(array_values($incomeData)) }},
                 backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
             }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                },
+                colors: {
+                    colours: true
+                }
+            }
         }
     });
 
@@ -109,8 +148,17 @@
             labels: {{ Js::from($numOfDependentsData->keys()) }},
             datasets: [{
                 data: {{ Js::from($numOfDependentsData->values()) }},
-                backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
             }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: true
+                },
+                colors: {
+                    colours: true
+                }
+            }
         }
     });
 
@@ -123,6 +171,16 @@
                 data: {{ Js::from($dietaryData->values()) }},
                 backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
             }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                },
+                colors: {
+                    colours: true
+                }
+            }
         }
     });
 </script>
