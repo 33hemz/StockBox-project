@@ -133,3 +133,28 @@ Route::get('/userdatagen', function() {
         echo "<br>";
     }
 });
+
+Route::get('/generateShoppingList', function() {
+function create_shopping_list() {
+    $items = array(
+        "Fruits" => array("Apples", "Bananas", "Grapes"),
+        "Vegetables" => array("Mushrooms", "Potatoes"),
+        "Meats" => array("Chicken", "Beef", "Pork", "Quorn Chicken Nuggets"),
+        "Milk" => array("Whole Milk", "Semi-Skimmed Milk", "Oat Milk")
+    );
+    $list = "<h2>Shopping List</h2><ul>";
+    foreach ($items as $category => $item) {
+        $random_item = $item[array_rand($item)];
+        $list .= "<li>$random_item</li>";
+    }
+    $list .= "</ul>";
+    return $list;
+}
+
+// Call the function to create the shopping list
+$shopping_list = create_shopping_list();
+
+// Display the shopping list
+echo $shopping_list;
+
+});
