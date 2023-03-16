@@ -97,3 +97,39 @@ Route::middleware('auth')->group(function() {
     });
     
 });
+
+Route::get('/userdatagen', function() {
+    $faker = Faker\Factory::create();
+    $fullNames = array($faker->name());
+    $genders = array('Male', 'Female');
+    $countries = array('USA', 'Canada', 'UK', 'Australia', 'France');
+    $incomes = array(20000, 40000, 60000, 80000, 100000);
+    $numDependents = array(0, 1, 2, 3, 4);
+    $dietaryRequirements = array('Vegetarian', 'Vegan', 'Gluten-free', 'Lactose-free', 'No restrictions');
+
+    $data = array();
+
+    for ($i = 0; $i < 20; $i++) {
+       
+        $fullName = $faker->name()  ; 
+        $gender = $genders[rand(0, count($genders) - 1)];
+        $age = rand(18, 80);
+        $country = $countries[rand(0, count($countries) - 1)];
+        $income = $incomes[rand(0, count($incomes) - 1)];
+        $numDependent = $numDependents[rand(0, count($numDependents) - 1)];
+        $dietaryRequirement = $dietaryRequirements[rand(0, count($dietaryRequirements) - 1)];
+        
+
+        print_r(array(
+            'fullName' => $fullName,
+            'gender' => $gender,
+            'age' => $age,
+            'country' => $country,
+            'income' => $income,
+            'numDependents' => $numDependent,
+            'dietaryRequirements' => $dietaryRequirement
+          ));
+        
+        echo "<br>";
+    }
+});
