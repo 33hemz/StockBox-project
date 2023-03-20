@@ -56,7 +56,7 @@ class DashboardController extends Controller
             'genderData' => $genderData,
             'ageData' => $ageData,
             'countriesData' => $countriesData,
-            'countriesDataFormatted' => $countriesDataFormatted,
+            // 'countriesDataFormatted' => $countriesDataFormatted,
             'incomeData' => $incomeData,
             'numOfDependentsData' => $numOfDependentsData,
             'dietaryData' => $dietaryData,

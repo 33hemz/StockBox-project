@@ -23,6 +23,6 @@ class UserType
         }
 
         // if no access
-        return response()->redirectTo(route('landing'));
+        return response()->redirectTo(route('home'));
     }
 }

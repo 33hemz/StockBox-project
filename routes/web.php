@@ -38,6 +38,14 @@ Blade views and route names: snake_case
 Route::get('/', function() { return view('landing'); })->name('landing');
 Route::get('/user-manual', function() { return view('user_manual'); })->name('user_manual');
 
+Route::get('/home', function() {
+    if(auth()->user()->user_type === 'ADMIN') {
+        return redirect(route('create_new_user'));
+    }
+    else {
+        return redirect(route('dashboard'));
+    } 
+    })->name('home');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/process-login', [LoginController::class, 'login'])->name('process_login');
 
