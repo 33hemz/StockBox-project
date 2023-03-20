@@ -29,10 +29,8 @@ body {
 
 #landing_header nav ul li a {
     text-decoration: none;
-    color: black;
     font-family: 'Roboto',Helvetica,Arial,Lucida,sans-serif;
     font-size: 1.4em;
-    font-weight: bold;
 }
 
 /* Start Navbar */

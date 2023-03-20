@@ -110,12 +110,12 @@
 		<img id="landing_logo" class="mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
         <nav>
 			<ul class="me-4 my-3 align-items-center">
-				<li><a href="{{ route('landing') }}">Home</a></li>
-				<li><a href="{{ route('user_manual') }}">Help?</a></li>
+				<li><a class="text-dark fw-bold" href="{{ route('landing') }}">Home</a></li>
+				<li><a class="text-dark fw-bold" href="{{ route('user_manual') }}">Help?</a></li>
 				@if (auth()->check())
-					<li><a href="{{ route('logout') }}" class="btn btn-outline-primary text-primary">Logout</a></li>
+					<li><a href="{{ route('logout') }}" class="btn btn-outline-primary fw-bold py-1">Logout</a></li>
 				@else
-					<li><a href="{{ route('login') }}" class="text-primary">Sign In</a></li>
+					<li><a href="{{ route('login') }}" class="btn btn-outline-primary fw-bold py-1">Sign In</a></li>
 				@endif
 				
 			</ul>
