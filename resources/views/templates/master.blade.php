@@ -109,15 +109,11 @@
 	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3">
 		<img id="landing_logo" class="mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
         <nav>
-			<ul class="me-4 my-3">
+			<ul class="me-4 my-3 align-items-center">
 				<li><a href="{{ route('landing') }}">Home</a></li>
 				<li><a href="{{ route('user_manual') }}">Help?</a></li>
 				@if (auth()->check())
-					@if (auth()->user()->user_type === 'USER')
-						<li><a href="{{ route('dashboard') }}" class="text-primary">{{ auth()->user()->first_name }}'s Dashboard</a></li>
-					@elseif (auth()->user()->user_type === 'ADMIN')
-						<li><a href="{{ route('create_new_user') }}" class="text-primary">Manage Users</a></li>
-					@endif
+					<li><a href="{{ route('logout') }}" class="btn btn-outline-primary text-primary">Logout</a></li>
 				@else
 					<li><a href="{{ route('login') }}" class="text-primary">Sign In</a></li>
 				@endif
