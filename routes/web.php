@@ -144,7 +144,7 @@ Route::get('/userdatagen', function() {
 Route::get('/generateShoppingList', function() {
 function create_shopping_list() {
     $items = array(
-        "Fruits" => array("Apples", "Bananas", "Grapes"),
+        "Fruits" => array("Apple","Watermelon", "Orange", "Pear","Cherry","Strawberry","Nectarine","Grape","Mango","Blueberry","Pomegranate","Plum","Banana","Raspberry","Mandarin","Jackfruit","Papaya","Kiwi","Pineapple","Lime","Lemon","Apricot","Grapefruit","Melon","Coconut","Avocado","Peach"),
         "Vegetables" => array("Mushrooms", "Potatoes"),
         "Meats" => array("Chicken", "Beef", "Pork", "Quorn Chicken Nuggets"),
         "Milk" => array("Whole Milk", "Semi-Skimmed Milk", "Oat Milk")
