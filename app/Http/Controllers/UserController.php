@@ -36,4 +36,11 @@ class UserController extends Controller
         ProductCategory::find(request()['product_category_id'])->companies()->detach(auth()->user()['company_id']);
         return redirect(route('brand_page'));
     }
+
+    public function my_personas_page(){
+        
+        return view('my_personas_page');
+    }
+
+
 }
