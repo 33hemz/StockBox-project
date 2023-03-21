@@ -35,7 +35,7 @@
         <div class="card-content"><canvas id="countriesChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
     </div>
     <div class="col card mx-2 my-3">
-        <h3 class="card-title fs-5">Income</h3>
+        <h3 class="card-title fs-5">Average Income</h3>
         <div class="card-content"><canvas id="incomeChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
     </div>
     <div class="col card mx-2 my-3">
@@ -76,7 +76,7 @@
 
     const ageChart = document.getElementById('ageChart');
     new Chart(ageChart, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: {{ Js::from(array_keys($ageData)) }},
             datasets: [{
@@ -120,7 +120,7 @@
 
     const incomeChart = document.getElementById('incomeChart');
     new Chart(incomeChart, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: {{ Js::from(array_keys($incomeData)) }},
             datasets: [{
