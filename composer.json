@@ -10,7 +10,8 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "nubs/random-name-generator": "^2.2"
+        "nubs/random-name-generator": "^2.2",
+        "twbs/bootstrap": "5.3.0-alpha1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
