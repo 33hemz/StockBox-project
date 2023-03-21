@@ -4,6 +4,7 @@
 
 @section('head')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style> 
         .sec {
             padding: 20px;
@@ -32,7 +33,7 @@
     </div>
     <div class="col card mx-2 my-3">
         <h3 class="card-title fs-5">Countries</h3>
-        <div class="card-content"><canvas id="countriesChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
+        <div class="card-content"><div id="countriesChart" style="min-width: 590px; max-width: 900px;"></div></div>
     </div>
     <div class="col card mx-2 my-3">
         <h3 class="card-title fs-5">Average Income</h3>
@@ -96,27 +97,23 @@
         }
     });
 
-    const countriesChart = document.getElementById('countriesChart');
-    new Chart(countriesChart, {
-        type: 'bar',
-        data: {
-            labels: {{ Js::from($countriesData->keys()) }},
-            datasets: [{
-                data: {{ Js::from($countriesData->values()) }},
-                backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
-            }]
-        },
-        options: {
-            plugins: {
-                legend: {
-                    display: false
-                },
-                colors: {
-                    colours: true
-                }
-            }
-        }
-    });
+    google.charts.load('current', {
+        'packages':['geochart'],
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable({{ Js::from($countriesData) }}, true);
+
+        var options = {
+            colorAxis: {colors: ['#ffffff', '#2db28e']} 
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('countriesChart'));
+
+        chart.draw(data, options);
+    }
+
 
     const incomeChart = document.getElementById('incomeChart');
     new Chart(incomeChart, {

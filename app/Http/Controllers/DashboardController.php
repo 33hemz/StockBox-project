@@ -30,7 +30,12 @@ class DashboardController extends Controller
         ];
 
         // countries
-        $countriesData = $userdata->groupBy('country')->sortKeys()->map->count();
+        $countriesData = $userdata->groupBy('country')->sortKeys()->map->count()->toArray();
+
+        // convert to format that google charts is expecting
+        $countriesData = array_map(function($key, $value) {
+            return [$key, $value];
+        }, array_keys($countriesData), array_values($countriesData));
 
         // income
         $incomeData = [
@@ -54,7 +59,6 @@ class DashboardController extends Controller
             'genderData' => $genderData,
             'ageData' => $ageData,
             'countriesData' => $countriesData,
-            // 'countriesDataFormatted' => $countriesDataFormatted,
             'incomeData' => $incomeData,
             'numOfDependentsData' => $numOfDependentsData,
             'dietaryData' => $dietaryData,
