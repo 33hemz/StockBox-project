@@ -38,8 +38,8 @@ class UserController extends Controller
     }
 
     public function my_personas_page(){
-        
-        return view('my_personas_page');
+        $personas = [['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'], ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023']];
+        return view('my_personas_page',['personas' => $personas]);
     }
 
 

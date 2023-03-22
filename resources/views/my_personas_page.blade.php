@@ -23,10 +23,8 @@
 
 <div class="row row-cols-auto justify-content-start mb-5">
 
-    {{-- for loop to be executed on each instance of a persona --}}
-@php
- $personas = [['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'], ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023']]   
-@endphp
+    {{-- for loop to be executed on each instance of a persona move to controller --}}
+
     @foreach ($personas as $persona)
     <div class="col card mx-2 my-3">
         <div class="profileimage d-flex flex-column justify-content-center align-items-center">
