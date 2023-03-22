@@ -106,7 +106,7 @@
 {{-- if these pages, show top header --}}
 <body class="d-flex flex-column h-100 bg-body">
 	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3">
-		<img id="landing_logo" class="mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
+		<a href="{{ route('landing') }}"><img class="my-2 mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=350 alt="StokBox Logo"></a>
         <nav>
 			<ul class="me-4 my-3 align-items-center">
 				<li><a class="text-body fw-bold" href="{{ route('landing') }}">Home</a></li>
