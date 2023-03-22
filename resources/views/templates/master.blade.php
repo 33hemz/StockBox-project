@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
 @if ((in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'admin/manage-user', 'brand-page', 'admin/upload-product-data', 'admin/view-product-data', 'my_personas_page'])) || (str_starts_with(request()->path(), 'admin/edit-user')))
 
 {{-- if one of these page, show sidebar --}}
-<body class="d-flex flex-column">
+<body class="d-flex flex-column bg-body">
 	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row border-bottom">
 		<a href="{{ route('landing') }}"><img class="my-2 mx-4" href="{{ route('dashboard') }}" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=220 alt="StokBox Logo"></a>
 		<nav>
@@ -104,13 +104,13 @@
 
 @elseif (in_array(request()->path(), ['/', 'user-manual']))
 {{-- if these pages, show top header --}}
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 bg-body">
 	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row mt-3">
 		<img id="landing_logo" class="mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02@3x.png') }}" alt="StokBox Logo">
         <nav>
 			<ul class="me-4 my-3 align-items-center">
-				<li><a class="text-dark fw-bold" href="{{ route('landing') }}">Home</a></li>
-				<li><a class="text-dark fw-bold" href="{{ route('user_manual') }}">Help?</a></li>
+				<li><a class="text-body fw-bold" href="{{ route('landing') }}">Home</a></li>
+				<li><a class="text-body fw-bold" href="{{ route('user_manual') }}">Help?</a></li>
 				@if (auth()->check())
 					<li><a href="{{ route('logout') }}" class="btn btn-outline-primary fw-bold py-1">Logout</a></li>
 				@else

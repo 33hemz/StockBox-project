@@ -12,7 +12,7 @@
 
 @section('content') 
 <div class="mx-auto" style="width: 450px; margin-top: 80px;">
-    <div class="card shadow-lg" style="background-color: aliceblue">
+    <div class="card shadow-lg bg-body">
         <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
         
         <h1 class="text-center">StokBox Analytics</h1>
@@ -38,7 +38,7 @@
                 
                 <div class="d-flex justify-content-between align-items-center">
                     <input type="submit" value="Log in" class="btn btn-primary">
-                    <a href="{{ route('password.request') }}" class="font-italic">Forgot Password?</a>
+                    <a href="{{ route('password.request') }}" class="font-italic text-primary">Forgot Password?</a>
                 </div>
             </form>
         </div>
