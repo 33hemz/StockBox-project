@@ -1,57 +1,64 @@
 @extends('templates.master')
 
-@section('title', 'My Personas')
+@section('title', 'Dashboard')
 
 @section('head')
-    
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style> 
+        .sec {
+            padding: 20px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px 0 #bbbbbb;
+        }
+    </style>
 @endsection
 
 @section('content') 
 <h1 class="border-bottom pb-2 mb-3">Saved Buyer Personas</h1>
 
+<div class="row row-cols-auto justify-content-start mb-5">
 
-
-
-
-<div class="sec2 row row-cols-auto justify-content-evenly mb-5 container mt-4 mb-4 p-3 d-flex justify-content-center">
-    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-
-        {{-- for loop for each saved persona in the database --}}
-
-        <div class="profilecard p-4">
-
-            <div class="profileimage d-flex flex-column justify-content-center align-items-center">
-                
-                {{-- These will vary based on each persona --}}
-                <button class="profile_background1 btn-primary">
-                <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /> {{--profile pic--}}
-                </button>
-                <span class="name mt-3">David Igandan</span>{{--name--}}
-                <span class="age">Age: 30</span>{{--age--}}
+    {{-- for loop to be executed on each instance of a persona --}}
+@php
+ $personas = [['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'], ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023']]   
+@endphp
+    @foreach ($personas as $persona)
+    <div class="col card mx-2 my-3">
+        <div class="profileimage d-flex flex-column justify-content-center align-items-center">
+                    {{-- These will vary based on each persona --}}
+                    <button class="profile_background1 btn-primary">
+                    <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /> {{--profile pic--}}
+                    </button>
+                    <span class="name mt-3">{{$persona['first_name']}} {{$persona['last_name']}}</span>{{--name--}}
+                    <span class="age">Age: {{$persona['age']}}</span>{{--age--}}
                 <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-                <span class="id_income">Customer ID: </span> {{--customer id--}} 
+                    <span class="id_income">Customer ID: {{$persona['customer_id']}}</span> {{--customer id--}} 
                 </div>
                 <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-                    <span class="id_income">Income: </span> {{--income--}}
+                    <span class="id_income">Income: {{$persona['income']}}</span> {{--income--}}
                 </div>
                 <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-                <span class="id_income">Education:  </span> {{--education--}}
+                    <span class="id_income">Education:{{$persona['education']}}</span> {{--education--}}
                 </div>
                 <div class="d-flex mt-2"> 
-                <input type="button" value="More Details" class="btn btn-primary">{{--More Details--}}
+                    <input type="button" value="More Details" class="btn btn-primary">{{--More Details--}}
                 </div>
                 <div class="profile_text mt-3">
-                <span>Description....</span> {{--more details--}}
+                    <span>Description: {{$persona['description']}}</span> {{--more details--}}
                 </div>
                 <div class="px-2 rounded mt-4 date">
-                <span class="join">Date Generated: </span>
+                    <span class="join">Date Generated:{{$persona['date_generated']}}</span>
                 </div>
-            </div>
         </div>
-    </div>  
-</div>
+    </div>
+    @endforeach
 
+</div>
 
 
 
