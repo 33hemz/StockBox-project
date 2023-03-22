@@ -62,4 +62,14 @@
         <input type="submit" value="Upload File" class="btn btn-primary">
     </div>
 </form>
+
+<div class="mb-3">
+    <form action="{{route('create_shopping_list')}}" method="POST">
+
+        <h1 class="border-bottom pb-2">Generate Purchase History</h1>
+        <p class="mb-2">Each consumer has their own generated purchase history; press the button to regenerate this data.</p>
+        @csrf
+        <input type="submit" value="Generate Purchase History" class="btn btn-primary">
+    </form>
+</div>
 @endsection

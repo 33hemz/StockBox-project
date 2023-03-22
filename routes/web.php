@@ -88,6 +88,7 @@ Route::middleware('auth')->group(function() {
         
         Route::post('/process-user-data-table', [UserDataController::class, 'uploadUserData'])->name('process_user_data');
         Route::post('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('process_csv_file');
+        Route::post('/generate-shopping-list', [ConvertCSVController::class, 'create_shopping_list'])->name('create_shopping_list');
     
 
     
@@ -140,42 +141,4 @@ Route::get('/userdatagen', function() {
         
         echo "<br>";
     }
-});
-
-Route::get('/generateShoppingList', function() {
-function create_shopping_list() {
-    $items = array(
-        "Fruits" => array("Apples","Watermelon", "Peach"),
-        "Vegetables" => array("Carrots", "Broccoli", "Cauliflower"),
-        "Meat and Poultry" => array("Chicken", "Beef", "Pork", "Quorn Chicken Nuggets"),
-        "Milk" => array("Whole Milk", "Semi-Skimmed Milk", "Oat Milk"),
-        "Dairy Products + Eggs" => array("Cheddar Cheese", "Butter", "Yogurt", "Eggs"),
-        "Bakery" => array("White Bread", "Brown Bread", "Bread Rolls"),
-        "Canned Foods" => array("Kidney Beans", "Beans")
-    );
-    $list = "<h2>Shopping List</h2><ul>";
-    foreach ($items as $category => $item) {
-        $num_items = 10000; // randomly select number of items
-        while ($num_items > count($item)) {
-            $num_items = rand(1, 5);
-        }
-            $selected_items = array_rand($item, $num_items); // randomly select items
-            if ($num_items > 1) {
-                // If more than one item is selected, concatenate with list tags
-                $items_str = implode("</li><li>", array_intersect_key($item, array_flip($selected_items)));
-            } else {
-                $items_str = $item[$selected_items]; // Otherwise, just use the single selected item
-            }
-        $list .= "<li>$items_str</li>";
-    }
-    $list .= "</ul>";
-    return $list;
-}
-
-// Call the function to create the shopping list
-$shopping_list = create_shopping_list();
-
-// Display the shopping list
-echo $shopping_list;
-
 });
