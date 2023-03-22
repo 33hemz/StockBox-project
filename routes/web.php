@@ -119,7 +119,7 @@ Route::get('/userdatagen', function() {
 
     for ($i = 0; $i < 20; $i++) {
        
-        $fullName = $faker->name()  ; 
+        $fullName = $faker->name(); 
         $gender = $genders[rand(0, count($genders) - 1)];
         $age = rand(18, 80);
         $country = $countries[rand(0, count($countries) - 1)];
@@ -145,15 +145,28 @@ Route::get('/userdatagen', function() {
 Route::get('/generateShoppingList', function() {
 function create_shopping_list() {
     $items = array(
-        "Fruits" => array("Apple","Watermelon", "Orange", "Pear","Cherry","Strawberry","Nectarine","Grape","Mango","Blueberry","Pomegranate","Plum","Banana","Raspberry","Mandarin","Jackfruit","Papaya","Kiwi","Pineapple","Lime","Lemon","Apricot","Grapefruit","Melon","Coconut","Avocado","Peach"),
-        "Vegetables" => array("Mushrooms", "Potatoes"),
-        "Meats" => array("Chicken", "Beef", "Pork", "Quorn Chicken Nuggets"),
-        "Milk" => array("Whole Milk", "Semi-Skimmed Milk", "Oat Milk")
+        "Fruits" => array("Apples","Watermelon", "Peach"),
+        "Vegetables" => array("Carrots", "Broccoli", "Cauliflower"),
+        "Meat and Poultry" => array("Chicken", "Beef", "Pork", "Quorn Chicken Nuggets"),
+        "Milk" => array("Whole Milk", "Semi-Skimmed Milk", "Oat Milk"),
+        "Dairy Products + Eggs" => array("Cheddar Cheese", "Butter", "Yogurt", "Eggs"),
+        "Bakery" => array("White Bread", "Brown Bread", "Bread Rolls"),
+        "Canned Foods" => array("Kidney Beans", "Beans")
     );
     $list = "<h2>Shopping List</h2><ul>";
     foreach ($items as $category => $item) {
-        $random_item = $item[array_rand($item)];
-        $list .= "<li>$random_item</li>";
+        $num_items = 10000; // randomly select number of items
+        while ($num_items > count($item)) {
+            $num_items = rand(1, 5);
+        }
+            $selected_items = array_rand($item, $num_items); // randomly select items
+            if ($num_items > 1) {
+                // If more than one item is selected, concatenate with list tags
+                $items_str = implode("</li><li>", array_intersect_key($item, array_flip($selected_items)));
+            } else {
+                $items_str = $item[$selected_items]; // Otherwise, just use the single selected item
+            }
+        $list .= "<li>$items_str</li>";
     }
     $list .= "</ul>";
     return $list;
