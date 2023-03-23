@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark">
+<html data-bs-theme="light">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/bootstrap/main.min.css') }}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/cd1181b8ae.js" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.js" integrity="sha512-nO7wgHUoWPYGCNriyGzcFwPSF+bPDOR+NvtOYy2wMcWkrnCNPKBcFEkU80XIN14UVja0Gdnff9EmydyLlOL7mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -116,7 +117,7 @@
 				@else
 					<li><a href="{{ route('login') }}" class="btn btn-outline-primary fw-bold py-1">Sign In</a></li>
 				@endif
-				
+				<li><i id="dark-mode-toggle" class="bi bi-brightness-high-fill btn btn-outline-secondary"></i></button></li>
 			</ul>
         </nav>
     </header>
@@ -124,6 +125,8 @@
 	<div id="page_content">
 		@yield('content')
 	</div>
+	
+	<script src="{{ asset('themetoggle.js') }}">
 </body>
 @else
 {{-- else, show no header --}}
