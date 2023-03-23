@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_data', function (Blueprint $table) {
+        Schema::create('consumer_data', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
             $table->string('gender');
             $table->integer('age');
             $table->string('country');

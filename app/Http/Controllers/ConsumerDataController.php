@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\UserData;
+use App\Models\ConsumerData;
 
-class UserDataController extends Controller
+class ConsumerDataController extends Controller
 {
    public function index() {
       return view('upload_product_data');
@@ -47,7 +47,7 @@ class UserDataController extends Controller
          $userData['number_of_dependents'] = $line[5] ?? '';
          $userData['dietary_requirements'] = $line[6] ?? '';
 
-         $create = UserData::firstOrCreate($userData);
+         $create = ConsumerData::firstOrCreate($userData);
          if($create->wasRecentlyCreated) {
             $numInserted++;
          }

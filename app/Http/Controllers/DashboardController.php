@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\UserData;
+use App\Models\ConsumerData;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index() {
         
-        $userdata = UserData::all();
+        $userdata = ConsumerData::all();
 
         // gender graph
         $genderData = [
@@ -53,7 +53,6 @@ class DashboardController extends Controller
         
         // dietary requirements
         $dietaryData = $userdata->groupBy('dietary_requirements')->sortKeys()->map->count()->splice(1); // splice first item (empty string - for ppl with no dietary requirements)
-
 
         return view('dashboard', [
             'genderData' => $genderData,

@@ -7,7 +7,7 @@ use App\Http\Controllers\ConvertCSVController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ManageUserController;
-use App\Http\Controllers\UserDataController;
+use App\Http\Controllers\ConsumerDataController;
 
 
 
@@ -86,7 +86,7 @@ Route::middleware('auth')->group(function() {
 
         Route::get('/upload-product-data', [ConvertCSVController::class, 'index'])->name('upload_product_data');
         
-        Route::post('/process-user-data-table', [UserDataController::class, 'uploadUserData'])->name('process_user_data');
+        Route::post('/process-user-data-table', [ConsumerDataController::class, 'uploadUserData'])->name('process_user_data');
         Route::post('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('process_csv_file');
         Route::post('/generate-shopping-list', [ConvertCSVController::class, 'create_shopping_list'])->name('create_shopping_list');
     
