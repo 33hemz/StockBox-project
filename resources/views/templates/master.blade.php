@@ -34,6 +34,7 @@
 					@if (auth()->user()->user_type === 'USER')
 					<li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text" style="display: none;">Dashboard Page</span></a></li>
 					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text" style="display: none;">Brand Page</span></a></li>
+					<li><a href="{{ route('my_personas_page') }}"><i class="fa-solid fa-user"></i> <span class="nav-text" style="display: none;">My Saved Personas</span></a></li>
 					@elseif (auth()->user()->user_type === 'ADMIN')
 						<li><a href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span class="nav-text" style="display: none;">Create New Users</span></a></li>
 						<li><a href="{{ route('manage_user') }}"><i class="fa-solid fa-pen-to-square"></i> <span class="nav-text" style="display: none;">Manage Users</span></a></li>
