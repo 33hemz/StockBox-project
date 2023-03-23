@@ -19,7 +19,7 @@ class ConsumerDataController extends Controller
       $CSVfile = fopen(request()->file('consumer_file'), 'r');
       $header = fgetcsv($CSVfile, null, ';');
 
-      $expectedHeaders = ['full_name','gender','age','country','income','number_of_dependents','dietary_requirements'];
+      $expectedHeaders = ['gender','age','country','income','number_of_dependents','dietary_requirements'];
 
       if ($header !== $expectedHeaders) {
          return redirect()->back()->withErrors(['consumer_file' => 'Invalid CSV file uploaded, Please ensure your CSV header\'s are in the following order: <i>' . implode("; ", $expectedHeaders) . '</i>.']);
@@ -39,13 +39,12 @@ class ConsumerDataController extends Controller
 
          $userData = [];
          
-         $userData['full_name'] = $line[0] ?? '';
-         $userData['gender'] = $line[1] ?? '';
-         $userData['age'] = $line[2] ?? '';
-         $userData['country'] = $line[3] ?? '';
-         $userData['income'] = $line[4] ?? '';
-         $userData['number_of_dependents'] = $line[5] ?? '';
-         $userData['dietary_requirements'] = $line[6] ?? '';
+         $userData['gender'] = $line[0] ?? '';
+         $userData['age'] = $line[1] ?? '';
+         $userData['country'] = $line[2] ?? '';
+         $userData['income'] = $line[3] ?? '';
+         $userData['number_of_dependents'] = $line[4] ?? '';
+         $userData['dietary_requirements'] = $line[5] ?? '';
 
          $create = ConsumerData::firstOrCreate($userData);
          if($create->wasRecentlyCreated) {
