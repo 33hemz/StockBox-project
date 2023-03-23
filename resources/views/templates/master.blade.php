@@ -24,6 +24,7 @@
 		<nav>
 			<ul class="me-4 text-center">
 				<li><span class="fw-bold fs-5"> Welcome Back, <span class="text-primary">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span></h2></li>
+				<li><i id="dark-mode-toggle" class="bi bi-brightness-high-fill btn btn-outline-secondary"></i></li>
 			</ul>
 		</nav>
     </header>
@@ -101,6 +102,7 @@
 		</div>
 	</div>
 </div>
+<script src="{{ asset('themetoggle.js') }}">
 </body>
 
 @elseif (in_array(request()->path(), ['/', 'user-manual']))
@@ -117,7 +119,7 @@
 				@else
 					<li><a href="{{ route('login') }}" class="btn btn-outline-primary fw-bold py-1">Sign In</a></li>
 				@endif
-				<li><i id="dark-mode-toggle" class="bi bi-brightness-high-fill btn btn-outline-secondary"></i></button></li>
+				<li><i id="dark-mode-toggle" class="bi bi-brightness-high-fill btn btn-outline-secondary"></i></li>
 			</ul>
         </nav>
     </header>
