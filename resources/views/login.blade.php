@@ -12,7 +12,7 @@
 
 @section('content') 
 <div class="mx-auto" style="width: 450px; margin-top: 80px;">
-    <div class="card shadow-lg bg-body">
+    <div class="card shadow-lg bg-body-secondary">
         <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
         
         <h1 class="text-center">StokBox Analytics</h1>

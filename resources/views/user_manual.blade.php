@@ -11,7 +11,6 @@
     top: 0;
     margin-bottom: -1000px;
     width: 300px;
-    background-color: #e0e0e0;
     height: 1000px;
   }
   .sidebar a {
@@ -90,7 +89,7 @@
 <div style="height: 2vh;"></div>
 
 {{--Sidebar--}}
-<div id="sidebar" class="sidebar">
+<div id="sidebar" class="sidebar bg-body-secondary">
   <img src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" style="display: block; width: 120px; position: 
   relative; margin-left: 85px; margin-right: auto;">
   <a><b style="position:relative; right: 10px">Contents:</b></a>
