@@ -1,14 +1,6 @@
-@extends('templates.master')
+@extends('templates.master_auth')
 
 @section('title', 'Forgot Password')
-
-@section('head')
-<style>
-    body {
-        background-color: #2db28e;
-    }
-</style>
-@endsection
 
 @section('content') 
 <div class="center" style="width: 450px; margin: auto; margin-top: 50px;">
@@ -24,5 +16,4 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('themetoggle.js') }}"></script>
 @endsection

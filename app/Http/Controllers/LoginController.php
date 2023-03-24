@@ -88,7 +88,7 @@ class LoginController extends Controller
         if (auth()->user()->init_user) {
             return view('first_time_login');
         } else {
-            return redirect(route('dashboard'));
+            return redirect(route('home'));
         }
     }
 
