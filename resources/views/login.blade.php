@@ -13,7 +13,9 @@
 @section('content') 
 <div class="mx-auto" style="width: 450px; margin-top: 80px;">
     <div class="card shadow-lg bg-body-secondary">
-        <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
+        <a href="{{ route('landing') }}">
+            <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="d-block mx-auto">
+        </a>
         
         <h1 class="text-center">StokBox Analytics</h1>
         <div class="mx-5 my-5 px-3">
