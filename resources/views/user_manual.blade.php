@@ -37,6 +37,10 @@
     border-radius: 5px 0 0 0;
   }
 
+  :root[data-bs-theme="dark"] .ml-1 {
+    background-color: #238c70;
+  }
+
   .title {
     padding-top: 40px;
     text-align: center;
