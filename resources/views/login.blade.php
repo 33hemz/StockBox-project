@@ -47,5 +47,5 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('themetoggle.js') }}">
+<script src="{{ asset('themetoggle.js') }}"></script>
 @endsection

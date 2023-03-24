@@ -20,19 +20,19 @@
 {{-- if one of these page, show sidebar --}}
 <body class="d-flex flex-column bg-body">
 	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row border-bottom">
-		<a href="{{ route('landing') }}"><img class="my-2 mx-4" href="{{ route('dashboard') }}" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=220 alt="StokBox Logo"></a>
+		<a href="{{ route('landing') }}"><img class="my-2 mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=220 alt="StokBox Logo"></a>
 		<nav>
-			<ul class="me-4 text-center">
+			<ul class="me-4 text-center align-middle d-flex align-items-center">
 				<li><span class="fw-bold fs-5"> Welcome Back, <span class="text-primary">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span></h2></li>
-				<li><i id="dark-mode-toggle" class="bi bi-brightness-high-fill btn btn-outline-secondary"></i></li>
+				<li><a id="dark-mode-toggle" class="btn btn-outline-secondary" style="height:1.5em; width:1.5em; padding:0; margin:0;"> <i id="dark-mode-toggle-text" class="fa-solid fa-sun text-center align-middle fs-6"></i></a></li>
 			</ul>
 		</nav>
     </header>
 	<div class="d-flex flex-column flex-md-row" style="flex: 1;">
-			<div class="page_sidebar" id="auth_sidebar">
-				<nav class="Navbar">
+		<div class="page_sidebar" id="auth_sidebar">
+			<nav class="Navbar">
 					<ul>
-					<li><a href="#" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a></li>
+						<li><a href="#" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a></li>
 					@if (auth()->user()->user_type === 'USER')
 					<li><a href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span class="nav-text" style="display: none;">Dashboard Page</span></a></li>
 					<li><a href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span class="nav-text" style="display: none;">Brand Page</span></a></li>
@@ -102,7 +102,7 @@
 		</div>
 	</div>
 </div>
-<script src="{{ asset('themetoggle.js') }}">
+<script src="{{ asset('themetoggle.js') }}"></script>
 </body>
 
 @elseif (in_array(request()->path(), ['/', 'user-manual']))
@@ -119,7 +119,7 @@
 				@else
 					<li><a href="{{ route('login') }}" class="btn btn-outline-primary fw-bold py-1">Sign In</a></li>
 				@endif
-				<li><i id="dark-mode-toggle" class="bi bi-brightness-high-fill btn btn-outline-secondary"></i></li>
+				<li><a id="dark-mode-toggle" class="btn btn-outline-secondary" style="width:2.2em;"> <i id="dark-mode-toggle-text" class="fa-solid fa-sun text-center align-middle"></i></a></li>
 			</ul>
         </nav>
     </header>
@@ -128,7 +128,7 @@
 		@yield('content')
 	</div>
 	
-	<script src="{{ asset('themetoggle.js') }}">
+	<script src="{{ asset('themetoggle.js') }}"></script>
 </body>
 @else
 {{-- else, show no header --}}
