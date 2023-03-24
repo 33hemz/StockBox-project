@@ -13,8 +13,8 @@
 @section('content') 
 <div class="mx-auto" style="width: 450px; margin-top: 50px;">
     <div class="card shadow-lg bg-body-secondary">
-        <a href="{{ route('landing') }}">
-            <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="d-block mx-auto">
+        <a href="{{ route('landing') }}" class="d-block mx-auto">
+            <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
         </a>
         <h1 class="text-center">Forgot Password</h1>
         <span class="text-center mt-2">Let's get you into your account</span>

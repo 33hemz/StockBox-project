@@ -11,10 +11,11 @@
 @endsection
 
 @section('content') 
-<div class="mx-auto" style="width: 450px; margin-top: 80px;">
+<div class="mx-auto position-relative" style="width: 450px; margin-top: 80px;">
+    <i id="dark-mode-toggle" class="bi bi-brightness-high-fill btn btn-outline-secondary position-absolute top-0 end-0"></i>
     <div class="card shadow-lg bg-body-secondary">
-        <a href="{{ route('landing') }}">
-            <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="d-block mx-auto">
+        <a href="{{ route('landing') }}" class="d-block mx-auto">
+            <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
         </a>
         
         <h1 class="text-center">StokBox Analytics</h1>
