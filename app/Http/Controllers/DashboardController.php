@@ -12,6 +12,19 @@ class DashboardController extends Controller
         
         $userdata = ConsumerData::all();
 
+        $gender = request()->input('gender');
+
+        $query = ConsumerData::query();
+        
+        if (!empty($gender)) {
+            $query->where('gender', $gender);
+        }
+
+        $userData = $query->get();
+
+
+
+
         // gender graph
         $genderData = [
             'Male' => $userdata->where('gender', 'Male')->count(),
@@ -37,6 +50,9 @@ class DashboardController extends Controller
             return [$key, $value];
         }, array_keys($countriesData), array_values($countriesData));
 
+
+        $countries = array_keys($userdata->groupBy('country')->sortKeys()->toArray());
+
         // income
         $incomeData = [
             '15-25k' => $userdata->whereBetween('income', [15000, 25000])->count(),
@@ -61,6 +77,7 @@ class DashboardController extends Controller
             'incomeData' => $incomeData,
             'numOfDependentsData' => $numOfDependentsData,
             'dietaryData' => $dietaryData,
+            'countries' => $countries
         ]);
     }
 
