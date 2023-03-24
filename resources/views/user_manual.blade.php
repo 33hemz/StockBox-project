@@ -96,18 +96,22 @@
 <div id="sidebar" class="sidebar bg-body-secondary">
   <img src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" style="display: block; width: 120px; position: 
   relative; margin-left: 85px; margin-right: auto;">
-  <a><b style="position:relative; right: 10px">Contents:</b></a>
+  <a><b style="position:relative; right: 10px; font-size:1.5em">Contents:</b></a>
   <a href="#intro">Introduction</a>
   <a href="#landing">Landing Page</a>
-  <a href="#user_features" style="font-size: 1.5em; font-weight: bold"; >User Features</a>
-  <a href="#login">Logging You In</a>
-  <a href="#dash">Dashboard Page</a>
-  <a href="#forgotten">Forgotten Password</a>
-  <a href="#brand">Brand Page</a>
-  <a href="#nav">Navigation Bar</a>
-  <a href="#admin" style="font-size: 1.5em; font-weight: bold">Admin Features</a>
-  <a href="#update">Updating The Database</a>
-  <a href="#addingNewUser">Adding a New User</a>
+  <a href="#user_features">User Features</a>
+  <div class="ms-4">
+    <a href="#login" style="font-size: 1em">Logging You In</a>
+    <a href="#dash" style="font-size: 1em">Dashboard Page</a>
+    <a href="#forgotten" style="font-size: 1em">Forgotten Password</a>
+    <a href="#brand" style="font-size: 1em">Brand Page</a>
+    <a href="#nav" style="font-size: 1em">Navigation Bar</a>
+  </div>
+  <a href="#admin">Admin Features</a>
+  <div class="ms-4">
+    <a href="#update" style="font-size: 1em">Updating The Database</a>
+    <a href="#addingNewUser" style="font-size: 1em">Adding a New User</a>
+  </div>
 
   </div>
 
