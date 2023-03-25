@@ -82,14 +82,40 @@ class ConvertCSVController extends Controller
       return redirect(route('upload_product_data'));
    } 
 
+   // generate user data
+   function generateUserData() {
+      // define options
+      $genders = array('Male', 'Female');
+      $countries = array('USA', 'Canada', 'UK', 'Australia', 'France');
+      $incomes = array(20000, 40000, 60000, 80000, 100000);
+      $numDependents = array(0, 1, 2, 3, 4);
+      $dietaryRequirements = array('Vegetarian', 'Vegan', 'Gluten-free', 'Lactose-free', 'No restrictions');
+  
+      
+      // generate data for each field
+      $gender = $genders[rand(0, count($genders) - 1)];
+      $age = rand(18, 80);
+      $country = $countries[rand(0, count($countries) - 1)];
+      $income = $incomes[rand(0, count($incomes) - 1)];
+      $numDependent = $numDependents[rand(0, count($numDependents) - 1)];
+      $dietaryRequirement = $dietaryRequirements[rand(0, count($dietaryRequirements) - 1)];
+      
+      return [
+         'gender' => $gender,
+         'age' => $age,
+         'country' => $country,
+         'income' => $income,
+         'numDependents' => $numDependent,
+         'dietaryRequirements' => $dietaryRequirement,
+      ];
+   }
+   
 
-
-
-
-   function create_shopping_list() {
-
+   // generate shopping list
+   function generateShoppingList($dietaryRequirements) {
+      // Purchase data
       $items = array(
-          "Fruits" => array("Apples","Watermelon", "Peach"),
+          "Fruits" => array("Apples", "Watermelon", "Peach"),
           "Vegetables" => array("Carrots", "Broccoli", "Cauliflower"),
           "Meat and Poultry" => array("Chicken", "Beef", "Pork", "Quorn Chicken Nuggets"),
           "Milk" => array("Whole Milk", "Semi-Skimmed Milk", "Oat Milk"),
@@ -97,27 +123,109 @@ class ConvertCSVController extends Controller
           "Bakery" => array("White Bread", "Brown Bread", "Bread Rolls"),
           "Canned Foods" => array("Kidney Beans", "Beans", "Soup")
       );
-      $list = "<h2>Shopping List</h2><ul>";
-      foreach ($items as $category => $item) {
-          $num_items = 10000; 
-          while ($num_items > count($item)) {
-              $num_items = rand(0, 5); // randomly select number of items between 0 and 5
-          }
-          if ($num_items == 0) {
-              
-          } else {
-              $selected_items = array_rand($item, $num_items); // randomly select items
-              if ($num_items > 1) {
-                  // If more than one item is selected, concatenate with list tags
-                  $items_str = implode("</li><li>", array_intersect_key($item, array_flip($selected_items)));
-              } else {
-                  $items_str = $item[$selected_items]; // Otherwise, just use the single selected item
-              }
-              $list .= "<li>$items_str</li>";
-          }
-      }
-      $list .= "</ul>";
 
-      return $list;
-  }
+
+      // ----------GENERATE CATEGORIES
+      $list = [];
+      foreach ($items as $category => $categoryItem) {
+         // 1 in 5 chance of skipping a category entirely
+         if (rand(1, 5) === 5) {
+            continue;
+         }
+
+         // choose how many items a user will buy from a category
+         $num_items = rand(1, count($categoryItem)); 
+         
+         // randomly pick items from each category $num_items amount of times
+         for ($i = 0; $i < $num_items; $i++) {
+            array_push($list, $categoryItem[rand(0, count($categoryItem) - 1)]);
+         }
+      }
+      $list = array_unique($list);
+
+      // ---------------CONVERT INTO REAL ITEMS
+      // 1. limit dataset to exclude products that don't match consumer restrictions e.g. vegan products only
+      switch($dietaryRequirements) {
+         case 'Vegetarian':
+         case 'Vegan':
+            $dataset = Product::whereIn('subcategory',['Vegetarian & Vegan Foods', 'Fruit', 'Yoghurts'])
+            ->orWhere('product_name', 'like', '%vegetarian%')
+            ->orWhere('product_name', 'like', '%vegan%')
+            ->get();
+            break;
+         case 'Gluten-free':
+            $dataset = Product::where('product_name', 'like', '%gluten%') // most likely gluten-free
+            ->orWhere('allergen_information', 'like', '%free from gluten%')
+            ->orWhereIn('subcategory', ['Fruit'])
+            ->get();
+            break;
+         case 'Lactose-free':
+            $dataset = Product::where('ingredients', 'like', '%lactose%')
+            ->orWhereIn('subcategory', ['Fruit'])
+            ->get(); // most likely lactose-free
+            break;
+         default:
+            $dataset = Product::all();
+            break;
+      }
+
+      $real = [];
+      foreach($list as $item) {
+
+         $realItems = $dataset->filter(function($row) use($item) {
+            return str_contains($row['product_name'], $item);
+         });   
+
+         if (!$realItems->isEmpty()) {
+            array_push($real, $realItems->random()['product_name']);
+         }
+      }
+
+      return $real;
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   function epicArrayPrint($arr) {
+      echo "==========================================<br>";
+      echo "<br>";
+      echo "       [<br>";
+      foreach($arr as $key => $val) {
+        echo "           '$key' => '$val',<br>";
+      }
+      echo "       ]<br>";
+      echo "<br>";
+      echo "==========================================<br>";
+    }
+    
+
+   public function create_shopping_list() {
+      $user = $this->generateUserData();
+      $this->epicArrayPrint($user);
+      echo "<br><br>";
+      $this->epicArrayPrint($this->generateShoppingList($user['dietaryRequirements']));
+      echo "<br><br>";
+      $this->epicArrayPrint($this->generateShoppingList($user['dietaryRequirements']));
+      echo "<br><br>";
+      $this->epicArrayPrint($this->generateShoppingList($user['dietaryRequirements']));
+      echo "<br><br>";
+      $this->epicArrayPrint($this->generateShoppingList($user['dietaryRequirements']));
+   }
 }
