@@ -18,7 +18,7 @@
     </style>
 @endsection
 
-@section('content') 
+@section('content')
 <h1 class="border-bottom pb-2 mb-3">Dashboard</h1>
 <div class="sec row row-cols-auto justify-content-evenly mb-5">
     <form method="GET" action="{{ route('dashboard') }}">

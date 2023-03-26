@@ -12,18 +12,18 @@ class DashboardController extends Controller
         
         $userdata = ConsumerData::all();
 
-        $gender = request()->input('gender');
+        // $gender = request()->input('gender');
 
-        $query = ConsumerData::query();
+        // $query = ConsumerData::query();
         
-        if (!empty($gender)) {
-            $query->where('gender', $gender);
-        }
+        // if (!empty($gender)) {
+        //     $query->where('gender', $gender);
+        // }
 
-        $userData = $query->get();
+        // $userData = $query->get();
 
 
-
+        // $userData = 
 
         // gender graph
         $genderData = [
