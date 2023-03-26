@@ -62,6 +62,8 @@
         <input type="submit" value="Upload File" class="btn btn-primary">
     </div>
 </form>
+<br>
+<br>
 
 <div class="mb-3">
     <form action="{{route('create_shopping_list')}}" method="POST">
