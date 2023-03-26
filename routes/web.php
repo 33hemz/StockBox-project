@@ -70,7 +70,6 @@ Route::middleware('auth')->group(function() {
     Route::middleware('user_type:USER')->group(function() {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         
-
         Route::get('/brand-page', [UserController::class, 'index'])->name('brand_page');
         Route::post('/updated-brand-page', [UserController::class, 'addProductCategory'])->name('updated_brand_page');
         Route::post('/deleted-product-category', [UserController::class, 'deleteProductCategory'])->name('deleted_product_category');
@@ -90,8 +89,6 @@ Route::middleware('auth')->group(function() {
         Route::post('/process-table', [ConvertCSVController::class, 'uploadCSV'])->name('process_csv_file');
         Route::post('/generate-shopping-list', [ConvertCSVController::class, 'create_shopping_list'])->name('create_shopping_list');
     
-
-    
         Route::get('/manage-user', [ManageUserController::class, 'index'])->name('manage_user');
 
         Route::post('/delete-user', [ManageUserController::class, 'deleteUser'])->name('delete_user');
@@ -105,40 +102,4 @@ Route::middleware('auth')->group(function() {
         Route::post('/add_new_company', [AdminController::class, 'addNewCompany'])->name('add_new_company');
     });
     
-});
-
-Route::get('/userdatagen', function() {
-    $faker = Faker\Factory::create();
-    $fullNames = array($faker->name());
-    $genders = array('Male', 'Female');
-    $countries = array('USA', 'Canada', 'UK', 'Australia', 'France');
-    $incomes = array(20000, 40000, 60000, 80000, 100000);
-    $numDependents = array(0, 1, 2, 3, 4);
-    $dietaryRequirements = array('Vegetarian', 'Vegan', 'Gluten-free', 'Lactose-free', 'No restrictions');
-
-    $data = array();
-
-    for ($i = 0; $i < 20; $i++) {
-       
-        $fullName = $faker->name(); 
-        $gender = $genders[rand(0, count($genders) - 1)];
-        $age = rand(18, 80);
-        $country = $countries[rand(0, count($countries) - 1)];
-        $income = $incomes[rand(0, count($incomes) - 1)];
-        $numDependent = $numDependents[rand(0, count($numDependents) - 1)];
-        $dietaryRequirement = $dietaryRequirements[rand(0, count($dietaryRequirements) - 1)];
-        
-
-        print_r(array(
-            'fullName' => $fullName,
-            'gender' => $gender,
-            'age' => $age,
-            'country' => $country,
-            'income' => $income,
-            'numDependents' => $numDependent,
-            'dietaryRequirements' => $dietaryRequirement
-          ));
-        
-        echo "<br>";
-    }
 });

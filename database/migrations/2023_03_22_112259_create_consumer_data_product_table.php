@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('consumer_purchase_data', function (Blueprint $table) {
-            $table->unsignedBigInteger('consumer_id');
-            $table->foreign('consumer_id')->references('id')->on('consumer_data');
+        Schema::create('consumer_data_product', function (Blueprint $table) {
+            $table->unsignedBigInteger('consumer_data_id');
+            $table->foreign('consumer_data_id')->references('id')->on('consumer_data');
 
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
 
-            $table->primary(['consumer_id', 'product_id']);
+            $table->primary(['consumer_data_id', 'product_id']);
 
-            $table->integer('amount');
+            $table->integer('quantity');
         });
     }
 

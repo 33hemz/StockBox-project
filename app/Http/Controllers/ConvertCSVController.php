@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ConsumerData;
 
 class ConvertCSVController extends Controller
 {
@@ -89,7 +90,7 @@ class ConvertCSVController extends Controller
       $countries = array('USA', 'Canada', 'UK', 'Australia', 'France');
       $incomes = array(20000, 40000, 60000, 80000, 100000);
       $numDependents = array(0, 1, 2, 3, 4);
-      $dietaryRequirements = array('Vegetarian', 'Vegan', 'Gluten-free', 'Lactose-free', 'No restrictions');
+      $dietaryRequirements = array('Vegetarian', 'Vegan', 'Gluten-free', 'Lactose-free', '', '', '', '', '', '', '');
   
       
       // generate data for each field
@@ -105,15 +106,15 @@ class ConvertCSVController extends Controller
          'age' => $age,
          'country' => $country,
          'income' => $income,
-         'numDependents' => $numDependent,
-         'dietaryRequirements' => $dietaryRequirement,
+         'number_of_dependents' => $numDependent,
+         'dietary_requirements' => $dietaryRequirement,
       ];
    }
    
 
    // generate shopping list
    function generateShoppingList($dietaryRequirements) {
-      // Purchase data
+      // Predefined shopping list template
       $items = array(
           "Fruits" => array("Apples", "Watermelon", "Peach"),
           "Vegetables" => array("Carrots", "Broccoli", "Cauliflower"),
@@ -169,15 +170,15 @@ class ConvertCSVController extends Controller
             break;
       }
 
+      // 2. use limited dataset to find a matching item for each category in ($list) 
       $real = [];
       foreach($list as $item) {
-
          $realItems = $dataset->filter(function($row) use($item) {
             return str_contains($row['product_name'], $item);
          });   
 
          if (!$realItems->isEmpty()) {
-            array_push($real, $realItems->random()['product_name']);
+            array_push($real, $realItems->random());
          }
       }
 
@@ -185,25 +186,29 @@ class ConvertCSVController extends Controller
    }
 
 
+   public function create_shopping_list() {
+      // generate users
+      for ($i = 0; $i < 100; $i++) {
+            $consumer = ConsumerData::create($this->generateUserData());
+            
+            for ($i = 0; $i < 3; $i++) {
+               $list = $this->generateShoppingList($consumer['dietaryRequirements']);
+
+               foreach ($list as $product) {
+
+                  if ($consumer->products()->where('product_id', $product['id'])->exists()) {
+                     $consumer->products()->where('product_id', $product['id'])->increment('quantity');
+                  } else {
+                     $consumer->products()->attach($product['id'], ['quantity' => 1]);
+                  }
+               }
+            }
+      }
+   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   function epicArrayPrint($arr) {
+   // ----------- FUNCTIONS FOR DEVELOPMENT ONLY
+   function printArray($arr) {
       echo "==========================================<br>";
       echo "<br>";
       echo "       [<br>";
@@ -215,17 +220,16 @@ class ConvertCSVController extends Controller
       echo "==========================================<br>";
     }
     
-
-   public function create_shopping_list() {
+   public function test() {
       $user = $this->generateUserData();
-      $this->epicArrayPrint($user);
+      $this->printArray($user);
       echo "<br><br>";
-      $this->epicArrayPrint($this->generateShoppingList($user['dietaryRequirements']));
+      $this->printArray($this->generateShoppingList($user['dietaryRequirements']));
       echo "<br><br>";
-      $this->epicArrayPrint($this->generateShoppingList($user['dietaryRequirements']));
+      $this->printArray($this->generateShoppingList($user['dietaryRequirements']));
       echo "<br><br>";
-      $this->epicArrayPrint($this->generateShoppingList($user['dietaryRequirements']));
+      $this->printArray($this->generateShoppingList($user['dietaryRequirements']));
       echo "<br><br>";
-      $this->epicArrayPrint($this->generateShoppingList($user['dietaryRequirements']));
+      $this->printArray($this->generateShoppingList($user['dietaryRequirements']));
    }
 }

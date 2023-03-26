@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Models\Company;
+use App\Models\ConsumerData;
+use Phpml\Clustering\KMeans;
 
 class UserController extends Controller
 {
@@ -37,9 +39,23 @@ class UserController extends Controller
         return redirect(route('brand_page'));
     }
 
-    public function my_personas_page(){
-        $personas = [['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'], ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023']];
-        return view('my_personas_page',['personas' => $personas]);
+    
+    public function my_personas_page() {
+        $consumerData = ConsumerData::all();
+
+        $personas = [
+            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'], 
+            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
+            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
+            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
+            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
+            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
+            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
+        ];
+        
+        return view('my_personas_page', [
+            'personas' => $personas
+        ]);
     }
 
 

@@ -12,4 +12,10 @@ class ConsumerData extends Model
     protected $guarded = [];
 
     public $timestamps = false;
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)
+        ->withPivot('quantity');
+    }
 }

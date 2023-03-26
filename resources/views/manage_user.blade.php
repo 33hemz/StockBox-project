@@ -12,7 +12,7 @@
 
 @section('content') 
 
-<h1 class="border-bottom pb-2"> Manage Users</h1>
+<h1 class="border-bottom pb-2">Manage Users</h1>
     @csrf
     
     <table class="table table-striped" id="users" width="100%">
