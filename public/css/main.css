@@ -41,12 +41,12 @@ body {
 #page_content {
     align-self: stretch;
 }
+
 .Navbar {
     height: 100%;
     white-space: nowrap;
     overflow-x: hidden;
     background-color: #2db28e;
-    /* transition: 0.3s; */
     padding-top: 60px;
 }
 
@@ -68,6 +68,11 @@ body {
     color: white;
     display: block;
     /* transition: 0.3s; */
+
+}
+
+.Navbar ul li a.active {
+    font-weight: 600;
 
 }
 

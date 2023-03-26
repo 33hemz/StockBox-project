@@ -17,5 +17,5 @@
 </head>
 <body>
     @yield('content')    
-    <script src="{{ asset('themetoggle.js') }}"></script>
+    <script src="{{ asset('js/themetoggle.js') }}"></script>
 </body>
