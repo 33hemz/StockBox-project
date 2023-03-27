@@ -116,9 +116,9 @@ class ConvertCSVController extends Controller
    function generateShoppingList($income, $dietaryRequirements) {
       // Predefined shopping list template
       $items = array(
-          "Fruits" => array("Apples", "Watermelon", "Peach"),
-          "Vegetables" => array("Carrots", "Broccoli", "Cauliflower"),
-          "Meat and Poultry" => array("Chicken", "Beef", "Pork", "Quorn Chicken Nuggets"),
+          "Fruits" => array('Apple', 'Banana', 'Orange', 'Kiwi', 'Pineapple', 'Mango', 'Strawberry', 'Blueberry', 'Raspberry', 'Grape', 'Cherry', 'Lemon', 'Lime', 'Grapefruit', 'Pear', 'Peach', 'Plum', 'Apricot', 'Watermelon', 'Pomegranate'),
+          "Vegetables" => array('Carrot', 'Broccoli', 'Cabbage', 'Tomato', 'Potato', 'Spinach', 'Kale', 'Lettuce', 'Cauliflower', 'Pepper', 'Cucumber', 'Onion', 'Garlic', 'Ginger', 'Pumpkin', 'Zucchini', 'Eggplant', 'Asparagus', 'Mushroom', 'Brussels sprouts'),
+          "Meat and Poultry" => array("Chicken", "Beef", "Pork", "Chicken Nuggets"),
           "Milk" => array("Whole Milk", "Semi-Skimmed Milk", "Oat Milk"),
           "Dairy Products + Eggs" => array("Cheddar Cheese", "Butter", "Yogurt", "Eggs"),
           "Bakery" => array("White Bread", "Brown Bread", "Bread Rolls"),
