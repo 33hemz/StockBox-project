@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Company;
 use App\Models\Product;
+use DataTables;
 
 class AdminController extends Controller
 {
@@ -48,11 +49,13 @@ class AdminController extends Controller
         return redirect(route("create_new_user"));
     }
     public function viewProductData(){
-        $product = Product::all();
-        return view('view_product_data', 
-    ['product_data' => $product]
-);
+        if (request()->ajax()) {
+            $data = Product::all('brand', 'product_name', 'category', 'subcategory', 'price_£', 'price_per', 'ingredients', 'allergen_information', 'recycling_information', 'product_link', 'brand_details');
+            return Datatables::of($data)->make(true);
+        }
 
+        $product = Product::all();
+        return view('view_product_data', ['product_data' => $product]);
     }
     
 }

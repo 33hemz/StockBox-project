@@ -113,12 +113,12 @@ class ConvertCSVController extends Controller
    
 
    // generate shopping list
-   function generateShoppingList($dietaryRequirements) {
+   function generateShoppingList($income, $dietaryRequirements) {
       // Predefined shopping list template
       $items = array(
-          "Fruits" => array("Apples", "Watermelon", "Peach"),
-          "Vegetables" => array("Carrots", "Broccoli", "Cauliflower"),
-          "Meat and Poultry" => array("Chicken", "Beef", "Pork", "Quorn Chicken Nuggets"),
+          "Fruits" => array('Apple', 'Banana', 'Orange', 'Kiwi', 'Pineapple', 'Mango', 'Strawberry', 'Blueberry', 'Raspberry', 'Grape', 'Cherry', 'Lemon', 'Lime', 'Grapefruit', 'Pear', 'Peach', 'Plum', 'Apricot', 'Watermelon', 'Pomegranate'),
+          "Vegetables" => array('Carrot', 'Broccoli', 'Cabbage', 'Tomato', 'Potato', 'Spinach', 'Kale', 'Lettuce', 'Cauliflower', 'Pepper', 'Cucumber', 'Onion', 'Garlic', 'Ginger', 'Pumpkin', 'Zucchini', 'Eggplant', 'Asparagus', 'Mushroom', 'Brussels sprouts'),
+          "Meat and Poultry" => array("Chicken", "Beef", "Pork", "Chicken Nuggets"),
           "Milk" => array("Whole Milk", "Semi-Skimmed Milk", "Oat Milk"),
           "Dairy Products + Eggs" => array("Cheddar Cheese", "Butter", "Yogurt", "Eggs"),
           "Bakery" => array("White Bread", "Brown Bread", "Bread Rolls"),
@@ -178,6 +178,27 @@ class ConvertCSVController extends Controller
             break;
       }
 
+      switch($income) {
+         case 20000:
+            $dataset = $dataset->filter(function($row) {
+               return !(str_contains($row['product_name'], 'M&S'));
+            });
+             break;
+
+         case 80000:
+         case 100000:
+            $dataset = $dataset->filter(function($row) {
+               return str_contains($row['product_name'], 'M&S');
+            });
+               break;   
+
+         default:
+             break;
+     }
+     
+
+         
+      
 
       // 2. use limited dataset to find a matching item for each category in ($list) 
       $real = [];
@@ -201,7 +222,7 @@ class ConvertCSVController extends Controller
             $consumer = ConsumerData::create($this->generateUserData());
             
             for ($i = 0; $i < 3; $i++) {
-               $list = $this->generateShoppingList($consumer['dietaryRequirements']);
+               $list = $this->generateShoppingList($consumer['income'], $consumer['dietaryRequirements']);
 
                foreach ($list as $product) {
 
@@ -232,7 +253,7 @@ class ConvertCSVController extends Controller
          for ($i = 0; $i < 5; $i++) { // 5 shopping lists per user
             echo "<br><br>";
             // $list = $this->generateShoppingList($user['dietary_requirements']);
-            $list = $this->generateShoppingList('Vegan');
+            $list = $this->generateShoppingList(20000, 'Vegan');
             foreach($list as $product) {
                echo '<br>[<a target="_blank" href="' . $product['product_link'] . '">' . $product['id'] . '</a>] ' . $product['product_name'];
             }
