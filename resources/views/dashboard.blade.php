@@ -13,7 +13,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 10px;
-            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px 3px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 2px 2px;
         }
     </style>
 @endsection
@@ -85,7 +85,7 @@
     <div class="row">
         <div class="col bg-body-tertiary mx-2 my-3 rounded p-3">
             <h3 class="card-title fs-5">Gender Distribution</h3>
-            <div class="card-content"><canvas id="genderChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
+            <div><canvas id="genderChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
         </div>
         <div class="col bg-body-tertiary mx-2 my-3 rounded p-3">
             <h3 class="card-title fs-5">Age Distribution</h3>

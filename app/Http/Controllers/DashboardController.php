@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ConsumerData;
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -26,6 +27,7 @@ class DashboardController extends Controller
         // $userData = 
 
         // gender graph
+
         $genderData = [
             'Male' => $userdata->where('gender', 'Male')->count(),
             'Female' => $userdata->where('gender', 'Female')->count(),
@@ -61,7 +63,7 @@ class DashboardController extends Controller
             '45k-65k' => $userdata->whereBetween('income', [45000, 65000])->count(),
             '65k-80k' => $userdata->whereBetween('income', [65000, 80000])->count(),
             '80k-120k' => $userdata->whereBetween('income', [80000, 120000])->count(),
-            '120k+' => $userdata->where('income', '>', 12000)->count(),
+            '120k+' => $userdata->where('income', '>', 120000)->count(),
         ];
 
         // number of dependents 

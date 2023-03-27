@@ -34,7 +34,7 @@
     font-weight:200;
     background-color:#2db490;
     padding-left: 50px;
-    border-radius: 5px 0 0 0;
+    border-radius: 4px 0 0 0;
   }
 
   :root[data-bs-theme="dark"] .ml-1 {
