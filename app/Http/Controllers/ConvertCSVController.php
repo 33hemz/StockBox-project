@@ -209,7 +209,7 @@ class ConvertCSVController extends Controller
 
    // ----------- FUNCTIONS FOR DEVELOPMENT ONLY
    public function test() {
-      for ($i = 0; $i < 10; $i++) { // gen 10 users
+      for ($i = 0; $i < 1; $i++) { // gen 1 users
          $user = $this->generateUserData();
          // print user data
          echo "==========================================<br>";
@@ -224,7 +224,7 @@ class ConvertCSVController extends Controller
             echo "<br><br>";
             $list = $this->generateShoppingList($user['dietary_requirements']);
             foreach($list as $product) {
-               echo '<br>[' . $product['id'] . '] ' . $product['product_name'];
+               echo '<br>[<a target="_blank" href="' . $product['product_link'] . '">' . $product['id'] . '</a>] ' . $product['product_name'];
             }
          }
          echo "<br>==========================================<br>";
