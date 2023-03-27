@@ -31,28 +31,60 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($product_data as $product)
-        <tr>
-            <td class="text-nowrap">{{$product['brand']}}</td>
-            <td style="min-width: 180px;">{{$product['product_name']}}</td>
-            <td style="min-width: 180px;">{{$product['category']}}</td>
-            <td style="min-width: 180px;">{{$product['subcategory']}}</td>
-            <td>{{$product['price_£']}}</td>
-            <td style="min-width: 180px;">{{$product['price_per']}}</td>
-            <td class="text-truncate" style="max-width: 100px;">{{$product['ingredients']}}</td>
-            <td style="min-width: 180px;">{{$product['allergen_information']}}</td>
-            <td>{{$product['recycling_information']}}</td>
-            <td><a target="_blank" href="{{ $product['product_link'] }}">{{$product['product_link']}}</a></td>
-            <td>{{$product['brand_details']}}</td>
-        </tr>
-        @endforeach    
-        
+        {{-- <tr>
+            <td class="text-nowrap"></td>
+            <td style="min-width: 180px;"></td>
+            <td style="min-width: 180px;"></td>
+            <td style="min-width: 180px;"></td>
+            <td></td>
+            <td style="min-width: 180px;"></td>
+            <td class="text-truncate" style="max-width: 100px;"></td>
+            <td style="min-width: 180px;"></td>
+            <td></td>
+            <td><a target="_blank" href=""></a></td>
+            <td></td>
+        </tr> --}}
     </tbody>
 </table>
 
     <script>
-    let table = new DataTable('#product_data_table', {
-        scrollX: true,
+    // let table = new DataTable('#product_data_table', {
+    //     scrollX: true,
+    // });
+    $(function () {
+        var table = $('#product_data_table').DataTable({
+            processing: true,
+            serverSide: true,
+            scrollX: true,
+            ajax: "{{ route('view_product_data') }}",
+            columns: [
+                {data: 'brand', name: 'brand'},
+                {data: 'product_name', name: 'product_name'},
+                {data: 'category', name: 'category'},
+                {data: 'subcategory', name: 'subcategory'},
+                {data: 'price_£', name: 'price_£'},
+                {data: 'price_per', name: 'price_per'},
+                {
+                    data: 'ingredients', 
+                    name: 'ingredients',
+                    createdCell: function(cell, cellData, rowData, rowIndex, colIndex) {
+                        $(cell).addClass('text-truncate');
+                        $(cell).css('max-width', '100px');
+                        $(cell).css('font-size', '15px');
+                    }
+                },
+                {data: 'allergen_information', name: 'allergen_information'},
+                {data: 'recycling_information', name: 'recycling_information'},
+                {
+                    data: 'product_link', 
+                    name: 'product_link',
+                    render: function(data, type, row, meta) {
+                        return '<a target="_blank" href="' +  data + '">' + data + '</a>';
+                    }
+                },
+                {data: 'brand_details', name: 'brand_details'},
+            ]
+        });
     });
     </script>
     
