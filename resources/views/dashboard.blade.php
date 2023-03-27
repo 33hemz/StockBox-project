@@ -13,7 +13,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 10px;
-            box-shadow: 0 2px 15px 0 #bbbbbb;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px 3px;
         }
     </style>
 @endsection
@@ -83,33 +83,33 @@
 </div>
 <div class="sec row">
     <div class="row">
-        <div class="col card mx-2 my-3">
+        <div class="col bg-body-tertiary mx-2 my-3 rounded p-3">
             <h3 class="card-title fs-5">Gender Distribution</h3>
             <div class="card-content"><canvas id="genderChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
         </div>
-        <div class="col card mx-2 my-3">
-            <h3 class="card-title fs-5">Number of Dependants</h3>
-            <div class="card-content"><canvas id="numOfDependentsChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col card mx-2 my-3">
-            <h3 class="card-title fs-5">Countries</h3>
-            <div class="card-content"><div id="countriesChart" style="min-width: 590px; max-width: 900px;"></div></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col card mx-2 my-3">
-            <h3 class="card-title fs-5">Average Income</h3>
-            <div class="card-content"><canvas id="incomeChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
-        </div>
-        <div class="col card">
+        <div class="col bg-body-tertiary mx-2 my-3 rounded p-3">
             <h3 class="card-title fs-5">Age Distribution</h3>
             <div class="card-content"><canvas id="ageChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
         </div>
     </div>
     <div class="row">
-        <div class="col card mx-2 my-3">
+        <div class="col bg-body-tertiary mx-2 my-3 rounded p-3">
+            <h3 class="card-title fs-5">Average Income</h3>
+            <div class="card-content"><canvas id="incomeChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
+        </div>
+        <div class="col bg-body-tertiary mx-2 my-3 rounded p-3">
+            <h3 class="card-title fs-5">Number of Dependants</h3>
+            <div class="card-content"><canvas id="numOfDependentsChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mx-2 my-3 rounded p-3">
+            <h3 class="card-title fs-5">Countries</h3>
+            <div class="card-content"><div id="countriesChart" style="min-width: 590px; max-width: 900px;"></div></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col bg-body-tertiary mx-2 my-3 rounded p-3">
             <h3 class="card-title fs-5">Dietary Requirements</h3>
             <div class="card-content"><canvas id="dietaryChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
         </div>
