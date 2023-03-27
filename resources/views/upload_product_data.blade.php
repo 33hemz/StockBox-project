@@ -4,7 +4,7 @@
 
 {{-- import product csv --}}
 @section('content')
-<form action="{{ route('process_csv_file') }}" method="post" enctype="multipart/form-data">
+<form id=product_upload_form action="{{ route('process_csv_file') }}" method="post" enctype="multipart/form-data">
     @csrf
 
     <h1 class="border-bottom pb-2">Import Product Data via CSV</h1>
@@ -27,15 +27,30 @@
     </div>
 
     <div class="mb-3">
-        <input type="submit" value="Upload File" class="btn btn-primary">
+        <input id="product_upload_button" type="submit" value="Upload File" class="btn btn-primary">
     </div>
 </form>
+
+<script>
+    document.getElementById("product_upload_form").addEventListener("submit", function() {
+        // Create a new button element with the desired HTML content
+        var button = document.createElement("button");
+        button.classList.add("btn", "btn-primary");
+        button.setAttribute("type", "button");
+        button.setAttribute("disabled", "disabled");
+        button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Uploading...';
+
+        // Replace the existing button with the new one
+        var oldButton = document.getElementById("product_upload_button");
+        oldButton.parentNode.replaceChild(button, oldButton);
+    });
+</script>
 
 <br>
 <br>
     
     {{-- import consumer csv --}}
-<form action="{{ route('process_user_data') }}"method="post" enctype="multipart/form-data">
+<form id=consumer_upload_form action="{{ route('process_user_data') }}"method="post" enctype="multipart/form-data">
     @csrf
     
     <h1 class="border-bottom pb-2">Import Consumer Data via CSV</h1>
@@ -59,9 +74,25 @@
     </div>
     
     <div class="mb-3">
-        <input type="submit" value="Upload File" class="btn btn-primary">
+        <input id="con_upload_button" type="submit" value="Upload File" class="btn btn-primary">
     </div>
 </form>
+
+<script>
+    document.getElementById("consumer_upload_form").addEventListener("submit", function() {
+        // Create a new button element with the desired HTML content
+        var button = document.createElement("button");
+        button.classList.add("btn", "btn-primary");
+        button.setAttribute("type", "button");
+        button.setAttribute("disabled", "disabled");
+        button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Uploading...';
+
+        // Replace the existing button with the new one
+        var oldButton = document.getElementById("con_upload_button");
+        oldButton.parentNode.replaceChild(button, oldButton);
+    });
+</script>
+
 <br>
 <br>
 
