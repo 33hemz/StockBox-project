@@ -148,10 +148,18 @@ class ConvertCSVController extends Controller
       // 1. limit dataset to exclude products that don't match consumer restrictions e.g. vegan products only
       switch($dietaryRequirements) {
          case 'Vegetarian':
-         case 'Vegan':
             $dataset = Product::whereIn('subcategory',['Vegetarian & Vegan Foods', 'Fruit', 'Yoghurts'])
             ->orWhere('product_name', 'like', '%vegetarian%')
             ->orWhere('product_name', 'like', '%vegan%')
+            ->get();
+            break;
+         case 'Vegan':
+            $dataset = Product::whereIn('subcategory',['Vegetarian & Vegan Foods', 'Fruit'])
+            ->orWhere('product_name', 'like', '%vegan%')
+            ->where('product_name', 'not like', '%vegetarian%')
+            ->where('ingredients', 'not like','%lactose%')
+            ->where('allergen_information', 'not like', '%egg%')
+            ->where('product_name', 'not like', '%egg%')
             ->get();
             break;
          case 'Gluten-free':
@@ -161,7 +169,7 @@ class ConvertCSVController extends Controller
             ->get();
             break;
          case 'Lactose-free':
-            $dataset = Product::where('ingredients', 'like', '%lactose%')
+            $dataset = Product::where('ingredients', 'not like', '%lactose%')
             ->orWhereIn('subcategory', ['Fruit'])
             ->get(); // most likely lactose-free
             break;
@@ -169,6 +177,7 @@ class ConvertCSVController extends Controller
             $dataset = Product::all();
             break;
       }
+
 
       // 2. use limited dataset to find a matching item for each category in ($list) 
       $real = [];
@@ -222,7 +231,8 @@ class ConvertCSVController extends Controller
          
          for ($i = 0; $i < 5; $i++) { // 5 shopping lists per user
             echo "<br><br>";
-            $list = $this->generateShoppingList($user['dietary_requirements']);
+            // $list = $this->generateShoppingList($user['dietary_requirements']);
+            $list = $this->generateShoppingList('Vegan');
             foreach($list as $product) {
                echo '<br>[<a target="_blank" href="' . $product['product_link'] . '">' . $product['id'] . '</a>] ' . $product['product_name'];
             }
