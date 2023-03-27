@@ -51,7 +51,7 @@ php artisan serve
 - **Week 4:** Tharidhu Angodage
 - **Week 5:** George Rogers
 - **Week 6:** Hemal Patel
-- **Week 7:** 
+- **Week 7:** David Igandan
 - **Week 8:** 
 
 ## Documentation Links
