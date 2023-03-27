@@ -47,7 +47,6 @@ body {
     white-space: nowrap;
     overflow-x: hidden;
     background-color: #2db28e;
-    padding-top: 60px;
 }
 
 :root[data-bs-theme="dark"] .Navbar {
