@@ -208,28 +208,26 @@ class ConvertCSVController extends Controller
 
 
    // ----------- FUNCTIONS FOR DEVELOPMENT ONLY
-   function printArray($arr) {
-      echo "==========================================<br>";
-      echo "<br>";
-      echo "       [<br>";
-      foreach($arr as $key => $val) {
-        echo "           '$key' => '$val',<br>";
-      }
-      echo "       ]<br>";
-      echo "<br>";
-      echo "==========================================<br>";
-    }
-    
    public function test() {
-      $user = $this->generateUserData();
-      $this->printArray($user);
-      echo "<br><br>";
-      $this->printArray($this->generateShoppingList($user['dietaryRequirements']));
-      echo "<br><br>";
-      $this->printArray($this->generateShoppingList($user['dietaryRequirements']));
-      echo "<br><br>";
-      $this->printArray($this->generateShoppingList($user['dietaryRequirements']));
-      echo "<br><br>";
-      $this->printArray($this->generateShoppingList($user['dietaryRequirements']));
+      for ($i = 0; $i < 10; $i++) { // gen 10 users
+         $user = $this->generateUserData();
+         // print user data
+         echo "==========================================<br>";
+         foreach($user as $key => $val) {
+            echo "'$key' => '$val'<br>";
+         }
+
+         echo "------------------------------------------<br>";
+         
+         
+         for ($i = 0; $i < 5; $i++) { // 5 shopping lists per user
+            echo "<br><br>";
+            $list = $this->generateShoppingList($user['dietary_requirements']);
+            foreach($list as $product) {
+               echo '<br>[' . $product['id'] . '] ' . $product['product_name'];
+            }
+         }
+         echo "<br>==========================================<br>";
+      }
    }
 }

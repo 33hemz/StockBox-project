@@ -103,3 +103,8 @@ Route::middleware('auth')->group(function() {
     });
     
 });
+
+// DEVELOPER ROUTES
+if (env('APP_ENV') == 'local') {
+    Route::get('/dev/generate-sample-user', [ConvertCSVController::class, 'test']);
+}
