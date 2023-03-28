@@ -8,11 +8,44 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
+
+<style>
+
+    #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        }
+    
+    #overlay-content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      color: white;
+      font-size: 36px;
+    }
+
+</style>
 @endsection
 
 @section('content')
 
 <h1 class="border-bottom pb-2">View Product Data</h1>
+
+<div id="overlay">
+    <div id="overlay-content">
+      <p>Loading</p><div class="spinner-border spinner-border-s"></div>
+    </div>
+</div>
 
     <table id="product_data_table" class="table table-striped">
     <thead>
@@ -60,10 +93,12 @@
                 url: "{{ route('view_product_data') }}",
                 beforeSend: function () {
                     console.log("loading");
+                    document.getElementById("overlay").style.display = "block";
                     
                 },
                 complete: function () {
                     console.log("done");
+                    document.getElementById("overlay").style.display = "none";
                 },
             },
             columns: [
