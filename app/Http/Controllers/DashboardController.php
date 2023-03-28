@@ -18,11 +18,32 @@ class DashboardController extends Controller
             $userData->where('gender', request()->gender);
         }
         
+        //Age filter
         if (request()->filled('age')) {
             $age = explode('-', request()->age);
             $userData->whereBetween('age', [$age[0], $age[1]]);
         }
+
+        // Country filter
+        if (request()->filled('country')) {
+            $userData->where('country', request()->country);
+        }
         
+       // Income filter
+       if (request()->filled('income')) {
+        $income = request()->income;
+        if (strpos($income, '+') !== false) {
+            $minIncome = str_replace('k', '000', str_replace('+', '', $income));
+            $userData->where('income', '>', $minIncome);
+        } else {
+            $income = explode('-', $income);
+            $minIncome = str_replace('k', '000', $income[0]);
+            $maxIncome = str_replace('k', '000', $income[1]);
+            $userData->whereBetween('income', [$minIncome, $maxIncome]);
+        }
+        }
+    
+    
         // Get all data after applying filters
         $userData = $userData->get();
 
@@ -42,10 +63,17 @@ class DashboardController extends Controller
             '65-74' => $userData->whereBetween('age', [65, 74])->count(),
             '75+' => $userData->where('age', '>', 75)->count(),
         ];
-    
+        
         // countries
-        $countriesData = $userData->groupBy('country')->sortKeys()->map->count()->toArray();
-    
+        if (request()->filled('country')) {
+            $selectedCountry = request()->country;
+            $countriesData = [        $selectedCountry => $userData->where('country', $selectedCountry)->count()    ];
+        } else {
+            $countriesData = $userData->groupBy('country')->sortKeys()->map->count()->toArray();
+            $selectedCountry = null;
+        }
+
+        
         // convert to format that google charts is expecting
         $countriesData = array_map(function($key, $value) {
             return [$key, $value];
@@ -56,13 +84,13 @@ class DashboardController extends Controller
     
         // income
         $incomeData = [
-            '15-25k' => $userData->whereBetween('income', [15000, 25000])->count(),
-            '25k-35k' => $userData->whereBetween('income', [25000, 35000])->count(),
-            '35k-45k' => $userData->whereBetween('income', [35000, 45000])->count(),
-            '45k-65k' => $userData->whereBetween('income', [45000, 65000])->count(),
-            '65k-80k' => $userData->whereBetween('income', [65000, 80000])->count(),
-            '80k-120k' => $userData->whereBetween('income', [80000, 120000])->count(),
-            '120k+' => $userData->where('income', '>', 12000)->count(),
+            '10-25k' => $userData->whereBetween('income', [10000, 25000])->count(),
+            '25k-35k' => $userData->whereBetween('income', [25001, 35000])->count(),
+            '35k-45k' => $userData->whereBetween('income', [35001, 45000])->count(),
+            '45k-65k' => $userData->whereBetween('income', [45001, 65000])->count(),
+            '65k-80k' => $userData->whereBetween('income', [65001, 80000])->count(),
+            '80k-120k' => $userData->whereBetween('income', [80001, 120000])->count(),
+            '120k+' => $userData->whereBetween('income', [120001, 500000])->count(),
         ];
     
         // number of dependents 

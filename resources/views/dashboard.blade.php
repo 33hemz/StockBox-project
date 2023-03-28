@@ -42,17 +42,17 @@
                 </select>
             </div>            
             <div class="form-group">
-                <label for="country">Countries:</label>
-                <select class="form-select">
+                <label for="country">Country:</label>
+                <select class="form-control" id="country" name="country">
                     <option value=""></option>
-                    @foreach (($countries) as $country)
-                        <option value="{{ $country }}">{{$country}}</option>
+                    @foreach($countries as $country)
+                        <option value="{{ $country }}">{{ $country }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group">
                 <label for="income">Income:</label>
-                <select class="form-select">
+                <select class="form-select" id="income" name="income">
                     <option value=""></option>
                     @foreach ((array_keys($incomeData)) as $income)
                         <option value="{{ $income }}">{{$income}}</option>
