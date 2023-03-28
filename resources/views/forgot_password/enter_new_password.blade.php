@@ -2,13 +2,8 @@
 
 @section('title', 'Enter New Password')
 
-@section('content') 
-<div class="mx-auto" style="width: 450px; margin-top: 50px;">
-    <div class="card shadow-lg bg-body-secondary">
-        <a href="{{ route('landing') }}" class="d-block mx-auto">
-            <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
-        </a>
-        <h1 class="text-center">Reset Password</h1>
+@section('content')
+        <h1 class="text-center mx-5">Reset Password</h1>
         
         <div class="mx-5 my-5 px-3">
             <form action="{{ route('password.update') }}" method="post">
