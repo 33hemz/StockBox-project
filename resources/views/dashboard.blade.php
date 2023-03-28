@@ -26,6 +26,7 @@
             <div class="form-group">
                 <label for="gender">Gender:</label>
                 <select name="gender" class="form-select">
+                    <option value=""></option>
                     @foreach ((array_keys($genderData)) as $gender)
                         <option value="{{ $gender }}" {{ request('gender') == $gender ? 'selected' : '' }}>{{$gender}}</option>
                     @endforeach
@@ -34,8 +35,9 @@
             <div class="form-group">
                 <label for="age">Age:</label>
                 <select class="form-select" name="age">
+                    <option value=""></option>
                     @foreach ((array_keys($ageData)) as $age)
-                        <option value="{{ $age }}" {{ request('age') == $age ? 'selected' : '' }}>{{$age}}</option>
+                    <option value="{{ $age }}">{{$age}}</option>
                     @endforeach
                 </select>
             </div>            

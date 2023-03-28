@@ -9,22 +9,22 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    public function index(Request $request) {
+    public function index() {
     
         $userData = ConsumerData::query();
 
         // Gender filter
-        if ($request->filled('gender')) {
+        if (request()->filled('gender')) {
             $userData->where('gender', request()->gender);
         }
         
-        if ($request->filled('age')) {
-            $userData->where('age', request()->age);
+        if (request()->filled('age')) {
+            $age = explode('-', request()->age);
+            $userData->whereBetween('age', [$age[0], $age[1]]);
         }
+        
         // Get all data after applying filters
         $userData = $userData->get();
-
-        // $userData = $query->get();
 
         // gender graph
         $genderData = [
@@ -56,13 +56,13 @@ class DashboardController extends Controller
     
         // income
         $incomeData = [
-            '15-25k' => $userdata->whereBetween('income', [15000, 25000])->count(),
-            '25k-35k' => $userdata->whereBetween('income', [25000, 35000])->count(),
-            '35k-45k' => $userdata->whereBetween('income', [35000, 45000])->count(),
-            '45k-65k' => $userdata->whereBetween('income', [45000, 65000])->count(),
-            '65k-80k' => $userdata->whereBetween('income', [65000, 80000])->count(),
-            '80k-120k' => $userdata->whereBetween('income', [80000, 120000])->count(),
-            '120k+' => $userdata->where('income', '>', 12000)->count(),
+            '15-25k' => $userData->whereBetween('income', [15000, 25000])->count(),
+            '25k-35k' => $userData->whereBetween('income', [25000, 35000])->count(),
+            '35k-45k' => $userData->whereBetween('income', [35000, 45000])->count(),
+            '45k-65k' => $userData->whereBetween('income', [45000, 65000])->count(),
+            '65k-80k' => $userData->whereBetween('income', [65000, 80000])->count(),
+            '80k-120k' => $userData->whereBetween('income', [80000, 120000])->count(),
+            '120k+' => $userData->where('income', '>', 12000)->count(),
         ];
     
         // number of dependents 
@@ -79,7 +79,7 @@ class DashboardController extends Controller
             'numOfDependentsData' => $numOfDependentsData,
             'dietaryData' => $dietaryData,
             'countries' => $countries,
-            'selectedGender']
+            ]
         );
     }
 }
