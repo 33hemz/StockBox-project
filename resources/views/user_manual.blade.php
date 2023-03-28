@@ -255,6 +255,14 @@
           Then input your user details
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
+        <h1>
+          <h2 id="firstTimeLogin" class="title">First Time Logging In</h2>
+        </h1>
+        <p>
+          The first time you log into StokBox Analytics, 
+          you will be prompted to create your password…
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
 
     
     </div>
