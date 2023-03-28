@@ -42,6 +42,15 @@ class DashboardController extends Controller
             $userData->whereBetween('income', [$minIncome, $maxIncome]);
         }
         }
+
+        if (request()->filled('dependants')) {
+            $userData->where('number_of_dependents', request()->dependants);
+        }
+        
+
+        if (request()->filled('dietary_requirements')) {
+            $userData->where('dietary_requirements', request()->dietary_requirements);
+        }
     
     
         // Get all data after applying filters

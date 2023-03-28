@@ -61,7 +61,7 @@
             </div>
             <div class="form-group">
                 <label for="number_of_dependants">Dependants:</label>
-                <select class="form-select">
+                <select class="form-select" id="dependants" name="dependants">
                     <option value=""></option>
                     @foreach (($numOfDependentsData->keys()) as $dependants)
                         <option value="{{ $dependants }}">{{$dependants}}</option>
@@ -70,7 +70,7 @@
             </div>
             <div class="form-group">
                 <label for="dietary">Dietary Requirements:</label>
-                <select class="form-select">
+                <select class="form-select" id="dietary" name="dietary">
                     <option value=""></option>
                     @foreach (($dietaryData->keys()) as $dietary)
                         <option value="{{ $dietary }}">{{$dietary}}</option>
@@ -79,7 +79,8 @@
             </div>
             <button type="submit" class="btn btn-primary">Filter</button>
         </div>
-    </form>    
+    </form>
+    <button type="submit" class="btn btn-primary">Reset</button>  
 </div>
 <div class="sec row">
     <div class="row">
