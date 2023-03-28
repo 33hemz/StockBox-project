@@ -97,12 +97,27 @@
 <br>
 
 <div class="mb-3">
-    <form action="{{route('create_shopping_list')}}" method="POST">
+    <form id="generate_list"action="{{route('create_shopping_list')}}" method="POST">
 
         <h1 class="border-bottom pb-2">Generate Purchase History</h1>
         <p class="mb-2">Each consumer has their own generated purchase history; press the button to regenerate this data.</p>
         @csrf
-        <input type="submit" value="Generate Purchase History" class="btn btn-primary">
+        <input id="gen_upload_button" type="submit" value="Generate Purchase History" class="btn btn-primary">
     </form>
 </div>
+
+<script>
+    document.getElementById("generate_list").addEventListener("submit", function() {
+        // Create a new button element with the desired HTML content
+        var button = document.createElement("button");
+        button.classList.add("btn", "btn-primary");
+        button.setAttribute("type", "button");
+        button.setAttribute("disabled", "disabled");
+        button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Generating...';
+
+        // Replace the existing button with the new one
+        var oldButton = document.getElementById("gen_upload_button");
+        oldButton.parentNode.replaceChild(button, oldButton);
+    });
+</script>
 @endsection

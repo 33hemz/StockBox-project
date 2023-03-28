@@ -86,7 +86,7 @@
     // });
     $(function () {
         var table = $('#product_data_table').DataTable({
-            processing: true,
+            processing: false,
             serverSide: true,
             scrollX: true,
             ajax: {
