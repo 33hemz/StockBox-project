@@ -26,18 +26,20 @@
     {{-- for loop to be executed on each instance of a persona move to controller --}}
     @foreach ($personas as $persona)
     <div class="col card mx-2 my-3">
-        <div class="profileimage d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center w-100">
                 {{-- These will vary based on each persona --}}
-                <img src="{{ $persona['image_url'] }}" height="100" width="100" class="rounded-circle">
+                <span class="h4 mt-3">{{ $persona['first_name'] }} {{$persona['last_name']}}</span>
+                <img src="{{ $persona['image_url'] }}" height="100" width="100" class="rounded-circle mb-2">
                 
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                    <span class="name mt-3">{{ $persona['first_name'] }} {{$persona['last_name']}}</span>
-                    <span class="age">Age: {{ $persona['age'] }}</span>
-                    <span class="age">Gender: {{ $persona['gender'] }}</span>
-                    <span class="id_income">Income: £{{ $persona['income'] }}</span>
-                    <span class="id_income">Country: {{ $persona['country'] }}</span>
-                    <span class="id_income">Number of Dependents: {{ $persona['number_of_dependents'] }}</span>
-                    <span class="id_income">Dietry Requirements: {{ $persona['dietary_requirements'] }}</span>
+                <div class="d-flex flex-column justify-content-center align-items-center fs-6">
+                    <span>Age: {{ $persona['age'] }}</span>
+                    <span>Gender: {{ $persona['gender'] }}</span>
+                    <span>Income: £{{ $persona['income'] }}</span>
+                    <span>Country: {{ $persona['country'] }}</span>
+                    <span>Number of Dependents: {{ $persona['number_of_dependents'] }}</span>
+                    @if ($persona['dietary_requirements'] !== '')
+                        <span>Dietry Requirement(s): {{ $persona['dietary_requirements'] }}</span>
+                    @endif
                 </div>
                 <div class="d-flex mt-2"> 
                     <input type="button" value="More Details" class="btn btn-primary mb-2">

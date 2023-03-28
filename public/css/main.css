@@ -115,57 +115,6 @@ thead {
     transform: scale(1.5)
 }
 
-.profile_background1 {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-}
-
-.name {
-    font-size: 22px;
-    font-weight: bold
-}
-
-
-
-.age {
-    font-size: 14px;
-    font-weight: 600
-}
-
-.id_income {
-    font-size: 12px
-}
-
-.education {
-    font-size: 22px;
-    font-weight: bold
-}
-
-.profile_text span {
-    font-size: 13px;
-    color: #545454;
-    font-weight: 500
-}
-
-.icons i {
-    font-size: 19px
-}
-
-hr .new1 {
-    border: 1px solid
-}
-
-.join {
-    font-size: 14px;
-    color: #a0a0a0;
-    font-weight: bold
-}
-
-.date {
-    background-color: #ccc
-}
-
 
   
   
