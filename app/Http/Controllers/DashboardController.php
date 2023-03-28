@@ -25,33 +25,33 @@ class DashboardController extends Controller
         }
 
         // Country filter
-        if (request()->filled('country')) {
-            $userData->where('country', request()->country);
+        if (request()->filled('city')) {
+            $userData->where('city', request()->city);
         }
         
        // Income filter
        if (request()->filled('income')) {
         $income = request()->income;
         if (strpos($income, '+') !== false) {
-            $minIncome = str_replace('k', '000', str_replace('+', '', $income));
+            $minIncome = str_replace('k', '001', str_replace('+', '', $income));
             $userData->where('income', '>', $minIncome);
         } else {
             $income = explode('-', $income);
-            $minIncome = str_replace('k', '000', $income[0]);
+            $minIncome = str_replace('k', '001', $income[0]);
             $maxIncome = str_replace('k', '000', $income[1]);
             $userData->whereBetween('income', [$minIncome, $maxIncome]);
         }
         }
 
-        if (request()->filled('dependants')) {
-            $userData->where('number_of_dependents', request()->dependants);
+        // Dependants filter
+        if (request()->filled('number_of_dependents')) {
+            $userData->where('number_of_dependents', request()->number_of_dependents);
         }
         
-
+        // Dietary requirements filter
         if (request()->filled('dietary_requirements')) {
             $userData->where('dietary_requirements', request()->dietary_requirements);
         }
-    
     
         // Get all data after applying filters
         $userData = $userData->get();
@@ -73,24 +73,22 @@ class DashboardController extends Controller
             '75+' => $userData->where('age', '>', 75)->count(),
         ];
         
-        // countries
-        if (request()->filled('country')) {
-            $selectedCountry = request()->country;
-            $countriesData = [        $selectedCountry => $userData->where('country', $selectedCountry)->count()    ];
+        // cites
+        if (request()->filled('city')) {
+            $selectedCity = request()->city;
+            $citiesData = [        $selectedCity => $userData->where('city', $selectedCity)->count()    ];
         } else {
-            $countriesData = $userData->groupBy('country')->sortKeys()->map->count()->toArray();
-            $selectedCountry = null;
+            $citiesData = $userData->groupBy('city')->sortKeys()->map->count()->toArray();
+            $selectedCity = null;
         }
 
-        
-        // convert to format that google charts is expecting
-        $countriesData = array_map(function($key, $value) {
+        $citiesData = array_map(function($key, $value) {
             return [$key, $value];
-        }, array_keys($countriesData), array_values($countriesData));
-    
-    
-        $countries = array_keys($userData->groupBy('country')->sortKeys()->toArray());
-    
+        }, array_keys($citiesData), array_values($citiesData));
+        
+        $cities = array_keys($userData->groupBy('city')->sortKeys()->toArray());
+
+
         // income
         $incomeData = [
             '10-25k' => $userData->whereBetween('income', [10000, 25000])->count(),
@@ -111,11 +109,11 @@ class DashboardController extends Controller
         return view('dashboard', [
             'genderData' => $genderData,
             'ageData' => $ageData,
-            'countriesData' => $countriesData,
+            'citiesData' => $citiesData,
             'incomeData' => $incomeData,
             'numOfDependentsData' => $numOfDependentsData,
             'dietaryData' => $dietaryData,
-            'countries' => $countries,
+            'cities' => $cities,
             ]
         );
     }

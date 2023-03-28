@@ -4,7 +4,7 @@
 
 @section('head')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>   
     <style> 
         .sec {
             padding: 20px;
@@ -37,16 +37,16 @@
                 <select class="form-select" name="age">
                     <option value=""></option>
                     @foreach ((array_keys($ageData)) as $age)
-                    <option value="{{ $age }}">{{$age}}</option>
+                        <option value="{{ $age }}" {{ request('age') == $age ? 'selected' : '' }}>{{$age}}</option>
                     @endforeach
                 </select>
             </div>            
             <div class="form-group">
-                <label for="country">Country:</label>
-                <select class="form-select" id="country" name="country">
+                <label for="country">City:</label>
+                <select class="form-select" id="city" name="city">
                     <option value=""></option>
-                    @foreach($countries as $country)
-                        <option value="{{ $country }}">{{$country}}</option>
+                    @foreach($cities as $city)
+                        <option value="{{ $city }}" {{ request('city') == $city ? 'selected' : '' }}>{{$city}}</option>
                     @endforeach
                 </select>
             </div>
@@ -55,25 +55,25 @@
                 <select class="form-select" id="income" name="income">
                     <option value=""></option>
                     @foreach ((array_keys($incomeData)) as $income)
-                        <option value="{{ $income }}">{{$income}}</option>
+                        <option value="{{ $income }}" {{ request('income') == $income ? 'selected' : '' }}>{{$income}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group">
                 <label for="number_of_dependants">Dependants:</label>
-                <select class="form-select" id="dependants" name="dependants">
-                    <option value=""></option>
-                    @foreach (($numOfDependentsData->keys()) as $dependants)
-                        <option value="{{ $dependants }}">{{$dependants}}</option>
+                <select class="form-select" id="number_of_dependents" name="number_of_dependents">
+                    <option value="" selected></option>
+                    @foreach (($numOfDependentsData->keys()) as $number_of_dependents)
+                        <option value="{{ $number_of_dependents }}" {{ request('number_of_dependents') == $number_of_dependents ? 'selected' : '' }}>{{$number_of_dependents}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group">
                 <label for="dietary">Dietary Requirements:</label>
-                <select class="form-select" id="dietary" name="dietary">
+                <select class="form-select" id="dietary_requirements" name="dietary_requirements">
                     <option value=""></option>
-                    @foreach (($dietaryData->keys()) as $dietary)
-                        <option value="{{ $dietary }}">{{$dietary}}</option>
+                    @foreach (($dietaryData->keys()) as $dietary_requirements)
+                        <option value="{{ $dietary_requirements }}" {{ request('dietary_requirements') == $dietary_requirements ? 'selected' : '' }}>{{$dietary_requirements}}</option>
                     @endforeach
                 </select>
             </div>
@@ -107,8 +107,8 @@
     </div>
     <div class="row">
         <div class="col mx-2 my-3 rounded p-3">
-            <h3 class="card-title fs-5">Countries</h3>
-            <div class="card-content"><div id="countriesChart" style="min-width: 590px; max-width: 900px;"></div></div>
+            <h3 class="card-title fs-5">Cities</h3>
+            <div class="card-content"><div id="citiesChart" style="min-width: 590px; max-width: 900px;"></div></div>
         </div>
     </div>
     <div class="row">
@@ -163,24 +163,7 @@
         }
     });
 
-    google.charts.load('current', {
-        'packages':['geochart'],
-      });
-      google.charts.setOnLoadCallback(drawRegionsMap);
-
-    function drawRegionsMap() {
-        var data = google.visualization.arrayToDataTable({{ Js::from($countriesData) }}, true);
-
-        var options = {
-            colorAxis: {colors: ['#ffffff', '#2db28e']} 
-        };
-
-        var chart = new google.visualization.GeoChart(document.getElementById('countriesChart'));
-
-        chart.draw(data, options);
-    }
-
-
+    
     const incomeChart = document.getElementById('incomeChart');
     new Chart(incomeChart, {
         type: 'line',
@@ -227,18 +210,17 @@
 
     const dietaryChart = document.getElementById('dietaryChart');
     new Chart(dietaryChart, {
-        type: 'bar',
+        type: 'polarArea',
         data: {
             labels: {{ Js::from($dietaryData->keys()) }},
             datasets: [{
                 data: {{ Js::from($dietaryData->values()) }},
-                backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
             }]
         },
         options: {
             plugins: {
                 legend: {
-                    display: false
+                    display: true
                 },
                 colors: {
                     colours: true
