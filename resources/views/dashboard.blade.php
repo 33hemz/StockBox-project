@@ -25,22 +25,20 @@
         <div class="d-flex gap-3">
             <div class="form-group">
                 <label for="gender">Gender:</label>
-                <select name="gender"  class="form-select">
-                    <option value=""></option>
+                <select name="gender" class="form-select">
                     @foreach ((array_keys($genderData)) as $gender)
-                        <option value="{{ $gender }}">{{$gender}}</option>
+                        <option value="{{ $gender }}" {{ request('gender') == $gender ? 'selected' : '' }}>{{$gender}}</option>
                     @endforeach
                 </select>
-            </div>
+            </div>            
             <div class="form-group">
                 <label for="age">Age:</label>
-                <select class="form-select">
-                    <option value=""></option>
+                <select class="form-select" name="age">
                     @foreach ((array_keys($ageData)) as $age)
-                        <option value="{{ $age }}">{{$age}}</option>
+                        <option value="{{ $age }}" {{ request('age') == $age ? 'selected' : '' }}>{{$age}}</option>
                     @endforeach
                 </select>
-            </div>
+            </div>            
             <div class="form-group">
                 <label for="country">Countries:</label>
                 <select class="form-select">
