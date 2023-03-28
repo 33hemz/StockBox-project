@@ -87,24 +87,32 @@ class ConvertCSVController extends Controller
    function generateUserData() {
       // define options
       $genders = array('Male', 'Female');
-      $countries = array('USA', 'Canada', 'UK', 'Australia', 'France');
-      $incomes = array(20000, 40000, 60000, 80000, 100000);
-      $numDependents = array(0, 1, 2, 3, 4);
+      $cities = array("London", "Manchester", "Birmingham", "Liverpool", "Glasgow", "Edinburgh", "Bristol", "Leeds", "Newcastle", "Sheffield", "Cardiff", "Belfast", "Leicester", "Leicester");
+      $incomes = array(40000, 60000, 80000, 100000);
+      $numDependents = array(0, 1, 2, 3, 3, 4, 4);
       $dietaryRequirements = array('Vegetarian', 'Vegan', 'Gluten-free', 'Lactose-free', '', '', '', '', '', '', '');
   
       
       // generate data for each field
       $gender = $genders[rand(0, count($genders) - 1)];
       $age = rand(18, 80);
-      $country = $countries[rand(0, count($countries) - 1)];
-      $income = $incomes[rand(0, count($incomes) - 1)];
-      $numDependent = $numDependents[rand(0, count($numDependents) - 1)];
+      $city = $cities[rand(0, count($cities) - 1)];
+      if ($age < 25) {
+         $income = rand(1.6,4) * 10000;
+      } else {
+         $income = $incomes[rand(0, count($incomes) - 1)];
+      } 
+      if ($age < 25) {
+         $numDependent = rand(0,1);
+      } else {
+         $numDependent = $numDependents[rand (0, count($numDependents) - 1)];
+      }
       $dietaryRequirement = $dietaryRequirements[rand(0, count($dietaryRequirements) - 1)];
       
       return [
          'gender' => $gender,
          'age' => $age,
-         'country' => $country,
+         'city' => $city,
          'income' => $income,
          'number_of_dependents' => $numDependent,
          'dietary_requirements' => $dietaryRequirement,
@@ -150,8 +158,7 @@ class ConvertCSVController extends Controller
          case 'Vegetarian':
             $dataset = Product::whereIn('subcategory',['Vegetarian & Vegan Foods', 'Fruit', 'Yoghurts'])
             ->orWhere('product_name', 'like', '%vegetarian%')
-            ->orWhere('product_name', 'like', '%vegan%')
-            ->get();
+            ->orWhere('product_name', 'like', '%vegan%');
             break;
          case 'Vegan':
             $dataset = Product::whereIn('subcategory',['Vegetarian & Vegan Foods', 'Fruit'])
@@ -159,44 +166,37 @@ class ConvertCSVController extends Controller
             ->where('product_name', 'not like', '%vegetarian%')
             ->where('ingredients', 'not like','%lactose%')
             ->where('allergen_information', 'not like', '%egg%')
-            ->where('product_name', 'not like', '%egg%')
-            ->get();
+            ->where('product_name', 'not like', '%egg%');
             break;
          case 'Gluten-free':
             $dataset = Product::where('product_name', 'like', '%gluten%') // most likely gluten-free
             ->orWhere('allergen_information', 'like', '%free from gluten%')
-            ->orWhereIn('subcategory', ['Fruit'])
-            ->get();
+            ->orWhereIn('subcategory', ['Fruit']);
             break;
          case 'Lactose-free':
             $dataset = Product::where('ingredients', 'not like', '%lactose%')
-            ->orWhereIn('subcategory', ['Fruit'])
-            ->get(); // most likely lactose-free
+            ->orWhereIn('subcategory', ['Fruit']);
             break;
          default:
-            $dataset = Product::all();
+            $dataset = new Product;
             break;
       }
 
       switch($income) {
          case 20000:
-            $dataset = $dataset->filter(function($row) {
-               return !(str_contains($row['product_name'], 'M&S'));
-            });
+            $dataset = $dataset->where('product_name', 'not like', '%M&S%');
              break;
 
          case 80000:
          case 100000:
-            $dataset = $dataset->filter(function($row) {
-               return str_contains($row['product_name'], 'M&S');
-            });
+            $dataset = $dataset->where('product_name', 'like', '%M&S%');
                break;   
 
          default:
              break;
      }
      
-
+$dataset = $dataset->get();
          
       
 
@@ -217,8 +217,9 @@ class ConvertCSVController extends Controller
 
 
    public function create_shopping_list() {
+      $quantity = request()["quantity"];
       // generate users
-      for ($i = 0; $i < 100; $i++) {
+      for ($i = 0; $i < $quantity; $i++) {
             $consumer = ConsumerData::create($this->generateUserData());
             
             for ($i = 0; $i < 3; $i++) {
@@ -234,6 +235,7 @@ class ConvertCSVController extends Controller
                }
             }
       }
+      return redirect(route('upload_product_data'));
    }
 
 
