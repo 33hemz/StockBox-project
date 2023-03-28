@@ -22,7 +22,7 @@
 <h1 class="border-bottom pb-2 mb-3">Dashboard</h1>
 <div class="sec row row-cols-auto justify-content-evenly mb-5">
     <form method="GET" action="{{ route('dashboard') }}">
-        <div class="d-flex gap-3">
+        <div class="d-flex gap-3 align-items-center">
             <div class="form-group">
                 <label for="gender">Gender:</label>
                 <select name="gender" class="form-select">
@@ -43,10 +43,10 @@
             </div>            
             <div class="form-group">
                 <label for="country">Country:</label>
-                <select class="form-control" id="country" name="country">
+                <select class="form-select" id="country" name="country">
                     <option value=""></option>
                     @foreach($countries as $country)
-                        <option value="{{ $country }}">{{ $country }}</option>
+                        <option value="{{ $country }}">{{$country}}</option>
                     @endforeach
                 </select>
             </div>
@@ -77,10 +77,12 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <div class="d-flex flex-column gap-2 ">
+                <button type="submit" class="btn btn-primary">Filter</button>
+                <a href="{{route("dashboard")}}"class="btn btn-secondary" >Reset</a>  
+            </div>
         </div>
     </form>
-    <button type="submit" class="btn btn-primary">Reset</button>  
 </div>
 <div class="sec row">
     <div class="row">

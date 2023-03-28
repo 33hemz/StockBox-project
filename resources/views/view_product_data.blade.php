@@ -43,9 +43,34 @@
 
 <div id="overlay">
     <div id="overlay-content">
-      <p>Loading</p><div class="spinner-border spinner-border-s"></div>
+      <p id="dots">Loading</p><div class="spinner-border spinner-border-s"></div>
     </div>
 </div>
+
+<script>
+    // Set up the variables
+    var dots = document.getElementById("dots");
+    var delay = 500; // milliseconds
+    var maxDots = 4;
+    var currentDots = 0;
+    var intervalId;
+
+    // Function to loop through the dots
+    function loopDots() {
+        if (currentDots >= maxDots) {
+            currentDots = 0;
+        }
+        var dotsString = "   Loading";
+        for (var i = 0; i < currentDots; i++) {
+            dotsString += ".";
+        }
+        dots.innerHTML = dotsString;
+        currentDots++;
+    }
+
+    // Set up the interval to call the loop function
+    intervalId = setInterval(loopDots, delay);
+</script>
 
     <table id="product_data_table" class="table table-striped">
     <thead>
