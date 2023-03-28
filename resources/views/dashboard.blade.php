@@ -27,8 +27,8 @@
                 <label for="gender">Gender:</label>
                 <select name="gender" class="form-select">
                     <option value=""></option>
-                    @foreach ((array_keys($genderData)) as $gender)
-                        <option value="{{ $gender }}" {{ request('gender') == $gender ? 'selected' : '' }}>{{$gender}}</option>
+                    @foreach ((array_keys($genderDataOriginal)) as $gender)
+                        <option value="{{ $gender }}" {{ request('gender') === $gender ? 'selected' : '' }}>{{$gender}}</option>
                     @endforeach
                 </select>
             </div>            
@@ -36,8 +36,8 @@
                 <label for="age">Age:</label>
                 <select class="form-select" name="age">
                     <option value=""></option>
-                    @foreach ((array_keys($ageData)) as $age)
-                        <option value="{{ $age }}" {{ request('age') == $age ? 'selected' : '' }}>{{$age}}</option>
+                    @foreach ((array_keys($ageDataOriginal)) as $age)
+                        <option value="{{ $age }}" {{ request('age') === $age ? 'selected' : '' }}>{{$age}}</option>
                     @endforeach
                 </select>
             </div>            
@@ -46,7 +46,7 @@
                 <select class="form-select" id="city" name="city">
                     <option value=""></option>
                     @foreach($cities as $city)
-                        <option value="{{ $city }}" {{ request('city') == $city ? 'selected' : '' }}>{{$city}}</option>
+                        <option value="{{ $city }}" {{ request('city') === $city ? 'selected' : '' }}>{{$city}}</option>
                     @endforeach
                 </select>
             </div>
@@ -54,8 +54,8 @@
                 <label for="income">Income:</label>
                 <select class="form-select" id="income" name="income">
                     <option value=""></option>
-                    @foreach ((array_keys($incomeData)) as $income)
-                        <option value="{{ $income }}" {{ request('income') == $income ? 'selected' : '' }}>{{$income}}</option>
+                    @foreach ((array_keys($incomeDataOriginal)) as $income)
+                        <option value="{{ $income }}" {{ request('income') === $income ? 'selected' : '' }}>{{$income}}</option>
                     @endforeach
                 </select>
             </div>
@@ -63,8 +63,8 @@
                 <label for="number_of_dependants">Dependants:</label>
                 <select class="form-select" id="number_of_dependents" name="number_of_dependents">
                     <option value="" selected></option>
-                    @foreach (($numOfDependentsData->keys()) as $number_of_dependents)
-                        <option value="{{ $number_of_dependents }}" {{ request('number_of_dependents') == $number_of_dependents ? 'selected' : '' }}>{{$number_of_dependents}}</option>
+                    @foreach (($numOfDependentsDataOriginal->keys()) as $number_of_dependents)
+                        <option value="{{ $number_of_dependents }}" {{ request('number_of_dependents') === $number_of_dependents ? 'selected' : '' }}>{{$number_of_dependents}}</option>
                     @endforeach
                 </select>
             </div>
@@ -72,8 +72,8 @@
                 <label for="dietary">Dietary Requirements:</label>
                 <select class="form-select" id="dietary_requirements" name="dietary_requirements">
                     <option value=""></option>
-                    @foreach (($dietaryData->keys()) as $dietary_requirements)
-                        <option value="{{ $dietary_requirements }}" {{ request('dietary_requirements') == $dietary_requirements ? 'selected' : '' }}>{{$dietary_requirements}}</option>
+                    @foreach (($dietaryDataOriginal->keys()) as $dietary_requirements)
+                        <option value="{{ $dietary_requirements }}" {{ request('dietary_requirements') === $dietary_requirements ? 'selected' : '' }}>{{$dietary_requirements}}</option>
                     @endforeach
                 </select>
             </div>

@@ -12,6 +12,7 @@ class DashboardController extends Controller
     public function index() {
     
         $userData = ConsumerData::query();
+        $userDataOriginal = ConsumerData::query();
 
         // Gender filter
         if (request()->filled('gender')) {
@@ -52,14 +53,20 @@ class DashboardController extends Controller
         if (request()->filled('dietary_requirements')) {
             $userData->where('dietary_requirements', request()->dietary_requirements);
         }
+
     
         // Get all data after applying filters
         $userData = $userData->get();
+        $userDataOriginal = $userDataOriginal->get();
 
         // gender graph
         $genderData = [
             'Male' => $userData->where('gender', 'Male')->count(),
             'Female' => $userData->where('gender', 'Female')->count(),
+        ];
+        $genderDataOriginal = [
+            'Male' => $userDataOriginal->where('gender', 'Male')->count(),
+            'Female' => $userDataOriginal->where('gender', 'Female')->count(),
         ];
 
         // Age graph
@@ -72,11 +79,21 @@ class DashboardController extends Controller
             '65-74' => $userData->whereBetween('age', [65, 74])->count(),
             '75+' => $userData->where('age', '>', 75)->count(),
         ];
+        $ageDataOriginal = [        
+            '15-24' => $userDataOriginal->whereBetween('age', [15, 24])->count(),
+            '25-34' => $userDataOriginal->whereBetween('age', [25, 34])->count(),
+            '35-44' => $userDataOriginal->whereBetween('age', [35, 44])->count(),
+            '45-54' => $userDataOriginal->whereBetween('age', [45, 54])->count(),
+            '55-64' => $userDataOriginal->whereBetween('age', [55, 64])->count(),
+            '65-74' => $userDataOriginal->whereBetween('age', [65, 74])->count(),
+            '75+' => $userDataOriginal->where('age', '>', 75)->count(),
+        ];
+
         
         // cites
         if (request()->filled('city')) {
             $selectedCity = request()->city;
-            $citiesData = [        $selectedCity => $userData->where('city', $selectedCity)->count()    ];
+            $citiesData = [$selectedCity => $userData->where('city', $selectedCity)->count()];
         } else {
             $citiesData = $userData->groupBy('city')->sortKeys()->map->count()->toArray();
             $selectedCity = null;
@@ -99,13 +116,39 @@ class DashboardController extends Controller
             '80k-120k' => $userData->whereBetween('income', [80001, 120000])->count(),
             '120k+' => $userData->whereBetween('income', [120001, 500000])->count(),
         ];
+        $incomeDataOriginal = [
+            '10-25k' => $userDataOriginal->whereBetween('income', [10000, 25000])->count(),
+            '25k-35k' => $userDataOriginal->whereBetween('income', [25001, 35000])->count(),
+            '35k-45k' => $userDataOriginal->whereBetween('income', [35001, 45000])->count(),
+            '45k-65k' => $userDataOriginal->whereBetween('income', [45001, 65000])->count(),
+            '65k-80k' => $userDataOriginal->whereBetween('income', [65001, 80000])->count(),
+            '80k-120k' => $userDataOriginal->whereBetween('income', [80001, 120000])->count(),
+            '120k+' => $userDataOriginal->whereBetween('income', [120001, 500000])->count(),
+        ];
     
         // number of dependents 
         $numOfDependentsData = $userData->groupBy('number_of_dependents')->sortKeys()->map->count();
+        $numOfDependentsDataOriginal = $userDataOriginal->groupBy('number_of_dependents')->sortKeys()->map->count();
         
         // dietary requirements
-        $dietaryData = $userData->groupBy('dietary_requirements')->sortKeys()->map->count()->splice(1); // splice first item (empty string - for ppl with no dietary requirements)
-    
+        $dietaryData = $userData->groupBy('dietary_requirements')->sortKeys()->map->count()->toArray(); 
+        // Rename empty to 'No restrictions'
+        if (isset($dietaryData[''])) {
+            $count = $dietaryData[''];
+            unset($dietaryData['']);
+            $dietaryData['No restrictions'] = $count;
+        }
+        $dietaryData = collect($dietaryData);
+
+        $dietaryDataOriginal = $userDataOriginal->groupBy('dietary_requirements')->sortKeys()->map->count()->toArray(); 
+        // Rename empty to 'No restrictions'
+        if (isset($dietaryDataOriginal[''])) {
+            $count = $dietaryDataOriginal[''];
+            unset($dietaryDataOriginal['']);
+            $dietaryDataOriginal['No restrictions'] = $count;
+        }
+        $dietaryDataOriginal = collect($dietaryDataOriginal);
+            
         return view('dashboard', [
             'genderData' => $genderData,
             'ageData' => $ageData,
@@ -114,6 +157,11 @@ class DashboardController extends Controller
             'numOfDependentsData' => $numOfDependentsData,
             'dietaryData' => $dietaryData,
             'cities' => $cities,
+            'genderDataOriginal' => $genderDataOriginal,
+            'ageDataOriginal' => $ageDataOriginal,
+            'incomeDataOriginal' => $incomeDataOriginal,
+            'numOfDependentsDataOriginal' => $numOfDependentsDataOriginal,
+            'dietaryDataOriginal' => $dietaryDataOriginal,
             ]
         );
     }
