@@ -38,7 +38,7 @@ class AdminController extends Controller
     }
     public function addNewCompany(){
         validator(request()->all(), [
-            'company_name' => 'required|min:5|max:20|unique:companies'      
+            'company_name' => 'required|min:2|max:20|unique:companies'      
         ]) ->validate();
 
         $company = Company::create(request()->all());
