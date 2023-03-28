@@ -10,12 +10,35 @@
 	<link rel="icon" type="image/x-icon" href="{{ asset('assets/Full Logo/PNG/StokBox-Square-01 - Cropped.png') }}">
 	@yield('head')
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             background-color: #2db28e;
+            min-height: 100vh; 
+            height: 100%;
+        }
+        #main-form{
+            width: 28rem;
+        } 
+        
+        @media (max-width: 768px) {
+            #main-form{
+                width: 100%;
+            }  
         }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column align-items-stretch align-items-md-center justify-content-center">
+    <div id="main-form" class="card shadow-lg bg-body-secondary flex-fill flex-md-shrink-0 flex-md-grow-0 h-100 h-md-auto d-flex flex-column align-items-center justify-content-center">
+        <div class="d-flex flex-column w-100">
+    
+          <a href="{{ route('landing') }}" class="d-block mx-auto">
+            <img id="logo" src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" width="150" alt="Logo" class="mx-auto">
+          </a>
     @yield('content')    
     <script src="{{ asset('js/themetoggle.js') }}"></script>
 </body>

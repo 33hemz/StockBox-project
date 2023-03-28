@@ -107,4 +107,9 @@ Route::middleware('auth')->group(function() {
 // DEVELOPER ROUTES
 if (env('APP_ENV') == 'local') {
     Route::get('/dev/generate-sample-user', [ConvertCSVController::class, 'test']);
+    Route::get('/dev/test', function() {
+        return view('first_time_login');
+        return view('forgot_password.forgot_password_success');
+        return view('forgot_password.enter_new_password', ['token'=>null]);
+    });
 }

@@ -34,7 +34,8 @@
     font-weight:200;
     background-color:#2db490;
     padding-left: 50px;
-    border-radius: 4px 0 0 0;
+    padding-right: 50px;
+    border-radius: 5px 0 0 0;
   }
 
   :root[data-bs-theme="dark"] .ml-1 {
@@ -54,8 +55,6 @@
   }
 
   .para {
-    padding-inline: 50px;
-    padding-right: 100px;
   }
 
   .picture {
@@ -73,6 +72,39 @@
     margin-right: auto;
     border: 1px solid #3f3f3f;
     box-shadow: 20px 20px #3f3f3f;
+  }
+
+  @media (max-width: 768px) {
+    .ml-1 {
+      margin-left: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+      position: fixed;
+      overflow-y: scroll;
+      max-height: 100%;
+      overflow-x: hidden;
+    }
+    .picture {
+      width: 500px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .picture {
+      width: 300px;
+    }
+    .pictureSmaller {
+      width: 250px;
+    }
+    .subtitle {
+    text-align: center;
+    }
+
+    .para {
+      padding-inline: 0px;
+      padding-right: 0px;
+      text-align: center;
+    }
   }
 
   .bigger {
@@ -93,7 +125,7 @@
 <div style="height: 2vh;"></div>
 
 {{--Sidebar--}}
-<div id="sidebar" class="sidebar bg-body-secondary">
+<div id="sidebar" class="sidebar bg-body-secondary d-none d-md-block">
   <img src="{{ asset('assets/Full Logo/PNG/StokBox-Square-01.png') }}" style="display: block; width: 120px; position: 
   relative; margin-left: 85px; margin-right: auto;">
   <a><b style="position:relative; right: 10px; font-size:1.5em">Contents:</b></a>
@@ -120,9 +152,7 @@
     <div class="main" style="color: #ececec; right: 0;">
 
     {{--Title--}}
-    <h1 class='title' style="font-size: 50px; text-align: left;">Stokbox: User Manual
-      <img src="{{ asset('assets/Full Logo/PNG/StokBox-Square-02(B&W).png') }}" 
-      style="width: 90px; position: absolute; top: 25px"></h1>
+    <h1 class='title' style="font-size: 50px;">Stokbox: User Manual</h1>
 
     {{--Introduction--}}
     <h2 id="intro" class="title">Introduction</h2>
