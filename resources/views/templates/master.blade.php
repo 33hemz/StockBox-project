@@ -18,19 +18,24 @@
 
 {{-- if one of these page, show sidebar --}}
 <body class="d-flex flex-column bg-body">
-	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row border-bottom">
+	<header id="landing_header" class="d-flex align-items-center justify-content-between flex-column flex-md-row border-bottom pb-2 pb-md-0">
 		<a href="{{ route('landing') }}"><img class="my-2 mx-4" src="{{ asset('assets/Full Logo/PNG/StokBox-02.png') }}" width=220 alt="StokBox Logo"></a>
 		<nav>
 			<ul class="me-4 text-center align-middle d-flex align-items-center">
-				<li><span class="fw-bold fs-5"> Welcome Back, <span class="text-primary">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span></h2></li>
+				<li class="d-none d-md-block"><span class="fw-bold fs-5"> Welcome Back, <span class="text-primary">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span></h2></li>
 				<li><a id="dark-mode-toggle" class="btn btn-outline-secondary" style="height:1.5em; width:1.5em; padding:0; margin:0;"> <i id="dark-mode-toggle-text" class="fa-solid fa-sun text-center align-middle fs-6"></i></a></li>
+				<li class="bg-body d-md-none">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa-solid fa-bars"></span>
+				</button>
+				</li>
 			</ul>
 		</nav>
 		<script src="{{ asset('js/themetoggle.js') }}"></script>
     </header>
 	<div class="d-flex flex-column flex-md-row" style="flex: 1;">
-		<div class="page_sidebar" id="auth_sidebar">
-			<nav class="Navbar">
+		<div class="page_sidebar d-none d-md-block" id="auth_sidebar">
+			<nav class="Navbar" style="padding-top: 60px;">
 				<ul>
 					<li><a href="#" onclick="toggleNav()"><i class="fa-solid fa-bars"></i></a></li>
 					@if (auth()->user()->user_type === 'USER')
@@ -48,6 +53,25 @@
 				<script src="{{ asset('js/navtoggle.js') }}"></script>
 			</nav>
 		</div>
+		<div class="collapse d-md-none" id="navbarToggleExternalContent">
+			<div class="bg-body">
+				<nav class="Navbar pt-4">
+					<ul class="d-flex align-items-center flex-column">
+						@if (auth()->user()->user_type === 'USER')
+						<li><a class="nav-link {{ request()->routeIs('dashboard') ? 'active':'' }}" href="{{ route('dashboard') }}"><i class="fa-solid fa-gauge"></i> <span>Dashboard Page</span></a></li>
+						<li><a class="nav-link {{ request()->routeIs('brand_page') ? 'active':'' }}" href="{{ route('brand_page') }}"><i class="fa-solid fa-people-roof"></i> <span>Brand Page</span></a></li>
+						<li><a class="nav-link {{ request()->routeIs('my_personas_page') ? 'active':'' }}" href="{{ route('my_personas_page') }}"><i class="fa-solid fa-user"></i> <span>My Saved Personas</span></a></li>
+						@elseif (auth()->user()->user_type === 'ADMIN')
+						<li><a class="nav-link {{ request()->routeIs('create_new_user') ? 'active':'' }}" href="{{ route('create_new_user') }}"><i class="fa-solid fa-user-plus"></i> <span>Create New Users</span></a></li>
+						<li><a class="nav-link {{ request()->routeIs('manage_user') ? 'active':'' }}" href="{{ route('manage_user') }}"><i class="fa-solid fa-pen-to-square"></i> <span>Manage Users</span></a></li>
+						<li><a class="nav-link {{ request()->routeIs('upload_product_data') ? 'active':'' }}" href="{{ route('upload_product_data') }}"><i class="fa-solid fa-upload"></i> <span>Upload Data</span></a></li>
+						<li><a class="nav-link {{ request()->routeIs('view_product_data') ? 'active':'' }}" href="{{ route('view_product_data') }}"><i class="fa-solid fa-eye"></i> <span>View Product Data</span></a></li>
+						@endif
+						<li><a class="nav-link" href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		  </div>
 			
 		<div id="page_content" class="container" style="min-width: 0;">
 			@if (session('success'))
