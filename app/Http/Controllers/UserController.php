@@ -41,17 +41,29 @@ class UserController extends Controller
 
     
     public function my_personas_page() {
-        $consumerData = ConsumerData::all();
+        $consumerData = ConsumerData::inRandomOrder()->limit(5)->get();
+        $personas = [];
 
-        $personas = [
-            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'], 
-            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
-            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
-            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
-            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
-            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
-            ['first_name'=>'Davidoo', 'last_name'=>'Igandan', 'age'=>'8', 'customer_id'=>'239289', 'income'=>'300', 'education'=>'College', 'description'=>'More indepth', 'date_generated'=>'08/03/2023'],
-        ];
+
+        
+        foreach ($consumerData as $consumer) {
+            $img = get_headers('https://fakeface.rest/thumb/view/'. time() .'?' . 'gender=' . strtolower($consumer['gender']) . '&mininum_age=' . $consumer['age'] .'&maximum_age=' . $consumer['age'], 1)['Location'];
+
+            array_push($personas, [
+                'image_url' => $img,
+                'first_name' => fake()->firstName($consumer['gender']), 
+                'last_name' => fake()->lastName($consumer['gender']), 
+                'gender' => $consumer['gender'], 
+                'age' => $consumer['age'], 
+                'income' => number_format($consumer['income']), 
+                'country' => $consumer['country'], 
+                'number_of_dependents' => $consumer['number_of_dependents'], 
+                'dietary_requirements' => $consumer['dietary_requirements'], 
+                'date_generated' => '08/03/2023'
+            ]);
+        }
+        
+     
         
         return view('my_personas_page', [
             'personas' => $personas

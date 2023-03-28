@@ -56,7 +56,16 @@
             processing: true,
             serverSide: true,
             scrollX: true,
-            ajax: "{{ route('view_product_data') }}",
+            ajax: {
+                url: "{{ route('view_product_data') }}",
+                beforeSend: function () {
+                    console.log("loading");
+                    
+                },
+                complete: function () {
+                    console.log("done");
+                },
+            },
             columns: [
                 {data: 'brand', name: 'brand'},
                 {data: 'product_name', name: 'product_name'},

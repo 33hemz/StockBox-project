@@ -28,23 +28,19 @@
     <div class="col card mx-2 my-3">
         <div class="profileimage d-flex flex-column justify-content-center align-items-center">
                 {{-- These will vary based on each persona --}}
-                <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100"> {{--profile pic--}}
+                <img src="{{ $persona['image_url'] }}" height="100" width="100" class="rounded-circle">
                 
-                <span class="name mt-3">{{ $persona['first_name'] }} {{$persona['last_name']}}</span>{{--name--}}
-                <span class="age">Age: {{ $persona['age'] }}</span>{{--age--}}
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <span class="id_income">Customer ID: {{ $persona['customer_id'] }}</span> {{--customer id--}} 
-                    <span class="id_income">Income: {{ $persona['income'] }}</span> {{--income--}}
-                    <span class="id_income">Education: {{ $persona['education'] }}</span> {{--education--}}
+                    <span class="name mt-3">{{ $persona['first_name'] }} {{$persona['last_name']}}</span>
+                    <span class="age">Age: {{ $persona['age'] }}</span>
+                    <span class="age">Gender: {{ $persona['gender'] }}</span>
+                    <span class="id_income">Income: £{{ $persona['income'] }}</span>
+                    <span class="id_income">Country: {{ $persona['country'] }}</span>
+                    <span class="id_income">Number of Dependents: {{ $persona['number_of_dependents'] }}</span>
+                    <span class="id_income">Dietry Requirements: {{ $persona['dietary_requirements'] }}</span>
                 </div>
                 <div class="d-flex mt-2"> 
-                    <input type="button" value="More Details" class="btn btn-primary">{{--More Details--}}
-                </div>
-                <div class="profile_text mt-3">
-                    <span>Description: {{ $persona['description'] }}</span> {{--more details--}}
-                </div>
-                <div class="px-2 rounded mt-4 date mb-3">
-                    <span class="join">Date Generated:{{$persona['date_generated']}}</span>
+                    <input type="button" value="More Details" class="btn btn-primary mb-2">
                 </div>
         </div>
     </div>
