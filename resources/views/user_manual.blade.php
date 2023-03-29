@@ -74,6 +74,15 @@
     box-shadow: 20px 20px #3f3f3f;
   }
 
+  .mobile {
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #3f3f3f;
+    box-shadow: 20px 20px #3f3f3f;
+  }
+
   @media (max-width: 768px) {
     .ml-1 {
       margin-left: 0;
@@ -104,6 +113,10 @@
       padding-inline: 0px;
       padding-right: 0px;
       text-align: center;
+    }
+
+    .mobile {
+      height: 400px;
     }
   }
 
@@ -138,11 +151,16 @@
     <a href="#forgotten" style="font-size: 1em">Forgotten Password</a>
     <a href="#brand" style="font-size: 1em">Brand Page</a>
     <a href="#nav" style="font-size: 1em">Navigation Bar</a>
+    <a href="#darkmode" style="font-size: 1em">Dark Mode</a>
   </div>
   <a href="#admin">Admin Features</a>
   <div class="ms-4">
     <a href="#update" style="font-size: 1em">Updating The Database</a>
     <a href="#addingNewUser" style="font-size: 1em">Adding a New User</a>
+  </div>
+  <a href="#mobile">Mobile Version</a>
+  <div class="ms-4">
+    <a href="#mbnavbar" style="font-size: 1em">Collapsable Navigation Bar</a>
   </div>
 
   </div>
@@ -261,8 +279,20 @@
         <p>
           You can move around the various features of the webapp by using the navigation bar
         </p>
-
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture15.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="darkmode" class="title">Dark Mode</h2>
+        </h1>
+        <p> 
+          The site has a dark mode feature, which can be toggled by using the icon on the top right of all the pages (excluding the login pages). 
+        </p>
+        <img class="picture" src="{{ asset('assets/User Manual Images/darkmode-1.jpg') }}" alt="">
+        <br>
+        <p> 
+          Clicking the button results in the dark mode theme as seen below.
+        </p>
+        <img class="picture" src="{{ asset('assets/User Manual Images/darkmode-2.jpg') }}" alt="">
         <br>
         <h1>
           <h2 id="admin" class="title bigger">Admin Features</h2>
@@ -285,6 +315,23 @@
           Then input your user details
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mobile" class="title bigger">Mobile Version</h2>
+        </h1>
+        <h1>
+          <h2 id="mbnavbar" class="title">Collapsable Navigation Bar</h2>
+        </h1>
+        <p> 
+          The content pages differ slightly from the desktop resolution. The functionality remains completely the same but appears slightly differently. The sidebar no longer exists on mobile screens as seen below.
+        </p>
+        <img class="mobile" src="{{ asset('assets/User Manual Images/mobile-navbar-1.jpg') }}" alt="">
+        <br>
+        <p> 
+          Clicking on the hamburger icon (next to the toggle theme button) opens a collapsible navigation bar containing the same contents as the sidebar. Clicking again collapses it.
+        </p>
+        <img class="mobile" src="{{ asset('assets/User Manual Images/mobile-navbar-2.jpg') }}" alt="">
+        <br>
 
     
     </div>
