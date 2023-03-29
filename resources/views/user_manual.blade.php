@@ -366,6 +366,191 @@
           Then input your user details
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="firstTimeLoggingIn" class="title">First Time Logging In</h2>
+        </h1>
+        <p>
+          The first time you log into StokBox Analytics, 
+          you will be prompted to create your password…
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture18.jpg') }}" alt="">
+        <br>
+        <p>
+          As shown, you have to validate your password by keeping it longer than 8 characters, 
+          containing uppercase and lowercase letters and at least one number. You also have to
+           input your password twice -  to ensure users don’t incorrectly spell it. The password is
+           also hidden from view.
+        </p>
+        <p>
+          If a user doesn’t follow the validation rules, the following validation will show:
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture19.jpg') }}" alt="">
+        <h1>
+          <h2 id="viewImportedProductData" class="title">View Imported Product Data</h2>
+        </h1>
+        <p>
+          As a website admin, I want to be able to view currently imported product data, so 
+          that I can check what data has been previously uploaded without having to query the 
+          database manually.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture20.jpg') }}" alt="">
+        <br>
+        <p>
+          The website admin can sort data by its value by clicking the name of the column, 
+          an example is shown as the user sorts the data by price, ascending.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture21.jpg') }}" alt="">
+        <br>
+        <p>
+          The website admin can search for specific date from the table, an example of this 
+          is shown below, where sulphur is searched from the allergen information column.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture22.jpg') }}" alt="">
+        <h2 id="manageUsers" class="title">Managing Users</h2>
+        <p>
+          An admin can view the current the current users in the database by navigating to the ‘Manage Users’ 
+          page. From here, an admin can decide to edit a user’s data or delete it entirely from the database.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture23.jpg') }}" alt="">
+        <br>
+        <p>
+          Clicking the Edit button redirects you to the ‘Edit User’ page for that specific user, 
+          where you can edit the user’s details.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture24.jpg') }}" alt="">
+        <br>
+        <p>
+          The form contains the user’s old information. The admin can redirect back to the ‘Manage Users’ 
+          page by clicking the cancel button. No changes will be made. 
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture25.jpg') }}" alt="">
+        <br>
+        <p>
+          Validation is applied to the form.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture26.jpg') }}" alt="">
+        <br>
+        <p>
+          If the admin clicks the ‘Edit User’ button whilst no changes have been made, a warning 
+          alert will appear notifying the admin of this.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture27.jpg') }}" alt="">
+        <br>
+        <p>
+          Clicking the delete button completely deletes the user from the database. 
+          When the user is successfully edited, the admin is redirected to the ‘Manage Users’ 
+          page with a success alert, informing the admin of the successful action and which user it was applied to.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture28.jpg') }}" alt="">
+        <br>
+        <p>
+          Clicking the delete button completely deletes the user from the database.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture29.jpg') }}" alt="">
+        <br>
+        <p>
+          The user will no longer appear on the table and the admin will be notified of the action through a danger alert.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture30.jpg') }}" alt="">
+        <br>
+        <h2>
+          <h2 id="generateUserSampleData" class="title">Generating Sample User Data </h2>
+        </h2>
+        <p>
+          An admin can generate a sample user data CSV for demonstration purposes. <br> 
+          The admin simply enters the number of consumers they want to generate (between 1 - 100) and the Admin then has to press the generate button.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture31.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mobile" class="title bigger">Mobile Version</h2>
+        </h1>
+        <h1>
+          <h2 id="mbnavbar" class="title">Collapsable Navigation Bar</h2>
+        </h1>
+        <p> 
+          The content pages differ slightly from the desktop resolution. The functionality remains completely the same but appears slightly differently. The sidebar no longer exists on mobile screens as seen below.
+        </p>
+        <img class="mobile" src="{{ asset('assets/User Manual Images/mobile-navbar-1.jpg') }}" alt="">
+        <br>
+        <p> 
+          Clicking on the hamburger icon (next to the toggle theme button) opens a collapsible navigation bar containing the same contents as the sidebar. Clicking again collapses it.
+        </p>
+        <img class="mobile" src="{{ asset('assets/User Manual Images/mobile-navbar-2.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbtopnav" class="title">Top Nav Bar</h2>
+        </h1>
+        <p>
+          This is the top nav bar which shrinks down when on a mobile, but still had all options visible. The buttons are shrunken down.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/navbar_mobile.png') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbhome" class="title">Home Screen</h2>
+        </h1>
+        <p> 
+          The home screen page for mobile devices will display everything the desktop version displays. You can navigate to all options and everything is fit onto the screen.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/home_screen_mobile.png') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbcreateusers" class="title">Create Users</h2>
+        </h1>
+        <p> 
+          Creating users will be easily done on mobile, everything is shrunk down to fit the screen and the form is easily able to be filled in.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/manage_users_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbmanageusers" class="title">Manage Users</h2>
+        </h1>
+        <p> 
+          Managing users will display all users on the page depending on the filter, similar to desktop version.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/manage_users_dash.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbimportproduct" class="title">Import Product Data</h2>
+        </h1>
+        <p> 
+          The navbar is put into the hamburger icon and you can scroll down to view more of the page and access all the form options.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/import_product_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbviewproduct" class="title">View Product Data</h2>
+        </h1>
+        <p> 
+          Managing users will display all product data on the page depending on the filter, similar to desktop version.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/view_product_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbuserdash" class="title">User Dashboard</h2>
+        </h1>
+        <p> 
+          Similar to the desktop view the user dashboard for mobile will show all graphs and analytics. Navbar is moved to the toggle hamburger option. You are able to pinch the screen to zoom in and out.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/user_dash_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbbranddetails" class="title">Brand Details</h2>
+        </h1>
+        <p> 
+          Shrunken down to fit in mobile view, all options are available. You can add a product here.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/brand_details_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbbuyerpersonas" class="title">Buyer Personas</h2>
+        </h1>
+        <p> 
+          Buyer personas are all visible along with their images. You scroll down to view more instead of reading them left to right. Fake data used for the context of this screenshot and image removed for data protection and privacy. All the real data will be visible when you login to your account.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/buyer_persona_mobile.jpg') }}" alt="">
+        <br>
 
     
     </div>
