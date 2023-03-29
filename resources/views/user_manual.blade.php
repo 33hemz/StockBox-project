@@ -74,6 +74,15 @@
     box-shadow: 20px 20px #3f3f3f;
   }
 
+  .mobile {
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #3f3f3f;
+    box-shadow: 20px 20px #3f3f3f;
+  }
+
   @media (max-width: 768px) {
     .ml-1 {
       margin-left: 0;
@@ -104,6 +113,10 @@
       padding-inline: 0px;
       padding-right: 0px;
       text-align: center;
+    }
+
+    .mobile {
+      height: 400px;
     }
   }
 
@@ -138,6 +151,7 @@
     <a href="#forgotten" style="font-size: 1em">Forgotten Password</a>
     <a href="#brand" style="font-size: 1em">Brand Page</a>
     <a href="#nav" style="font-size: 1em">Navigation Bar</a>
+    <a href="#darkmode" style="font-size: 1em">Dark Mode</a>
   </div>
   <a href="#admin">Admin Features</a>
   <div class="ms-4">
@@ -147,6 +161,19 @@
     <a href="#viewImportedProductData" style="font-size: 1em">View Imported Product Data</a>
     <a href="#manageUsers" style="font-size: 1em">Managing Users</a>
     <a href="#generateUserSampleData" style="font-size: 1em">Generating Sample User Data</a>
+  </div>
+  <a href="#mobile">Mobile Version</a>
+  <div class="ms-4">
+    <a href="#mbnavbar" style="font-size: 1em">Collapsable Navigation Bar</a>
+    <a href="#mbtopnav" style="font-size: 1em">Top Nav Bar</a>
+    <a href="#mbhome" style="font-size: 1em">Home Screen</a>
+    <a href="#mbcreateusers" style="font-size: 1em">Create Users</a>
+    <a href="#mbmanageusers" style="font-size: 1em">Manager Users</a>
+    <a href="#mbimportproduct" style="font-size: 1em">Import Product Data</a>
+    <a href="#mbviewproduct" style="font-size: 1em">View Product Data</a>
+    <a href="#mbuserdash" style="font-size: 1em">User Dashboard</a>
+    <a href="#mbbranddetails" style="font-size: 1em">Brand Details</a>
+    <a href="#mbbuyerpersonas" style="font-size: 1em">Buyer Personas</a>
   </div>
 
   </div>
@@ -265,8 +292,20 @@
         <p>
           You can move around the various features of the webapp by using the navigation bar
         </p>
-
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture15.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="darkmode" class="title">Dark Mode</h2>
+        </h1>
+        <p> 
+          The site has a dark mode feature, which can be toggled by using the icon on the top right of all the pages (excluding the login pages). 
+        </p>
+        <img class="picture" src="{{ asset('assets/User Manual Images/darkmode-1.jpg') }}" alt="">
+        <br>
+        <p> 
+          Clicking the button results in the dark mode theme as seen below.
+        </p>
+        <img class="picture" src="{{ asset('assets/User Manual Images/darkmode-2.jpg') }}" alt="">
         <br>
         <h1>
           <h2 id="admin" class="title bigger">Admin Features</h2>
@@ -289,101 +328,8 @@
           Then input your user details
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
-        <h1>
-          <h2 id="firstTimeLoggingIn" class="title">First Time Logging In</h2>
-        </h1>
-        <p>
-          The first time you log into StokBox Analytics, 
-          you will be prompted to create your password…
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture18.jpg') }}" alt="">
-        <br>
-        <p>
-          As shown, you have to validate your password by keeping it longer than 8 characters, 
-          containing uppercase and lowercase letters and at least one number. You also have to
-           input your password twice -  to ensure users don’t incorrectly spell it. The password is
-           also hidden from view.
-        </p>
-        <p>
-          If a user doesn’t follow the validation rules, the following validation will show:
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture19.jpg') }}" alt="">
-        <h1>
-          <h2 id="viewImportedProductData" class="title">View Imported Product Data</h2>
-        </h1>
-        <p>
-          As a website admin, I want to be able to view currently imported product data, so 
-          that I can check what data has been previously uploaded without having to query the 
-          database manually.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture20.jpg') }}" alt="">
-        <br>
-        <p>
-          The website admin can sort data by its value by clicking the name of the column, 
-          an example is shown as the user sorts the data by price, ascending.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture21.jpg') }}" alt="">
-        <br>
-        <p>
-          The website admin can search for specific date from the table, an example of this 
-          is shown below, where sulphur is searched from the allergen information column.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture22.jpg') }}" alt="">
-        <h2 id="manageUsers" class="title">Managing Users</h2>
-        <p>
-          An admin can view the current the current users in the database by navigating to the ‘Manage Users’ 
-          page. From here, an admin can decide to edit a user’s data or delete it entirely from the database.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture23.jpg') }}" alt="">
-        <br>
-        <p>
-          Clicking the Edit button redirects you to the ‘Edit User’ page for that specific user, 
-          where you can edit the user’s details.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture24.jpg') }}" alt="">
-        <br>
-        <p>
-          The form contains the user’s old information. The admin can redirect back to the ‘Manage Users’ 
-          page by clicking the cancel button. No changes will be made. 
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture25.jpg') }}" alt="">
-        <br>
-        <p>
-          Validation is applied to the form.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture26.jpg') }}" alt="">
-        <br>
-        <p>
-          If the admin clicks the ‘Edit User’ button whilst no changes have been made, a warning 
-          alert will appear notifying the admin of this.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture27.jpg') }}" alt="">
-        <br>
-        <p>
-          Clicking the delete button completely deletes the user from the database. 
-          When the user is successfully edited, the admin is redirected to the ‘Manage Users’ 
-          page with a success alert, informing the admin of the successful action and which user it was applied to.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture28.jpg') }}" alt="">
-        <br>
-        <p>
-          Clicking the delete button completely deletes the user from the database.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture29.jpg') }}" alt="">
-        <br>
-        <p>
-          The user will no longer appear on the table and the admin will be notified of the action through a danger alert.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture30.jpg') }}" alt="">
-        <br>
-        <h2>
-          <h2 id="generateUserSampleData" class="title">Generating Sample User Data </h2>
-        </h2>
-        <p>
-          An admin can generate a sample user data CSV for demonstration purposes. <br> 
-          The admin simply enters the number of consumers they want to generate (between 1 - 100) and the Admin then has to press the generate button.
-        </p>
-        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture31.jpg') }}" alt="">
+
+    
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
