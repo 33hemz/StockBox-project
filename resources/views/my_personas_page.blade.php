@@ -3,7 +3,8 @@
 @section('title', 'Dashboard')
 
 @section('head')
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style> 
         .sec {
@@ -19,31 +20,41 @@
 @endsection
 @section('content') 
 
-
 <h1 class="border-bottom pb-2 mb-3">Saved Buyer Personas</h1>
 <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">All</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('my_personas_page').'/gender' }}">Gender</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('my_personas_page').'/age' }}">Age</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{{ route('my_personas_page').'/income' }}">Income</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('my_personas_page').'/city' }}">City</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('my_personas_page').'/dependants' }}">Dependants</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('my_personas_page').'/dietary-requirements' }}">Dietary Requirements</a>
-    </li>
-  </ul>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">All</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/gender' }}">Gender</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/age' }}">Age</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/income' }}">Income</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/city' }}">City</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/dependants' }}">Dependants</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/dietary-requirements' }}">Dietary Requirements</a>
+  </li>
+</ul>
+<script>
+$(document).ready(function() {
+  var tabs = $('.nav-tabs .nav-link');
+  tabs.click(function() {
+    tabs.removeClass('active');
+    $(this).addClass('active');
+  });
+});
+</script>
+
+
 <div class="row row-cols-auto justify-content-start mb-5">
 
     {{-- for loop to be executed on each instance of a persona move to controller --}}
