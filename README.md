@@ -309,6 +309,98 @@ php artisan serve
 </tbody>
 </table>
 
+## Sprint 4
+<table>
+<thead>
+    <tr>
+        <th>User Story</th>
+        <th>Description</th>
+        <th>Weight</th>
+        <th>Priority</th>
+        <th>Assigned Team Members</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Admin Generate Sample User Data</td>
+        <td>
+            <b>As a</b> website admin,<br>
+            <b>I want</b> to be able to generate a sample user data CSV,<br>
+            <b>So that</b> I don’t need to use real user data if I want to setup the platform for demonstration purposes
+        </td>
+    <td>13</td>
+    <td>1</td>
+    <td>Jack Trafford, George Rogers, Raihaan Azam, Hemal Patel</td>
+    </tr>
+    <tr>
+        <td>Generate User Personas Form</td>
+        <td>
+            <b>As a</b> user,<br>
+            <b>I want</b> to be able to submit a form describing user personas I would like to generate, <br>
+            <b>So that</b> I can view user personas that specifically tailored to my requirements
+        </td>
+        <td>8</td>
+        <td>2</td>
+        <td>Jack Trafford, Tharidhu Angodage</td>
+    </tr>
+    <tr>
+        <td>My Personas Page</td>
+        <td>
+            <b>As a</b> user,<br>
+            <b>I want</b> to be able to view user personas that have been generated on a ‘My Personas Page’<br>
+            <b>So that</b> I am able to make informed marketing decisions when taking on new strategies for my company
+        </td>
+        <td>5</td>
+        <td>3</td>
+        <td>Jack Trafford, David Igandan</td>
+    </tr>
+    <tr>
+        <td>Filter Dashboard Data</td>
+        <td>
+            <b>As a</b> user,<br>
+            <b>I want</b> to be able to filter data shown via graphs on the dashboard,<br>
+            <b>So that</b> I am able to understand the data I am presented with more easily
+        </td>
+        <td>8</td>
+        <td>4</td>
+        <td>Tharidhu Angodage</td>
+    </tr>
+    <tr>
+        <td>Mobile Responsiveness</td>
+        <td>
+            <b>As a</b> user/website admin,<br>
+            <b>I want</b> to be able to easily access and navigate around the platform on mobile,<br>
+            <b>So that</b> I can still access the same functionality as I can on a desktop computer
+        </td>
+        <td>3</td>
+        <td>5</td>
+        <td>Darren Wu, Suraj Cheema</td>
+    </tr>   
+    <tr>
+        <td>Dark Mode</td>
+        <td>
+            <b>As a</b> user/website admin,<br>
+            <b>I want</b> to be able to switch between a dark/light mode,<br>
+            <b>So that</b> I can customise the platforms colour scheme to my own preference
+        </td>
+        <td>2</td>
+        <td>6</td>
+        <td>Darren Wu</td>
+    </tr>
+    <tr>
+        <td>Logout button on landing page</td>
+        <td>
+            <b>As a</b> user/website admin,<br>
+            <b>I want</b> to be able to logout of the site from the landing page,<br>
+            <b>So that</b> I do not have to navigate to a authenticated page before I am able to click logout
+        </td>
+        <td>1</td>
+        <td>7</td>
+        <td>Darren Wu</td>
+    </tr>
+</tbody>
+</table>
+
 # Meeting Logs
 ## 20/01/23 - First Group Meeting
 - Completed first meeting in person with all 8 group members present
