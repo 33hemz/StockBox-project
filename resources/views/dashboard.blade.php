@@ -45,7 +45,7 @@
                 <label for="country">City:</label>
                 <select class="form-select" id="city" name="city">
                     <option value=""></option>
-                    @foreach($cities as $city)
+                    @foreach ($citiesDataOriginal->keys() as $city)
                         <option value="{{ $city }}" {{ request('city') === $city ? 'selected' : '' }}>{{$city}}</option>
                     @endforeach
                 </select>
@@ -106,9 +106,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col mx-2 my-3 rounded p-3">
-            <h3 class="card-title fs-5">Cities</h3>
-            <div class="card-content"><div id="citiesChart" style="min-width: 590px; max-width: 900px;"></div></div>
+        <div class="col bg-body-tertiary mx-2 my-3 rounded p-3">
+            <h3 class="card-title fs-5">Cities (Top 5)</h3>
+            <div class="card-content"><canvas id="citiesChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
         </div>
     </div>
     <div class="row">
@@ -200,6 +200,34 @@
             plugins: {
                 legend: {
                     display: true
+                },
+                colors: {
+                    colours: true
+                }
+            }
+        }
+    });
+
+    const citiesChart = document.getElementById('citiesChart');
+    new Chart(citiesChart, {
+        type: 'bar',
+        data: {
+            labels: {{ Js::from(($citiesData->keys())) }},
+            datasets: [{
+                data: {{ Js::from(($citiesData->values())) }},
+                backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)'],
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            elements: {
+                bar: {
+                    borderWidth: 3,
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
                 },
                 colors: {
                     colours: true

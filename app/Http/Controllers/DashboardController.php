@@ -25,10 +25,7 @@ class DashboardController extends Controller
             $userData->whereBetween('age', [$age[0], $age[1]]);
         }
 
-        // Country filter
-        if (request()->filled('city')) {
-            $userData->where('city', request()->city);
-        }
+
         
        // Income filter
        if (request()->filled('income')) {
@@ -92,18 +89,12 @@ class DashboardController extends Controller
         
         // cites
         if (request()->filled('city')) {
-            $selectedCity = request()->city;
-            $citiesData = [$selectedCity => $userData->where('city', $selectedCity)->count()];
+            $citiesData = ConsumerData::select('city', DB::raw('count(*) as count'))->where('city', request()->city)->groupBy('city')->orderBy('count')->limit(5)->get()->pluck('count', 'city');
         } else {
-            $citiesData = $userData->groupBy('city')->sortKeys()->map->count()->toArray();
-            $selectedCity = null;
+            $citiesData = ConsumerData::select('city', DB::raw('count(*) as count'))->groupBy('city')->orderBy('count')->limit(5)->get()->pluck('count', 'city');
         }
 
-        $citiesData = array_map(function($key, $value) {
-            return [$key, $value];
-        }, array_keys($citiesData), array_values($citiesData));
-        
-        $cities = array_keys($userData->groupBy('city')->sortKeys()->toArray());
+        $citiesDataOriginal = ConsumerData::select('city', DB::raw('count(*) as count'))->groupBy('city')->get()->pluck('count', 'city');
 
 
         // income
@@ -156,9 +147,9 @@ class DashboardController extends Controller
             'incomeData' => $incomeData,
             'numOfDependentsData' => $numOfDependentsData,
             'dietaryData' => $dietaryData,
-            'cities' => $cities,
             'genderDataOriginal' => $genderDataOriginal,
             'ageDataOriginal' => $ageDataOriginal,
+            'citiesDataOriginal' => $citiesDataOriginal,
             'incomeDataOriginal' => $incomeDataOriginal,
             'numOfDependentsDataOriginal' => $numOfDependentsDataOriginal,
             'dietaryDataOriginal' => $dietaryDataOriginal,
