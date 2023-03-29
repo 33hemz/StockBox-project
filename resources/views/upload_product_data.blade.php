@@ -50,7 +50,7 @@
 <ul>
     <li>
         CSV file should contain the following headers in the correct order:<br>
-        <span class="text-muted fst-italic mb-0">full_name, gender, age, country, income, number_of_dependents, dietry_requirements</span>      
+        <span class="text-muted fst-italic mb-0">full_name, gender, age, country, income, number_of_dependants, dietry_requirements</span>      
     </li>
     <li>All entries must be separated with semi-colons rather than commas e.g. <span class="text-muted" style="font-family: consolas;">item 1;item 2;item 3</span></li>
 </ul>

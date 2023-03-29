@@ -81,23 +81,32 @@ class UserController extends Controller
                     '120k+' => $personasData->whereBetween('income', [120001, 500000])->first(),
                 ];
                 break;
+                
             case 'city':
-                $personas = $personasData->groupBy('city')->map->count()->sortKeys()->map->count()->toArray()->first();
-                break;
-            case 'dependents':
-                $personas = $personasData->groupBy('number_of_dependents')->sortKeys()->map->count()->toArray()->first();
-                break;
-            case 'dietary_requirements':
-                $personas = $personasData->groupBy('dietary_requirements')->sortKeys()->map->count()->toArray()->first(); 
-                // Rename empty to 'No restrictions'
-                if (isset($personas[''])) {
-                    $count = $personas[''];
-                    unset($personas['']);
-                    $personas['No restrictions'] = $count;
-                }
-                $personas = collect($personas);
-            default:
+                $cities = $personasData->unique('city')->sortBy('city')->pluck('city')->toArray();
                 $personas = [];
+                foreach ($cities as $city) {
+                    array_push($personas, $personasData->where('city', $city)->first());
+                }
+                break;
+            case 'dependants':
+                $dependants = $personasData->unique('number_of_dependants')->sortBy('number_of_dependants')->pluck('number_of_dependants')->toArray();
+                
+                $personas = [];
+                foreach ($dependants as $num) {
+                    array_push($personas, $personasData->where('number_of_dependants', $num)->first());
+                }
+                break;
+            case 'dietary-requirements':
+                $dietar_requirements = $personasData->unique('dietary_requirements')->sortBy('dietary_requirements')->pluck('dietary_requirements')->toArray();
+                
+                $personas = [];
+                foreach ($dietar_requirements as $num) {
+                    array_push($personas, $personasData->where('dietary_requirements', $num)->first());
+                }
+
+            default:
+                return redirect('my_personas_page/gender');
                 break;
         }
 
@@ -118,7 +127,7 @@ class UserController extends Controller
                 'age' => $consumer['age'], 
                 'income' => number_format($consumer['income']), 
                 'city' => $consumer['city'], 
-                'number_of_dependents' => $consumer['number_of_dependents'], 
+                'number_of_dependants' => $consumer['number_of_dependants'], 
                 'dietary_requirements' => $consumer['dietary_requirements'], 
                 'date_generated' => '08/03/2023'
             ]);

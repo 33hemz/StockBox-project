@@ -52,8 +52,8 @@ class DashboardController extends Controller
         }
 
         // Dependants filter
-        if (request()->filled('number_of_dependents')) {
-            $userData->where('number_of_dependents', request()->number_of_dependents);
+        if (request()->filled('number_of_dependants')) {
+            $userData->where('number_of_dependants', request()->number_of_dependants);
         }
         
         // Dietary requirements filter
@@ -125,9 +125,9 @@ class DashboardController extends Controller
             '120k+' => $userDataOriginal->whereBetween('income', [120001, 500000])->count(),
         ];
     
-        // number of dependents 
-        $numOfDependentsData = $userData->groupBy('number_of_dependents')->sortKeys()->map->count();
-        $numOfDependentsDataOriginal = $userDataOriginal->groupBy('number_of_dependents')->sortKeys()->map->count();
+        // number of dependants 
+        $numOfDependantsData = $userData->groupBy('number_of_dependants')->sortKeys()->map->count();
+        $numOfDependantsDataOriginal = $userDataOriginal->groupBy('number_of_dependants')->sortKeys()->map->count();
         
         // dietary requirements
         $dietaryData = $userData->groupBy('dietary_requirements')->sortKeys()->map->count()->toArray(); 
@@ -153,13 +153,13 @@ class DashboardController extends Controller
             'ageData' => $ageData,
             'citiesData' => $citiesData,
             'incomeData' => $incomeData,
-            'numOfDependentsData' => $numOfDependentsData,
+            'numOfDependantsData' => $numOfDependantsData,
             'dietaryData' => $dietaryData,
             'genderDataOriginal' => $genderDataOriginal,
             'ageDataOriginal' => $ageDataOriginal,
             'citiesDataOriginal' => $citiesDataOriginal,
             'incomeDataOriginal' => $incomeDataOriginal,
-            'numOfDependentsDataOriginal' => $numOfDependentsDataOriginal,
+            'numOfDependantsDataOriginal' => $numOfDependantsDataOriginal,
             'dietaryDataOriginal' => $dietaryDataOriginal,
             ]
         );

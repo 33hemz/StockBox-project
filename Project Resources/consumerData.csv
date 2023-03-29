@@ -1,4 +1,4 @@
-gender;age;country;income;number_of_dependents;dietary_requirements
+gender;age;country;income;number_of_dependants;dietary_requirements
 Polygender;48;United States;142010.11;3;
 Female;48;Afghanistan;74944.80;4;
 Male;89;Indonesia;91147.66;1;

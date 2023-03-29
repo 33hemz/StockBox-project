@@ -22,26 +22,28 @@
 
 <h1 class="border-bottom pb-2 mb-3">Saved Buyer Personas</h1>
 <ul class="nav nav-tabs">
+    @php
+        $currURL = url()->current();
+        $currURL = explode('/', $currURL);
+        $currURL = end($currURL);
+    @endphp
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">All</a>
+    <a class="nav-link {{ $currURL == 'gender' ? 'active':'' }}" href="{{ route('my_personas_page').'/gender' }}">Gender</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('my_personas_page').'/gender' }}">Gender</a>
+    <a class="nav-link {{ $currURL == 'age' ? 'active':'' }}" href="{{ route('my_personas_page').'/age' }}">Age</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('my_personas_page').'/age' }}">Age</a>
+    <a class="nav-link {{ $currURL == 'income' ? 'active':'' }}" href="{{ route('my_personas_page').'/income' }}">Income</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('my_personas_page').'/income' }}">Income</a>
+    <a class="nav-link {{ $currURL == 'city' ? 'active':'' }}" href="{{ route('my_personas_page').'/city' }}">City</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('my_personas_page').'/city' }}">City</a>
+    <a class="nav-link {{ $currURL == 'dependants' ? 'active':'' }}" href="{{ route('my_personas_page').'/dependants' }}">Dependants</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('my_personas_page').'/dependants' }}">Dependants</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{ route('my_personas_page').'/dietary-requirements' }}">Dietary Requirements</a>
+    <a class="nav-link {{ $currURL == 'dietary-requirements' ? 'active':'' }}" href="{{ route('my_personas_page').'/dietary-requirements' }}">Dietary Requirements</a>
   </li>
 </ul>
 <script>
@@ -61,7 +63,7 @@ $(document).ready(function() {
     @foreach ($personas as $persona)
     <div class="col d-flex card mx-2 my-3" style="min-width: 250px; width: 275px; height: 400px">
         <div class="d-flex flex-column justify-content-center align-items-center">
-            {{ $persona['tag'] }}
+            <span>{{ $persona['tag'] }}</span>
                 {{-- These will vary based on each persona --}}
                 <span class="h4 mt-3">{{ $persona['first_name'] }} {{$persona['last_name']}}</span>
                 <img src="{{ $persona['image_url'] }}" height="100" width="100" class="rounded-circle mb-2">
@@ -71,9 +73,9 @@ $(document).ready(function() {
                     <span>Gender: {{ $persona['gender'] }}</span>
                     <span>Income: £{{ $persona['income'] }}</span>
                     <span>City: {{ $persona['city'] }}</span>
-                    <span>Number of Dependents: {{ $persona['number_of_dependents'] }}</span>
+                    <span>Number of Dependants: {{ $persona['number_of_dependants'] }}</span>
                     @if ($persona['dietary_requirements'] !== '')
-                        <span>Dietry Req(s): {{ $persona['dietary_requirements'] }}</span>
+                        <span>Dietary Req(s): {{ $persona['dietary_requirements'] }}</span>
                     @endif
                 </div>
                 <div class="d-flex mt-2"> 
@@ -97,7 +99,7 @@ $(document).ready(function() {
                 <p>
                     <b>{{$persona['first_name']}} {{$persona['last_name']}}</b> is of age <b>{{$persona['age']}}</b> and lives in the area of
                     <b>{{$persona['city']}}</b>. This persona has been chosen for your company because they earn an salary of: <b>£{{$persona['income']}}</b>
-                    per annum and have a <b>{{$persona['number_of_dependents']}}</b> people depending on their income.
+                    per annum and have a <b>{{$persona['number_of_dependants']}}</b> people depending on their income.
                     @if ($persona['dietary_requirements'] !== '')
                     Furthermore, this persona requires that their diet includes <b>{{$persona['dietary_requirements'] }}</b> products.
                     @else

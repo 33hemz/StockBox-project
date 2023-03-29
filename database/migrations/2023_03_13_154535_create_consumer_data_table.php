@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('age');
             $table->string('city');
             $table->float('income');
-            $table->integer('number_of_dependents');
+            $table->integer('number_of_dependants');
             $table->string('dietary_requirements');
         });
     }

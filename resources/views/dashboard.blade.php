@@ -62,10 +62,10 @@
             </div>
             <div class="form-group">
                 <label for="number_of_dependants">Dependants:</label>
-                <select class="form-select" id="number_of_dependents" name="number_of_dependents">
+                <select class="form-select" id="number_of_dependants" name="number_of_dependants">
                     <option value="" selected></option>
-                    @foreach (($numOfDependentsDataOriginal->keys()) as $number_of_dependents)
-                        <option value="{{ $number_of_dependents }}" {{ request('number_of_dependents') === $number_of_dependents ? 'selected' : '' }}>{{$number_of_dependents}}</option>
+                    @foreach (($numOfDependantsDataOriginal->keys()) as $number_of_dependants)
+                        <option value="{{ $number_of_dependants }}" {{ request('number_of_dependants') === $number_of_dependants ? 'selected' : '' }}>{{$number_of_dependants}}</option>
                     @endforeach
                 </select>
             </div>
@@ -103,7 +103,7 @@
         </div>
         <div class="col bg-body-tertiary mx-2 my-3 rounded p-3">
             <h3 class="card-title fs-5">Number of Dependants</h3>
-            <div class="card-content"><canvas id="numOfDependentsChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
+            <div class="card-content"><canvas id="numOfDependantsChart" style="min-height: 200px; max-height: 200px;"></canvas></div>
         </div>
     </div>
     <div class="row">
@@ -188,13 +188,13 @@
     });
 
     
-    const numOfDependentsChart = document.getElementById('numOfDependentsChart');
-    new Chart(numOfDependentsChart, {
+    const numOfDependantsChart = document.getElementById('numOfDependantsChart');
+    new Chart(numOfDependantsChart, {
         type: 'polarArea',
         data: {
-            labels: {{ Js::from($numOfDependentsData->keys()) }},
+            labels: {{ Js::from($numOfDependantsData->keys()) }},
             datasets: [{
-                data: {{ Js::from($numOfDependentsData->values()) }},
+                data: {{ Js::from($numOfDependantsData->values()) }},
             }]
         },
         options: {

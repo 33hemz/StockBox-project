@@ -14,7 +14,7 @@
     
 </head>
 
-@if ((in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'admin/manage-user', 'brand-page', 'admin/upload-product-data', 'admin/view-product-data', 'my_personas_page'])) || (str_starts_with(request()->path(), 'admin/edit-user')))
+@if ((in_array(request()->path(), ['dashboard', 'logout', 'admin/create-new-user', 'admin/process-new-user', 'admin/manage-user', 'brand-page', 'admin/upload-product-data', 'admin/view-product-data'])) || (str_starts_with(request()->path(), 'admin/edit-user')) || (str_starts_with(request()->path(), 'my_personas_page')))
 
 {{-- if one of these page, show sidebar --}}
 <body class="d-flex flex-column bg-body">

@@ -94,7 +94,7 @@ class ConvertCSVController extends Controller
       $genders = array('Male', 'Female');
       $cities = array("London", "Manchester", "Birmingham", "Liverpool", "Glasgow", "Edinburgh", "Bristol", "Leeds", "Newcastle", "Sheffield", "Cardiff", "Belfast", "Leicester", "Leicester");
       $incomes = array(40000, 60000, 80000, 100000);
-      $numDependents = array(0, 1, 2, 3, 3, 4, 4);
+      $numDependants = array(0, 1, 2, 3, 3, 4, 4);
       $dietaryRequirements = array('Vegetarian', 'Vegan', 'Gluten-free', 'Lactose-free', '', '', '', '', '', '', '');
   
       
@@ -108,9 +108,9 @@ class ConvertCSVController extends Controller
          $income = $incomes[rand(0, count($incomes) - 1)];
       } 
       if ($age < 25) {
-         $numDependent = rand(0,1);
+         $numDependant = rand(0,1);
       } else {
-         $numDependent = $numDependents[rand (0, count($numDependents) - 1)];
+         $numDependant = $numDependants[rand (0, count($numDependants) - 1)];
       }
       $dietaryRequirement = $dietaryRequirements[rand(0, count($dietaryRequirements) - 1)];
       
@@ -119,7 +119,7 @@ class ConvertCSVController extends Controller
          'age' => $age,
          'city' => $city,
          'income' => $income,
-         'number_of_dependents' => $numDependent,
+         'number_of_dependants' => $numDependant,
          'dietary_requirements' => $dietaryRequirement,
       ];
    }
