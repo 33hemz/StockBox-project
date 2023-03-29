@@ -319,7 +319,11 @@
         <p>
           You can view your personas on the personas page. This looks like so...
         </p>
-
+        <img class="picture" src="{{ asset('assets/User Manual Images/personas.png ') }}" alt=""><br>
+        <p>
+          You can also view each personas individual profile.
+        </p>
+        <img class="pictureSmaller" style="width: 500px" src="{{ asset('assets/User Manual Images/personapro.png') }}" alt="">
 
 
 
