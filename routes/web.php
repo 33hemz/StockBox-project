@@ -74,6 +74,7 @@ Route::middleware('auth')->group(function() {
         Route::post('/updated-brand-page', [UserController::class, 'addProductCategory'])->name('updated_brand_page');
         Route::post('/deleted-product-category', [UserController::class, 'deleteProductCategory'])->name('deleted_product_category');
         Route::get('/my_personas_page', [UserController::class, 'my_personas_page'])->name('my_personas_page');
+        Route::get('/my_personas_page/{option}', [UserController::class, 'personasManage'])->name('personas_page');
     });
     
     // --- ADMIN PAGES ---

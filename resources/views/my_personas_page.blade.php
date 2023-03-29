@@ -21,29 +21,29 @@
 
 
 <h1 class="border-bottom pb-2 mb-3">Saved Buyer Personas</h1>
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">All</a>
     </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="gender-tab" data-bs-toggle="tab" data-bs-target="#gender" type="button" role="tab" aria-controls="gender" aria-selected="false">Gender</button>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('my_personas_page').'/gender' }}">Gender</a>
     </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="age-tab" data-bs-toggle="tab" data-bs-target="#age" type="button" role="tab" aria-controls="age" aria-selected="false">Age</button>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('my_personas_page').'/age' }}">Age</a>
     </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="income-tab" data-bs-toggle="tab" data-bs-target="#income" type="button" role="tab" aria-controls="income" aria-selected="false">Income</button>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('my_personas_page').'/income' }}">Income</a>
     </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="country-tab" data-bs-toggle="tab" data-bs-target="#country" type="button" role="tab" aria-controls="country" aria-selected="false">Country</button>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('my_personas_page').'/city' }}">City</a>
     </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="dependants-tab" data-bs-toggle="tab" data-bs-target="#dependants" type="button" role="tab" aria-controls="dependants" aria-selected="false">Dependants</button>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('my_personas_page').'/dependants' }}">Dependants</a>
     </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="dietary-tab" data-bs-toggle="tab" data-bs-target="#dietary" type="button" role="tab" aria-controls="dietart" aria-selected="false">Dietary Requirements</button>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('my_personas_page').'/dietary-requirements' }}">Dietary Requirements</a>
     </li>
-
+  </ul>
 <div class="row row-cols-auto justify-content-start mb-5">
 
     {{-- for loop to be executed on each instance of a persona move to controller --}}

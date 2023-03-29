@@ -43,7 +43,7 @@ class UserController extends Controller
     public function my_personas_page() {
         $consumerData = ConsumerData::inRandomOrder()->limit(5)->get();
         $personas = [];
-
+    
 
         
         foreach ($consumerData as $consumer) {
@@ -62,11 +62,16 @@ class UserController extends Controller
                 'date_generated' => '08/03/2023'
             ]);
         }
-        
-     
-        
+        dd($personas);
         return view('my_personas_page', [
             'personas' => $personas
+        ]);
+    }
+
+    public function personasManage($option){
+        $optionPersona = ConsumerData::find($option);
+        return view('my_personas_page', [
+            'option' => $option
         ]);
     }
 
