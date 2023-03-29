@@ -52,7 +52,7 @@ php artisan serve
 - **Week 5:** George Rogers
 - **Week 6:** Hemal Patel
 - **Week 7:** David Igandan
-- **Week 8:** 
+- **Week 8:** Raihaan Azam
 
 ## Documentation Links
 - [User Manual](/User Manual)
