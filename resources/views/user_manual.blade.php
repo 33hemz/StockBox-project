@@ -293,7 +293,41 @@
           You can move around the various features of the webapp by using the navigation bar
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture15.jpg') }}" alt="">
+
+
+
+        <h1>
+          <h2 id="dashB" class="title">Dashboard</h2>
+        </h1>
+        <p>
+          The dashboard displays all kinds of information about your consumers such as, gender, age, city, income, number
+          of dependants and dietary requirements:
+        </p>
+
+        <img class="picture" src="{{ asset('assets/User Manual Images/dashboard1.png ') }}" alt="">
+        <img class="picture" src="{{ asset('assets/User Manual Images/dashboard2.png ') }}" alt="">
+        <img class="picture" src="{{ asset('assets/User Manual Images/dashboard3.png ') }}" alt="">
         <br>
+        <p>
+        Use the filters tab at the top to filter the data in any way you want.
+        </p>
+        <img class="pictureSmaller" style="width: 700px" src="{{ asset('assets/User Manual Images/filter_dashboard.png') }}" alt="">
+
+        <h1>
+          <h2 id="dashB" class="title">My Personas</h2>
+        </h1>
+        <p>
+          You can view your personas on the personas page. This looks like so...
+        </p>
+
+
+
+
+
+
+
+        <br>
+        {{--Admin Features--}}
         <h1>
           <h2 id="darkmode" class="title">Dark Mode</h2>
         </h1>
