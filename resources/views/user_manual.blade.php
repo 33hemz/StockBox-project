@@ -151,6 +151,8 @@
     <a href="#forgotten" style="font-size: 1em">Forgotten Password</a>
     <a href="#brand" style="font-size: 1em">Brand Page</a>
     <a href="#nav" style="font-size: 1em">Navigation Bar</a>
+    <a href="#dashboard" style="font-size: 1em">Dashboard</a>
+    <a href="#persona" style="font-size: 1em">My Personas</a>
     <a href="#darkmode" style="font-size: 1em">Dark Mode</a>
   </div>
   <a href="#admin">Admin Features</a>
@@ -297,7 +299,7 @@
 
 
         <h1>
-          <h2 id="dashB" class="title">Dashboard</h2>
+          <h2 id="dashboard" class="title">Dashboard</h2>
         </h1>
         <p>
           The dashboard displays all kinds of information about your consumers such as, gender, age, city, income, number
@@ -314,7 +316,7 @@
         <img class="pictureSmaller" style="width: 700px" src="{{ asset('assets/User Manual Images/filter_dashboard.png') }}" alt="">
 
         <h1>
-          <h2 id="dashB" class="title">My Personas</h2>
+          <h2 id="persona" class="title">My Personas</h2>
         </h1>
         <p>
           You can view your personas on the personas page. This looks like so...
