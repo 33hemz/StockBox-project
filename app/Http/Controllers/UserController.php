@@ -47,7 +47,7 @@ class UserController extends Controller
 
         
         foreach ($consumerData as $consumer) {
-            $img = get_headers('https://fakeface.rest/thumb/view/'. time() .'?' . 'gender=' . strtolower($consumer['gender']) . '&mininum_age=' . $consumer['age'] .'&maximum_age=' . $consumer['age'], 1)['Location'];
+            $img = get_headers('https://fakeface.rest/thumb/view/'. time() .'?' . 'gender=' . strtolower($consumer['gender']) . '&mininum_age=' . intval($consumer['age'])-5 .'&maximum_age=' . intval($consumer['age'])+5, 1)['Location'];
 
             array_push($personas, [
                 'image_url' => $img,

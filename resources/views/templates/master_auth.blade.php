@@ -28,12 +28,13 @@
         @media (max-width: 768px) {
             #main-form{
                 width: 100%;
+                border-radius: 0;
             }  
         }
     </style>
 </head>
 <body class="d-flex flex-column align-items-stretch align-items-md-center justify-content-center">
-    <div id="main-form" class="card shadow-lg bg-body-secondary flex-fill flex-md-shrink-0 flex-md-grow-0 h-100 h-md-auto d-flex flex-column align-items-center justify-content-center">
+    <div id="main-form" class="card shadow-md bg-body-secondary flex-fill flex-md-shrink-0 flex-md-grow-0 h-100 h-md-auto d-flex flex-column align-items-center justify-content-center">
         <div class="d-flex flex-column w-100">
     
           <a href="{{ route('landing') }}" class="d-block mx-auto">
