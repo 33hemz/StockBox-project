@@ -161,6 +161,15 @@
   <a href="#mobile">Mobile Version</a>
   <div class="ms-4">
     <a href="#mbnavbar" style="font-size: 1em">Collapsable Navigation Bar</a>
+    <a href="#mbtopnav" style="font-size: 1em">Top Nav Bar</a>
+    <a href="#mbhome" style="font-size: 1em">Home Screen</a>
+    <a href="#mbcreateusers" style="font-size: 1em">Create Users</a>
+    <a href="#mbmanageusers" style="font-size: 1em">Manager Users</a>
+    <a href="#mbimportproduct" style="font-size: 1em">Import Product Data</a>
+    <a href="#mbviewproduct" style="font-size: 1em">View Product Data</a>
+    <a href="#mbuserdash" style="font-size: 1em">User Dashboard</a>
+    <a href="#mbbranddetails" style="font-size: 1em">Brand Details</a>
+    <a href="#mbbuyerpersonas" style="font-size: 1em">Buyer Personas</a>
   </div>
 
   </div>
@@ -332,8 +341,79 @@
         </p>
         <img class="mobile" src="{{ asset('assets/User Manual Images/mobile-navbar-2.jpg') }}" alt="">
         <br>
-
-    
+        <h1>
+          <h2 id="mbtopnav" class="title">Top Nav Bar</h2>
+        </h1>
+        <p>
+          This is the top nav bar which shrinks down when on a mobile, but still had all options visible. The buttons are shrunken down.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/navbar_mobile.png') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbhome" class="title">Home Screen</h2>
+        </h1>
+        <p> 
+          The home screen page for mobile devices will display everything the desktop version displays. You can navigate to all options and everything is fit onto the screen.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/home_screen_mobile.png') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbcreateusers" class="title">Create Users</h2>
+        </h1>
+        <p> 
+          Creating users will be easily done on mobile, everything is shrunk down to fit the screen and the form is easily able to be filled in.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/manage_users_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbmanageusers" class="title">Manage Users</h2>
+        </h1>
+        <p> 
+          Managing users will display all users on the page depending on the filter, similar to desktop version.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/manage_users_dash.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbimportproduct" class="title">Import Product Data</h2>
+        </h1>
+        <p> 
+          The navbar is put into the hamburger icon and you can scroll down to view more of the page and access all the form options.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/import_product_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbviewproduct" class="title">View Product Data</h2>
+        </h1>
+        <p> 
+          Managing users will display all product data on the page depending on the filter, similar to desktop version.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/view_product_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbuserdash" class="title">User Dashboard</h2>
+        </h1>
+        <p> 
+          Similar to the desktop view the user dashboard for mobile will show all graphs and analytics. Navbar is moved to the toggle hamburger option. You are able to pinch the screen to zoom in and out.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/user_dash_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbbranddetails" class="title">Brand Details</h2>
+        </h1>
+        <p> 
+          Shrunken down to fit in mobile view, all options are available. You can add a product here.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/brand_details_mobile.jpg') }}" alt="">
+        <br>
+        <h1>
+          <h2 id="mbbuyerpersonas" class="title">Buyer Personas</h2>
+        </h1>
+        <p> 
+          Buyer personas are all visible along with their images. You scroll down to view more instead of reading them left to right. Fake data used for the context of this screenshot and image removed for data protection and privacy. All the real data will be visible when you login to your account.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/buyer_persona_mobile.jpg') }}" alt="">
+        <br>
+  
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
