@@ -25,6 +25,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 **Run database migrations and seed with sample data:**
+*Make sure you change the MySQL server details in .env before running this command (default database name is 'laravel')*
 ```
 php artisan migrate:fresh --seed
 ```
