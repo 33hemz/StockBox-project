@@ -50,6 +50,7 @@
     @foreach ($personas as $persona)
     <div class="col card mx-2 my-3" style="min-width: 250px;">
         <div class="d-flex flex-column justify-content-center align-items-center">
+            {{ $persona['tag'] }}
                 {{-- These will vary based on each persona --}}
                 <span class="h4 mt-3">{{ $persona['first_name'] }} {{$persona['last_name']}}</span>
                 <img src="{{ $persona['image_url'] }}" height="100" width="100" class="rounded-circle mb-2">
