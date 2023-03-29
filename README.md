@@ -333,17 +333,6 @@ php artisan serve
     <td>Jack Trafford, George Rogers, Raihaan Azam, Hemal Patel</td>
     </tr>
     <tr>
-        <td>Generate User Personas Form</td>
-        <td>
-            <b>As a</b> user,<br>
-            <b>I want</b> to be able to submit a form describing user personas I would like to generate, <br>
-            <b>So that</b> I can view user personas that specifically tailored to my requirements
-        </td>
-        <td>8</td>
-        <td>2</td>
-        <td>Jack Trafford, Tharidhu Angodage</td>
-    </tr>
-    <tr>
         <td>My Personas Page</td>
         <td>
             <b>As a</b> user,<br>
@@ -351,7 +340,7 @@ php artisan serve
             <b>So that</b> I am able to make informed marketing decisions when taking on new strategies for my company
         </td>
         <td>5</td>
-        <td>3</td>
+        <td>2</td>
         <td>Jack Trafford, David Igandan</td>
     </tr>
     <tr>
@@ -362,7 +351,7 @@ php artisan serve
             <b>So that</b> I am able to understand the data I am presented with more easily
         </td>
         <td>8</td>
-        <td>4</td>
+        <td>3</td>
         <td>Tharidhu Angodage</td>
     </tr>
     <tr>
@@ -373,7 +362,7 @@ php artisan serve
             <b>So that</b> I can still access the same functionality as I can on a desktop computer
         </td>
         <td>3</td>
-        <td>5</td>
+        <td>4</td>
         <td>Darren Wu, Suraj Cheema</td>
     </tr>   
     <tr>
@@ -384,7 +373,7 @@ php artisan serve
             <b>So that</b> I can customise the platforms colour scheme to my own preference
         </td>
         <td>2</td>
-        <td>6</td>
+        <td>5</td>
         <td>Darren Wu</td>
     </tr>
     <tr>
@@ -395,7 +384,7 @@ php artisan serve
             <b>So that</b> I do not have to navigate to a authenticated page before I am able to click logout
         </td>
         <td>1</td>
-        <td>7</td>
+        <td>6</td>
         <td>Darren Wu</td>
     </tr>
 </tbody>
