@@ -8,11 +8,69 @@
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
+
+<style>
+
+    #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        }
+    
+    #overlay-content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      color: white;
+      font-size: 36px;
+    }
+
+</style>
 @endsection
 
 @section('content')
 
 <h1 class="border-bottom pb-2">View Product Data</h1>
+
+<div id="overlay">
+    <div id="overlay-content">
+      <p id="dots">Loading</p><div class="spinner-border spinner-border-s"></div>
+    </div>
+</div>
+
+<script>
+    // Set up the variables
+    var dots = document.getElementById("dots");
+    var delay = 500; // milliseconds
+    var maxDots = 4;
+    var currentDots = 0;
+    var intervalId;
+
+    // Function to loop through the dots
+    function loopDots() {
+        if (currentDots >= maxDots) {
+            currentDots = 0;
+        }
+        var dotsString = "   Loading";
+        for (var i = 0; i < currentDots; i++) {
+            dotsString += ".";
+        }
+        dots.innerHTML = dotsString;
+        currentDots++;
+    }
+
+    // Set up the interval to call the loop function
+    intervalId = setInterval(loopDots, delay);
+</script>
 
     <table id="product_data_table" class="table table-striped">
     <thead>
@@ -31,28 +89,71 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($product_data as $product)
-        <tr>
-            <td class="text-nowrap">{{$product['brand']}}</td>
-            <td style="min-width: 180px;">{{$product['product_name']}}</td>
-            <td style="min-width: 180px;">{{$product['category']}}</td>
-            <td style="min-width: 180px;">{{$product['subcategory']}}</td>
-            <td>{{$product['price_£']}}</td>
-            <td style="min-width: 180px;">{{$product['price_per']}}</td>
-            <td class="text-truncate" style="max-width: 100px;">{{$product['ingredients']}}</td>
-            <td style="min-width: 180px;">{{$product['allergen_information']}}</td>
-            <td>{{$product['recycling_information']}}</td>
-            <td><a target="_blank" href="{{ $product['product_link'] }}">{{$product['product_link']}}</a></td>
-            <td>{{$product['brand_details']}}</td>
-        </tr>
-        @endforeach    
-        
+        {{-- <tr>
+            <td class="text-nowrap"></td>
+            <td style="min-width: 180px;"></td>
+            <td style="min-width: 180px;"></td>
+            <td style="min-width: 180px;"></td>
+            <td></td>
+            <td style="min-width: 180px;"></td>
+            <td class="text-truncate" style="max-width: 100px;"></td>
+            <td style="min-width: 180px;"></td>
+            <td></td>
+            <td><a target="_blank" href=""></a></td>
+            <td></td>
+        </tr> --}}
     </tbody>
 </table>
 
     <script>
-    let table = new DataTable('#product_data_table', {
-        scrollX: true,
+    // let table = new DataTable('#product_data_table', {
+    //     scrollX: true,
+    // });
+    $(function () {
+        var table = $('#product_data_table').DataTable({
+            processing: false,
+            serverSide: true,
+            scrollX: true,
+            ajax: {
+                url: "{{ route('view_product_data') }}",
+                beforeSend: function () {
+                    console.log("loading");
+                    document.getElementById("overlay").style.display = "block";
+                    
+                },
+                complete: function () {
+                    console.log("done");
+                    document.getElementById("overlay").style.display = "none";
+                },
+            },
+            columns: [
+                {data: 'brand', name: 'brand'},
+                {data: 'product_name', name: 'product_name'},
+                {data: 'category', name: 'category'},
+                {data: 'subcategory', name: 'subcategory'},
+                {data: 'price_£', name: 'price_£'},
+                {data: 'price_per', name: 'price_per'},
+                {
+                    data: 'ingredients', 
+                    name: 'ingredients',
+                    createdCell: function(cell, cellData, rowData, rowIndex, colIndex) {
+                        $(cell).addClass('text-truncate');
+                        $(cell).css('max-width', '100px');
+                        $(cell).css('font-size', '15px');
+                    }
+                },
+                {data: 'allergen_information', name: 'allergen_information'},
+                {data: 'recycling_information', name: 'recycling_information'},
+                {
+                    data: 'product_link', 
+                    name: 'product_link',
+                    render: function(data, type, row, meta) {
+                        return '<a target="_blank" href="' +  data + '">' + data + '</a>';
+                    }
+                },
+                {data: 'brand_details', name: 'brand_details'},
+            ]
+        });
     });
     </script>
     

@@ -1,5 +1,7 @@
 @extends('templates.master_auth')
 
+
+
 @section('title', 'Login')
 
 @section('content')       
