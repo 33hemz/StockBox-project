@@ -333,17 +333,6 @@ php artisan serve
     <td>Jack Trafford, George Rogers, Raihaan Azam, Hemal Patel</td>
     </tr>
     <tr>
-        <td>Generate User Personas Form</td>
-        <td>
-            <b>As a</b> user,<br>
-            <b>I want</b> to be able to submit a form describing user personas I would like to generate, <br>
-            <b>So that</b> I can view user personas that specifically tailored to my requirements
-        </td>
-        <td>8</td>
-        <td>2</td>
-        <td>Jack Trafford, Tharidhu Angodage</td>
-    </tr>
-    <tr>
         <td>My Personas Page</td>
         <td>
             <b>As a</b> user,<br>
@@ -351,7 +340,7 @@ php artisan serve
             <b>So that</b> I am able to make informed marketing decisions when taking on new strategies for my company
         </td>
         <td>5</td>
-        <td>3</td>
+        <td>2</td>
         <td>Jack Trafford, David Igandan</td>
     </tr>
     <tr>
@@ -362,7 +351,7 @@ php artisan serve
             <b>So that</b> I am able to understand the data I am presented with more easily
         </td>
         <td>8</td>
-        <td>4</td>
+        <td>3</td>
         <td>Tharidhu Angodage</td>
     </tr>
     <tr>
@@ -373,7 +362,7 @@ php artisan serve
             <b>So that</b> I can still access the same functionality as I can on a desktop computer
         </td>
         <td>3</td>
-        <td>5</td>
+        <td>4</td>
         <td>Darren Wu, Suraj Cheema</td>
     </tr>   
     <tr>
@@ -384,7 +373,7 @@ php artisan serve
             <b>So that</b> I can customise the platforms colour scheme to my own preference
         </td>
         <td>2</td>
-        <td>6</td>
+        <td>5</td>
         <td>Darren Wu</td>
     </tr>
     <tr>
@@ -395,7 +384,7 @@ php artisan serve
             <b>So that</b> I do not have to navigate to a authenticated page before I am able to click logout
         </td>
         <td>1</td>
-        <td>7</td>
+        <td>6</td>
         <td>Darren Wu</td>
     </tr>
 </tbody>
@@ -410,7 +399,79 @@ php artisan serve
 - Set group rules
 
 ## 31/01/23 - Intro to Laravel Session + General Sprint 1 prep
+-
 - Setup each members laptops for Laravel development
 - Demo of Laravel's routing system, handling form submission and a brief intro to database setup
 - Initial screenshot of scum board for Sprint 1 taken
 - Modified some user stories to ensure they communicated a 'clear benefit'
+
+
+## 07/02/23 - Sprint 1 Demo Meeting 
+### Sprint 1 Retrospective 
+- Completed higher priority user stories however a user story was left incomplete. User manual didn't include all user stories. Complete remaining user stories in next sprint. 
+- Started and completed landing and login page
+- Completed and implemented Navigation Bar on Landing Page.
+- Started Dashboard Page Template
+- Completed User Manual for sprint 1
+- Planned content for sprint 1 demo recording
+- Recorded demo for sprint 1  
+- Planning and assigning for sprint 2
+
+## 14/02/23 - Starting Sprint 2
+- Completed Dashboard Template Page from sprint 1
+- Started and completed Brand Page
+- Started Admin Import CSV Sample Data
+
+
+## 20/02/23 - Finishing Sprint 2
+- Finished Admin Import CSV Sample Data
+- Started and finished Reset Password
+
+
+## 21/02/23 - Sprint 2 User Manual + Demo Meeting
+### Sprint 2 Retrospective 
+- Completed all user stories and successfully documented in user manual.
+- Completed User Manual for sprint 2
+- Planned content for sprint 2 demo recording 
+- Recorded demo for sprint 2
+- Planning and assigning for sprint 3
+
+## 07/03/23 - Starting and Finishing Sprint 3
+- Started and finished Admin Import Consumer Data
+- Started and finished Setting Password on Initial Login
+- Started amd finished Admin View Imported Users
+- Started and finished Admin Managing Users Page
+- Started and finished Admin Viewing Imported Product Data 
+- Started and completed Generating Dashboard Data
+- Started and completed Saving Sidebar State
+
+
+## 14/03/23 - Sprint 3 User Manual + Sprint 4 Planning
+### Sprint 3 Retrospective 
+- Completed all user stories efficiently, laptop for a group member stopped working.
+- Completed table of contents for User Manual 
+- Completed User Manual for sprint 3
+- Planning and assigning for sprint 4
+
+## 16/03/23 - Starting Sprint 4
+- Started Admin Generate Sample User Data
+- Started Generate User Personas Form
+- Started My Personas Page
+
+## 21/03/23 - Continuing Sprint 4
+- Finished Admin Generate Sample User Data
+- Continued Generate User Personas Form
+- Continued My Personas Page
+- Finished Mobile Responsiveness
+
+## 27/03/23 - Finishing Sprint 4
+- Finished Generate User Personas Form
+- Finished Dark Mode
+- Started and Finished Logout button on landing page
+- Started Filter Dashboard Data
+
+## 28/03/23 - Sprint 4 Final Meeting
+### Sprint 4 Retrospective 
+- User stories were too heavy, could've been broken into smaller stories. 
+- Finished My Personas Page
+- Finished Filter Dashboard Data

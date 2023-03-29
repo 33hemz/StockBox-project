@@ -143,6 +143,10 @@
   <div class="ms-4">
     <a href="#update" style="font-size: 1em">Updating The Database</a>
     <a href="#addingNewUser" style="font-size: 1em">Adding a New User</a>
+    <a href="#firstTimeLoggingIn" style="font-size: 1em">First Time Logging In</a>
+    <a href="#viewImportedProductData" style="font-size: 1em">View Imported Product Data</a>
+    <a href="#manageUsers" style="font-size: 1em">Managing Users</a>
+    <a href="#generateUserSampleData" style="font-size: 1em">Generating Sample User Data</a>
   </div>
 
   </div>
@@ -286,7 +290,7 @@
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
         <h1>
-          <h2 id="firstTimeLogin" class="title">First Time Logging In</h2>
+          <h2 id="firstTimeLoggingIn" class="title">First Time Logging In</h2>
         </h1>
         <p>
           The first time you log into StokBox Analytics, 
@@ -305,7 +309,7 @@
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture19.jpg') }}" alt="">
         <h1>
-          <h2 id="viewImportedProduct" class="title">View Imported Product Data</h2>
+          <h2 id="viewImportedProductData" class="title">View Imported Product Data</h2>
         </h1>
         <p>
           As a website admin, I want to be able to view currently imported product data, so 
@@ -371,6 +375,15 @@
           The user will no longer appear on the table and the admin will be notified of the action through a danger alert.
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture30.jpg') }}" alt="">
+        <br>
+        <h2>
+          <h2 id="generateUserSampleData" class="title">Generating Sample User Data </h2>
+        </h2>
+        <p>
+          An admin can generate a sample user data CSV for demonstration purposes. <br> 
+          The admin simply enters the number of consumers they want to generate (between 1 - 100) and the Admin then has to press the generate button.
+        </p>
+        <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture31.jpg') }}" alt="">
     </div>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -3,7 +3,8 @@
 @section('title', 'Dashboard')
 
 @section('head')
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style> 
         .sec {
@@ -19,30 +20,40 @@
 @endsection
 @section('content') 
 
-
 <h1 class="border-bottom pb-2 mb-3">Saved Buyer Personas</h1>
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="gender-tab" data-bs-toggle="tab" data-bs-target="#gender" type="button" role="tab" aria-controls="gender" aria-selected="false">Gender</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="age-tab" data-bs-toggle="tab" data-bs-target="#age" type="button" role="tab" aria-controls="age" aria-selected="false">Age</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="income-tab" data-bs-toggle="tab" data-bs-target="#income" type="button" role="tab" aria-controls="income" aria-selected="false">Income</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="country-tab" data-bs-toggle="tab" data-bs-target="#country" type="button" role="tab" aria-controls="country" aria-selected="false">Country</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="dependants-tab" data-bs-toggle="tab" data-bs-target="#dependants" type="button" role="tab" aria-controls="dependants" aria-selected="false">Dependants</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="dietary-tab" data-bs-toggle="tab" data-bs-target="#dietary" type="button" role="tab" aria-controls="dietart" aria-selected="false">Dietary Requirements</button>
-    </li>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">All</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/gender' }}">Gender</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/age' }}">Age</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/income' }}">Income</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/city' }}">City</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/dependants' }}">Dependants</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ route('my_personas_page').'/dietary-requirements' }}">Dietary Requirements</a>
+  </li>
+</ul>
+<script>
+$(document).ready(function() {
+  var tabs = $('.nav-tabs .nav-link');
+  tabs.click(function() {
+    tabs.removeClass('active');
+    $(this).addClass('active');
+  });
+});
+</script>
+
 
 <div class="row row-cols-auto justify-content-start mb-5">
 
@@ -50,6 +61,7 @@
     @foreach ($personas as $persona)
     <div class="col d-flex card mx-2 my-3" style="min-width: 250px; width: 275px; height: 400px">
         <div class="d-flex flex-column justify-content-center align-items-center">
+            {{ $persona['tag'] }}
                 {{-- These will vary based on each persona --}}
                 <span class="h4 mt-3">{{ $persona['first_name'] }} {{$persona['last_name']}}</span>
                 <img src="{{ $persona['image_url'] }}" height="100" width="100" class="rounded-circle mb-2">
