@@ -455,17 +455,14 @@ php artisan serve
 
 ## 16/03/23 - Starting Sprint 4
 - Started Admin Generate Sample User Data
-- Started Generate User Personas Form
 - Started My Personas Page
 
 ## 21/03/23 - Continuing Sprint 4
 - Finished Admin Generate Sample User Data
-- Continued Generate User Personas Form
 - Continued My Personas Page
 - Finished Mobile Responsiveness
 
 ## 27/03/23 - Finishing Sprint 4
-- Finished Generate User Personas Form
 - Finished Dark Mode
 - Started and Finished Logout button on landing page
 - Started Filter Dashboard Data
