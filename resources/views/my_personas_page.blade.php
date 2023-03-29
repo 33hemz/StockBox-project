@@ -17,9 +17,32 @@
         }
     </style>
 @endsection
-
 @section('content') 
+
+
 <h1 class="border-bottom pb-2 mb-3">Saved Buyer Personas</h1>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="gender-tab" data-bs-toggle="tab" data-bs-target="#gender" type="button" role="tab" aria-controls="gender" aria-selected="false">Gender</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="age-tab" data-bs-toggle="tab" data-bs-target="#age" type="button" role="tab" aria-controls="age" aria-selected="false">Age</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="income-tab" data-bs-toggle="tab" data-bs-target="#income" type="button" role="tab" aria-controls="income" aria-selected="false">Income</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="country-tab" data-bs-toggle="tab" data-bs-target="#country" type="button" role="tab" aria-controls="country" aria-selected="false">Country</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="dependants-tab" data-bs-toggle="tab" data-bs-target="#dependants" type="button" role="tab" aria-controls="dependants" aria-selected="false">Dependants</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="dietary-tab" data-bs-toggle="tab" data-bs-target="#dietary" type="button" role="tab" aria-controls="dietart" aria-selected="false">Dietary Requirements</button>
+    </li>
 
 <div class="row row-cols-auto justify-content-start mb-5">
 

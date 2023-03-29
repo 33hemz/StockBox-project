@@ -96,8 +96,8 @@
 <div class="mb-3">
     <form id="generate_list"action="{{route('create_shopping_list')}}" method="POST">
 
-        <h3 class="border-bottom pb-2">Generate Purchase History</h3>
-        <p class="mb-2">Each consumer has their own generated purchase history; press the button to regenerate this data.</p>
+        <h3 class="border-bottom pb-2">Generate Consumer Data with Purchase History</h3>
+        <p class="mb-2">This generates a new set of consumer data. It maintains a record of each individual consumer's purchase history. <br>This history is specific to each consumer and is generated as a result of their unique interactions with the platform.</p>
         @csrf
    
         <div class="mb-3">
@@ -105,7 +105,7 @@
             <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="100" value="1"> 
         
         </div>
-            <input id="gen_upload_button" type="submit" value="Generate Purchase History" class="btn btn-primary">
+            <input id="gen_upload_button" type="submit" value="Generate" class="btn btn-primary">
     </form>
 </div>
 
