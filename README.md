@@ -418,7 +418,8 @@ php artisan serve
 
 
 ## 07/02/23 - Sprint 1 Demo Meeting 
-### Sprint 1 Retrospective - Completed higher priority user stories however a user story was left incomplete. User manual didn't include all user stories. Complete remaining user stories in next sprint. 
+### Sprint 1 Retrospective 
+- Completed higher priority user stories however a user story was left incomplete. User manual didn't include all user stories. Complete remaining user stories in next sprint. 
 - Started and completed landing and login page
 - Completed and implemented Navigation Bar on Landing Page.
 - Started Dashboard Page Template
@@ -439,7 +440,8 @@ php artisan serve
 
 
 ## 21/02/23 - Sprint 2 User Manual + Demo Meeting
-### Sprint 2 Retrospective - Completed all user stories and successfully documented in user manual.
+### Sprint 2 Retrospective 
+- Completed all user stories and successfully documented in user manual.
 - Completed User Manual for sprint 2
 - Planned content for sprint 2 demo recording 
 - Recorded demo for sprint 2
@@ -456,7 +458,8 @@ php artisan serve
 
 
 ## 14/03/23 - Sprint 3 User Manual + Sprint 4 Planning
-### Sprint 3 Retrospective - Completed all user stories efficiently, laptop for a group member stopped working.
+### Sprint 3 Retrospective 
+- Completed all user stories efficiently, laptop for a group member stopped working.
 - Completed table of contents for User Manual 
 - Completed User Manual for sprint 3
 - Planning and assigning for sprint 4
@@ -475,10 +478,11 @@ php artisan serve
 ## 27/03/23 - Finishing Sprint 4
 - Finished Generate User Personas Form
 - Finished Dark Mode
-- Started amd Finished Logout button on landing page
+- Started and Finished Logout button on landing page
 - Started Filter Dashboard Data
 
 ## 28/03/23 - Sprint 4 Final Meeting
-### Sprint 4 Retrospective - User stories were too heavy, could've been broken into smaller stories. 
+### Sprint 4 Retrospective 
+- User stories were too heavy, could've been broken into smaller stories. 
 - Finished My Personas Page
 - Finished Filter Dashboard Data
