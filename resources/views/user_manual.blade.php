@@ -293,6 +293,7 @@
           you will be prompted to create your password…
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture18.jpg') }}" alt="">
+        <br>
         <p>
           As shown, you have to validate your password by keeping it longer than 8 characters, 
           containing uppercase and lowercase letters and at least one number. You also have to
@@ -312,11 +313,13 @@
           database manually.
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture20.jpg') }}" alt="">
+        <br>
         <p>
           The website admin can sort data by its value by clicking the name of the column, 
           an example is shown as the user sorts the data by price, ascending.
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture21.jpg') }}" alt="">
+        <br>
         <p>
           The website admin can search for specific date from the table, an example of this 
           is shown below, where sulphur is searched from the allergen information column.
@@ -328,35 +331,42 @@
           page. From here, an admin can decide to edit a user’s data or delete it entirely from the database.
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture23.jpg') }}" alt="">
+        <br>
         <p>
           Clicking the Edit button redirects you to the ‘Edit User’ page for that specific user, 
           where you can edit the user’s details.
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture24.jpg') }}" alt="">
+        <br>
         <p>
           The form contains the user’s old information. The admin can redirect back to the ‘Manage Users’ 
           page by clicking the cancel button. No changes will be made. 
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture25.jpg') }}" alt="">
+        <br>
         <p>
           Validation is applied to the form.
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture26.jpg') }}" alt="">
+        <br>
         <p>
           If the admin clicks the ‘Edit User’ button whilst no changes have been made, a warning 
           alert will appear notifying the admin of this.
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture27.jpg') }}" alt="">
+        <br>
         <p>
           Clicking the delete button completely deletes the user from the database. 
           When the user is successfully edited, the admin is redirected to the ‘Manage Users’ 
           page with a success alert, informing the admin of the successful action and which user it was applied to.
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture28.jpg') }}" alt="">
+        <br>
         <p>
           Clicking the delete button completely deletes the user from the database.
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture29.jpg') }}" alt="">
+        <br>
         <p>
           The user will no longer appear on the table and the admin will be notified of the action through a danger alert.
         </p>
