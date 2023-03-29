@@ -10,35 +10,45 @@ use Illuminate\Support\Facades\DB;
 class DashboardController extends Controller
 {
     public function index() {
-    
-        $userData = ConsumerData::query();
-        $userDataOriginal = ConsumerData::query();
+        
+        $userData = ConsumerData::whereHas('products', function ($query) {
+            $query->whereIn('category_id', function ($query) {
+                $query->select('product_category_id')
+                ->from('company_product_category')
+                ->where('company_id', auth()->user()->company_id);
+            });
+        });
+        
+        $userDataOriginal = clone $userData;
 
         // Gender filter
         if (request()->filled('gender')) {
             $userData->where('gender', request()->gender);
         }
         
-        //Age filter
+        // Age filter
         if (request()->filled('age')) {
             $age = explode('-', request()->age);
             $userData->whereBetween('age', [$age[0], $age[1]]);
         }
-
-
         
        // Income filter
        if (request()->filled('income')) {
-        $income = request()->income;
-        if (strpos($income, '+') !== false) {
-            $minIncome = str_replace('k', '001', str_replace('+', '', $income));
-            $userData->where('income', '>', $minIncome);
-        } else {
-            $income = explode('-', $income);
-            $minIncome = str_replace('k', '001', $income[0]);
-            $maxIncome = str_replace('k', '000', $income[1]);
-            $userData->whereBetween('income', [$minIncome, $maxIncome]);
+            $income = request()->income;
+            if (strpos($income, '+') !== false) {
+                $minIncome = str_replace('k', '001', str_replace('+', '', $income));
+                $userData->where('income', '>', $minIncome);
+            } else {
+                $income = explode('-', $income);
+                $minIncome = str_replace('k', '001', $income[0]);
+                $maxIncome = str_replace('k', '000', $income[1]);
+                $userData->whereBetween('income', [$minIncome, $maxIncome]);
+            }
         }
+        
+        // Cities filter
+        if (request()->filled('city')) {
+            $userData->where('city', request()->city);
         }
 
         // Dependants filter
@@ -50,7 +60,7 @@ class DashboardController extends Controller
         if (request()->filled('dietary_requirements')) {
             $userData->where('dietary_requirements', request()->dietary_requirements);
         }
-
+        
     
         // Get all data after applying filters
         $userData = $userData->get();
@@ -88,14 +98,8 @@ class DashboardController extends Controller
 
         
         // cites
-        if (request()->filled('city')) {
-            $citiesData = ConsumerData::select('city', DB::raw('count(*) as count'))->where('city', request()->city)->groupBy('city')->orderBy('count')->limit(5)->get()->pluck('count', 'city');
-        } else {
-            $citiesData = ConsumerData::select('city', DB::raw('count(*) as count'))->groupBy('city')->orderBy('count')->limit(5)->get()->pluck('count', 'city');
-        }
-
-        $citiesDataOriginal = ConsumerData::select('city', DB::raw('count(*) as count'))->groupBy('city')->get()->pluck('count', 'city');
-
+        $citiesData = $userData->groupBy('city')->map->count()->sortDesc()->slice(0, 5);
+        $citiesDataOriginal = $userDataOriginal->groupBy('city')->map->count()->sortKeys();
 
         // income
         $incomeData = [

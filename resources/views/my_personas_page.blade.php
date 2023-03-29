@@ -25,8 +25,8 @@
 
     {{-- for loop to be executed on each instance of a persona move to controller --}}
     @foreach ($personas as $persona)
-    <div class="col card mx-2 my-3">
-        <div class="d-flex flex-column justify-content-center align-items-center w-100">
+    <div class="col card mx-2 my-3" style="min-width: 250px;">
+        <div class="d-flex flex-column justify-content-center align-items-center">
                 {{-- These will vary based on each persona --}}
                 <span class="h4 mt-3">{{ $persona['first_name'] }} {{$persona['last_name']}}</span>
                 <img src="{{ $persona['image_url'] }}" height="100" width="100" class="rounded-circle mb-2">
@@ -35,7 +35,7 @@
                     <span>Age: {{ $persona['age'] }}</span>
                     <span>Gender: {{ $persona['gender'] }}</span>
                     <span>Income: £{{ $persona['income'] }}</span>
-                    <span>Country: {{ $persona['country'] }}</span>
+                    <span>City: {{ $persona['city'] }}</span>
                     <span>Number of Dependents: {{ $persona['number_of_dependents'] }}</span>
                     @if ($persona['dietary_requirements'] !== '')
                         <span>Dietry Requirement(s): {{ $persona['dietary_requirements'] }}</span>

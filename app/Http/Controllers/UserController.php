@@ -56,7 +56,7 @@ class UserController extends Controller
                 'gender' => $consumer['gender'], 
                 'age' => $consumer['age'], 
                 'income' => number_format($consumer['income']), 
-                'country' => $consumer['country'], 
+                'city' => $consumer['city'], 
                 'number_of_dependents' => $consumer['number_of_dependents'], 
                 'dietary_requirements' => $consumer['dietary_requirements'], 
                 'date_generated' => '08/03/2023'
