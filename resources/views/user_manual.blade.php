@@ -143,6 +143,9 @@
   <div class="ms-4">
     <a href="#update" style="font-size: 1em">Updating The Database</a>
     <a href="#addingNewUser" style="font-size: 1em">Adding a New User</a>
+    <a href="#firstTimeLoggingIn" style="font-size: 1em">First Time Logging In</a>
+    <a href="#viewImportedProductData" style="font-size: 1em">View Imported Product Data</a>
+    <a href="#manageUsers" style="font-size: 1em">Managing Users</a>
     <a href="#generateUserSampleData" style="font-size: 1em">Generating Sample User Data</a>
   </div>
 
@@ -287,7 +290,7 @@
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture17.jpg') }}" alt="">
         <h1>
-          <h2 id="firstTimeLogin" class="title">First Time Logging In</h2>
+          <h2 id="firstTimeLoggingIn" class="title">First Time Logging In</h2>
         </h1>
         <p>
           The first time you log into StokBox Analytics, 
@@ -306,7 +309,7 @@
         </p>
         <img class="pictureSmaller" src="{{ asset('assets/User Manual Images/Picture19.jpg') }}" alt="">
         <h1>
-          <h2 id="viewImportedProduct" class="title">View Imported Product Data</h2>
+          <h2 id="viewImportedProductData" class="title">View Imported Product Data</h2>
         </h1>
         <p>
           As a website admin, I want to be able to view currently imported product data, so 
