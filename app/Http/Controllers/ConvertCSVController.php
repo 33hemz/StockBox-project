@@ -8,8 +8,13 @@ use App\Models\ConsumerData;
 
 class ConvertCSVController extends Controller
 {
+
    public function index() {
-      return view('upload_product_data');
+      $isEmpty = Product::all()->count() == 0;
+
+      return view('upload_product_data', [
+         'isEmpty' => $isEmpty,
+      ]);
    }
 
    // this function opens the designated CSV file and uploads each column into the Product SQL database
