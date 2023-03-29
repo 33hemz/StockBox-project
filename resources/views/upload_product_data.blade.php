@@ -38,7 +38,7 @@
 <br>
  {{-- import consumer csv --}}
 
- <h1 class="border-bottom pb-2">Import Consumer Data <span class="smaller-text">via CSV</span></h1>
+ <h1 class="border-bottom pb-2">Import Real Consumer Data <span class="smaller-text">via CSV</span></h1>
  
  @if ($isEmpty)
  <div class="alert alert-warning" role="alert">
@@ -75,7 +75,7 @@
 <div class="mb-3">
     <form id="generate_list"action="{{route('create_shopping_list')}}" method="POST">
 
-        <h3 class="border-bottom pb-2">Generate Consumer Data with Purchase History</h3>
+        <h3 class="border-bottom pb-2">Generate Fake Consumer Data with Purchase History</h3>
         <p class="mb-2">This generates a new set of consumer data. It maintains a record of each individual consumer's purchase history. <br>This history is specific to each consumer and is generated as a result of their unique interactions with the platform.</p>
         @csrf
    

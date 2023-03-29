@@ -51,6 +51,7 @@ class UserController extends Controller
 
             array_push($personas, [
                 'image_url' => $img,
+                'id' => $consumer['id'], 
                 'first_name' => fake()->firstName($consumer['gender']), 
                 'last_name' => fake()->lastName($consumer['gender']), 
                 'gender' => $consumer['gender'], 

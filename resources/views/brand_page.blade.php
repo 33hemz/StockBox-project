@@ -8,12 +8,16 @@
 
 <h3>Product Categories</h3>
 <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
+    @if (count($categories) > 0)
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+    @else
+    <div class="alert alert-warning" role="alert"> No product categories selected.</div>
+    @endif
     <tbody>
         @foreach ($categories as $category)
         <tr>

@@ -58,7 +58,11 @@ class DashboardController extends Controller
         
         // Dietary requirements filter
         if (request()->filled('dietary_requirements')) {
-            $userData->where('dietary_requirements', request()->dietary_requirements);
+            $dietaryReq = request() ->dietary_requirements;
+            if ($dietaryReq == 'No restrictions') {
+                $dietaryReq = '';
+            }
+            $userData->where('dietary_requirements', $dietaryReq);
         }
         
     
