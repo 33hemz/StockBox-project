@@ -115,8 +115,8 @@ class UserController extends Controller
             if ($consumer == null) {
                 continue;
             }
-            $img = get_headers('https://fakeface.rest/thumb/view/'. time() .'?' . 'gender=' . strtolower($consumer['gender']) . '&mininum_age=' . intval($consumer['age'])-5 .'&maximum_age=' . intval($consumer['age'])+5, 1)['Location'];
-            
+            // $img = get_headers('https://fakeface.rest/thumb/view/'. time() .'?' . 'gender=' . strtolower($consumer['gender']) . '&mininum_age=' . intval($consumer['age'])-5 .'&maximum_age=' . intval($consumer['age'])+5, 1)['Location'];
+            $img = null;
             array_push($personasFormatted, [
                 'tag' => $tag,
                 'image_url' => $img,
